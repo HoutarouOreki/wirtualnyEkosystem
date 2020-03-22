@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 #include "organizm.h"
 #ifndef SRODOWISKO_H
 #define SRODOWISKO_H
@@ -16,6 +17,7 @@ private:
     unsigned int dostanY(int indeksNiszy) const;
     unsigned int dostanIndeksSasiada(unsigned int x, unsigned int y, unsigned int nrSasiada) const;
     std::string* informacjeOrganizmow() const;
+    std::vector<unsigned int> pozycjeZywychOrganizmow;
 public:
     Srodowisko();
     ~Srodowisko();

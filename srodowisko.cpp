@@ -5,6 +5,7 @@
 #include "funkcjeUtility.h"
 #include "glon.h"
 #include "grzyb.h"
+#include "termcolor/termcolor.hpp"
 
 using namespace std;
 
@@ -33,7 +34,8 @@ Srodowisko::Srodowisko()
     krokSymulacji = 0;
     szerokosc = funkcjeUtility::pobierzIntMinMax("szerokosc srodowiska", 3, 20);
     wysokosc = funkcjeUtility::pobierzIntMinMax("wysokosc srodowiska", 3, 20);
-    nisze = new Organizm*[szerokosc * wysokosc] { nullptr };
+    nisze = new Organizm*[szerokosc * wysokosc];
+    fill_n(nisze, szerokosc * wysokosc, nullptr);
     unsigned int iloscNisz = szerokosc * wysokosc;
     unsigned int iloscGlonow, iloscGrzybow, iloscBakterii;
     bool bDopuszczalnaIloscOrganizmow = false;
@@ -122,18 +124,45 @@ void Srodowisko::wyswietlSrodowisko()
         std::cout << i << " ";
     }
     std::cout << std::endl;
+    char znak;
     for (unsigned int i = 0; i < wysokosc; i++) {
         if (i + 1 < 10) {
             std::cout << " ";
         }
         std::cout << i + 1 << " ";
         for (unsigned int j = 0; j < szerokosc; j++) {
+            std::cout << termcolor::on_grey;
             if (getNisza(j, i) == nullptr) {
-                std::cout << "-" << " ";
+                std::cout << termcolor::grey << "-";
             } else {
-                std::cout << getNisza(j, i)->dostanZnak() << " ";
+                znak = getNisza(j, i)->dostanZnak();
+                if (getNisza(j, i)->getWlasnieRozmnozyl()) {
+                    std::cout << termcolor::on_magenta;
+                } else if (getNisza(j, i)->getWlasnieNajadl() && znak != '*' && znak != '-') {
+                    std::cout << termcolor::on_yellow;
+                }
+                switch (znak) {
+                case '*': // glon
+                    std::cout << termcolor::green;
+                    break;
+                case '#': // grzyb
+                    std::cout << (getNisza(j, i)->getWlasnieNajadl() ? termcolor::blue : termcolor::cyan);
+                    break;
+                case '@': // bakteria
+                    std::cout << termcolor::red;
+                    break;
+                case '+': // zwloki
+                    std::cout << termcolor::yellow;
+                    break;
+                default: // nieznany
+                    std::cout << termcolor::cyan;
+                    break;
+                }
+                std::cout << znak;
             }
+            std::cout << termcolor::on_grey << (j == szerokosc - 1 ? "" : " ");
         }
+        std::cout << termcolor::reset;
         while (indeksInformacji < szerokosc * wysokosc && informacje[indeksInformacji].length() == 0) {
             indeksInformacji++;
         }
@@ -167,10 +196,18 @@ Srodowisko::~Srodowisko()
 
 void Srodowisko::wykonajKrokSymulacji()
 {
+    Organizm* obecnyOrganizm;
+
+    // udostępnianie organizmom informacji o otoczeniu oraz zgromadzenie
+    // informacji o żywych organizmach do przyspieszenia iteracji czynności życiowych
+    pozycjeZywychOrganizmow.clear();
     for (unsigned int i = 0; i < wysokosc * szerokosc; i++) {
-        if (nisze[i] == nullptr) {
+        if (nisze[i] == nullptr || !nisze[i]->bCzyZyje()) {
             continue;
         }
+
+        pozycjeZywychOrganizmow.push_back(i);
+
         nisze[i]->wlasnyIndeks = i;
         bool sasiedzi[8];
         std::fill_n(sasiedzi, 8, true);
@@ -188,21 +225,58 @@ void Srodowisko::wykonajKrokSymulacji()
         if (y == wysokosc - 1) {
             sasiedzi[5] = sasiedzi[6] = sasiedzi[7] = false;
         }
-        int nSasiadow = 0;
+        int nSasiednichNiszy = 0;
         for (int j = 0; j < 8; j++) {
             if (sasiedzi[j]) {
-                nSasiadow++;
+                nSasiednichNiszy++;
             }
         }
-        int pozycjeSasiadow[nSasiadow];
+        int pozycjeSasiednichNiszy[nSasiednichNiszy];
         int k = 0;
         for (int j = 0; j < 8; j++) {
             if (sasiedzi[j]) {
-                pozycjeSasiadow[k] = dostanIndeksSasiada(x, y, j);
+                pozycjeSasiednichNiszy[k] = dostanIndeksSasiada(x, y, j);
                 k++;
             }
         }
-        nisze[i]->krokSymulacji(nisze, pozycjeSasiadow, nSasiadow);
+        obecnyOrganizm = nisze[i];
+        obecnyOrganizm->zobaczSrodowisko(nisze, pozycjeSasiednichNiszy, nSasiednichNiszy);
+    }
+
+    // wywołanie możliwych prób rozmnażania się u organizmów
+    for (unsigned int i = 0; i < pozycjeZywychOrganizmow.size(); i++) {
+        obecnyOrganizm = nisze[pozycjeZywychOrganizmow[i]];
+        if (obecnyOrganizm->bCzyZyje() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
+            obecnyOrganizm->mozeRozmnozSie();
+        }
+    }
+
+    // wywołanie możliwych prób najedzenia się u organizmów
+    for (unsigned int i = 0; i < pozycjeZywychOrganizmow.size(); i++) {
+        obecnyOrganizm = nisze[pozycjeZywychOrganizmow[i]];
+        if (obecnyOrganizm->bCzyZyje() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
+            obecnyOrganizm->mozeSprobujNajescSie();
+        }
+    }
+
+    // wywołanie starzenia się u organizmów
+    for (unsigned int i = 0; i < pozycjeZywychOrganizmow.size(); i++) {
+        // bakterie mogły zjeść inne organizmy żywe, więc trzeba upewniać się czy organizm jeszcze żyje
+        if (nisze[pozycjeZywychOrganizmow[i]] == nullptr) {
+            pozycjeZywychOrganizmow.erase(pozycjeZywychOrganizmow.erase(pozycjeZywychOrganizmow.begin() + i));
+            i--;
+            continue;
+        }
+        obecnyOrganizm = nisze[pozycjeZywychOrganizmow[i]];
+        obecnyOrganizm->starzenieSie();
+    }
+
+    // wywołanie możliwych prób poruszenia się u organizmów
+    for (unsigned int i = 0; i < pozycjeZywychOrganizmow.size(); i++) {
+        obecnyOrganizm = nisze[pozycjeZywychOrganizmow[i]];
+        if (obecnyOrganizm->bCzyZyje() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
+            obecnyOrganizm->mozeSprobujPoruszycSie();
+        }
     }
     krokSymulacji++;
 }

@@ -8,7 +8,7 @@ Glon::~Glon()
 {
 }
 
-bool Glon::bProbaNajedzeniaSie(Organizm**, int[], int)
+bool Glon::probaNajedzeniaSie(Organizm**, int[], int)
 {
     return true;
 }

@@ -8,11 +8,11 @@ class Grzyb : public Organizm
 {
 protected:
     virtual Organizm * wygenerujDziecko() override;
-    virtual void koniecKroku(bool czyJadl, bool czyRozmnozylSie, Organizm **nisze, int pozycjeSasiadow[], int nSasiadow) override;
 public:
     Grzyb(unsigned int maxWiek, unsigned int maxNajedzenie, unsigned int kosztNarodzin);
-    virtual bool bProbaNajedzeniaSie(Organizm** nisze, int pozycjeSasiadow[], int nSasiadow) override;
+    virtual bool probaNajedzeniaSie(Organizm** nisze, int pozycjeSasiednichNiszy[], int nSasiednichNiszy) override;
     virtual char znak() const override;
+    virtual void probaPoruszeniaSie(Organizm **nisze, int pozycjeSasiednichNiszy[], int nSasiednichNiszy) override;
 };
 
 #endif // GRZYB_H

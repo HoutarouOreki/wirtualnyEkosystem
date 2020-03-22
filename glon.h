@@ -6,7 +6,7 @@
 class Glon : public Organizm
 {
 protected:
-    virtual bool bProbaNajedzeniaSie(Organizm** nisze, int pozycjeSasiadow[], int nSasiadow) override;
+    virtual bool probaNajedzeniaSie(Organizm** nisze, int pozycjeSasiednichNiszy[], int nSasiednichNiszy) override;
     virtual Organizm * wygenerujDziecko() override;
 public:
     Glon(unsigned int maxWiek, unsigned int maxNajedzenie, unsigned int kosztNarodzin);
