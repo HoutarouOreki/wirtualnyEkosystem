@@ -25,6 +25,7 @@ private:
     unsigned int dostanX(int indeksNiszy) const;
     unsigned int dostanY(int indeksNiszy) const;
     unsigned int dostanIndeksSasiada(unsigned int x, unsigned int y, unsigned int nrSasiada) const;
+    char dostanLitereKolumny(unsigned int nrKolumny) const;
 
     std::string* informacjeOrganizmow() const;
     std::vector<unsigned int> pozycjeZywychOrganizmow;

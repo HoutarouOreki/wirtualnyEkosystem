@@ -26,6 +26,7 @@ protected:
     virtual void probaPoruszeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy);
 
     void wchlonOrganizm(unsigned int nrNiszy);
+    void wchlonOrazZajmijPozycjeOrganizmu(unsigned int nrNiszy);
     void sprobujPrzemiescicSie();
 public:
     Organizm(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin, unsigned int const poczatkowyWiek = 0);

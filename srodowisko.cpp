@@ -30,14 +30,23 @@ void Srodowisko::setNisza(Organizm *organizm, unsigned int x, unsigned int y)
     nisze[dostanIndeks(x, y)] = organizm;
 }
 
+char Srodowisko::dostanLitereKolumny(unsigned int nrKolumny) const
+{
+    // wykorzystamy tę zmienną do zwrócenia
+    nrKolumny += 64;
+    if (nrKolumny > 90) {
+        // w tym miejscu przekroczyliśmy literę 'Z', więc powinniśmy
+        // pominąć 6 znaków ASCII pomiędzy wielkimi i małymi literami
+        nrKolumny += 6;
+    }
+    return char(nrKolumny);
+}
+
 Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
 {
     this->ustWyswietlania = ustWyswietlania;
     krokSymulacji = 0;
     ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::zaden;
-    iloscGlonow = 0;
-    iloscGrzybow = 0;
-    iloscBakterii = 0;
     iloscMartwych = 0;
 
     szerokosc = funkcjeUtility::pobierzIntMinMax("szerokosc srodowiska", 5, MAX_SZEROKOSC);
@@ -45,7 +54,6 @@ Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
     nisze = new Organizm*[szerokosc * wysokosc];
     fill_n(nisze, szerokosc * wysokosc, nullptr);
     unsigned int iloscNisz = szerokosc * wysokosc;
-    unsigned int iloscGlonow, iloscGrzybow, iloscBakterii;
     bool bDopuszczalnaIloscOrganizmow = false;
     while (!bDopuszczalnaIloscOrganizmow) {
         iloscGlonow = funkcjeUtility::pobierzIntMinMax("ilosc glonow", 0, iloscNisz);
@@ -60,15 +68,15 @@ Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
         }
     }
     int wylosowanaNisza;
-    maxWiekGlonow = funkcjeUtility::wylosujInt(8, 10);
-    maxWiekGrzybow = funkcjeUtility::wylosujInt(26, 30);
-    maxWiekBakterii = funkcjeUtility::wylosujInt(16, 24);
+    maxWiekGlonow = funkcjeUtility::wylosujInt(10, 12);
+    maxWiekGrzybow = funkcjeUtility::wylosujInt(30, 40);
+    maxWiekBakterii = funkcjeUtility::wylosujInt(26, 36);
     maxNajedzenieGlonow = funkcjeUtility::wylosujInt(3, 4);
     maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(8, 12);
-    maxNajedzenieBakterii = funkcjeUtility::wylosujInt(2, 4);
+    maxNajedzenieBakterii = funkcjeUtility::wylosujInt(4, 6);
     kosztNarodzinGlonow = funkcjeUtility::wylosujInt(3, maxNajedzenieGlonow);
     kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(4, (maxNajedzenieGrzybow + 2) / 2);
-    kosztNarodzinBakterii = funkcjeUtility::wylosujInt(2, (maxNajedzenieBakterii + 2) / 2);
+    kosztNarodzinBakterii = funkcjeUtility::wylosujInt(1, (maxNajedzenieBakterii + 2) / 2);
     for (unsigned int i = 0; i < iloscGlonow; i++) {
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
@@ -209,7 +217,7 @@ std::string* Srodowisko::informacjeOrganizmow() const
         }
         unsigned int x = dostanX(i);
         unsigned int y = dostanY(i);
-        string litera(1, (char)('A' + x));
+        string litera(1, dostanLitereKolumny(x + 1));
         string liczba = to_string(y + 1);
         string nazwa;
         switch (nisze[i]->dostanZnak()) {
@@ -295,22 +303,11 @@ void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
               << "                 " << funkcjeUtility::ilesBialychZnakow(MARGINES - 15)
               << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl;
 
-    unsigned int maksymalnyZnak = 'A' + szerokosc;
-    const unsigned int odl_miedzy_duzymi_malymi_lit = 6;
-    if (maksymalnyZnak > 'Z' + 1) {
-        // nie chcemy używać znaków ASCII pomiedzy 'Z' i 'a', więc tutaj
-        // dostosowujemy maksymalny znak tak, aby nie brał pod uwagę tych
-        // sześciu znaków pomiędzy dużymi i małymi literami
-        maksymalnyZnak += odl_miedzy_duzymi_malymi_lit;
-    }
-    for (unsigned char i = 'A'; i < maksymalnyZnak; i++) {
+    for (unsigned int i = 1; i <= szerokosc; i++) {
         if (i == 'A') {
             std::cout << "   ";
-        } else if (i == 'Z' + 1) {
-            // i tutaj też
-            i = 'a';
         }
-        std::cout << i << (i == maksymalnyZnak - 1 ? "" : " ");
+        std::cout << dostanLitereKolumny(i) << (i == szerokosc ? "" : " ");
     }
 
     std::cout << funkcjeUtility::ilesBialychZnakow(MARGINES - szerokosc * 2)

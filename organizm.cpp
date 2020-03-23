@@ -139,7 +139,7 @@ void Organizm::starzenieSie()
 void Organizm::mozeSprobujNajescSie()
 {
     bWlasnieNajadl = false;
-    if (!bCzyPrzejedzony() && !(dostanZnak() != ZNAK_BAKTERII && getWlasnieRozmnozyl())) {
+    if (!bCzyPrzejedzony() && !getWlasnieRozmnozyl()) {
         if (probaNajedzeniaSie(nisze, pozycjeSasiednichNiszy, nSasiednichNiszy)) {
             najedzenie++;
             bWlasnieNajadl = true;
@@ -169,6 +169,18 @@ void Organizm::wchlonOrganizm(unsigned int nrNiszy)
 {
     delete nisze[nrNiszy];
     nisze[nrNiszy] = nullptr;
+}
+
+void Organizm::wchlonOrazZajmijPozycjeOrganizmu(unsigned int nrNiszy)
+{
+    nSasiednichNiszy = nisze[nrNiszy]->nSasiednichNiszy;
+    for (unsigned int i = 0; i < nSasiednichNiszy; i++) {
+        pozycjeSasiednichNiszy[i] = nisze[nrNiszy]->pozycjeSasiednichNiszy[i];
+    }
+    wchlonOrganizm(nrNiszy);
+    nisze[nrNiszy] = this;
+    nisze[wlasnyIndeks] = nullptr;
+    wlasnyIndeks = nrNiszy;
 }
 
 void Organizm::sprobujPrzemiescicSie()

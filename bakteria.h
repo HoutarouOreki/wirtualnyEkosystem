@@ -6,6 +6,8 @@
 
 class Bakteria : public Organizm
 {
+private:
+    bool probaNajedzeniaSieOrganizmem(Organizm **nisze, const unsigned int *pozycjeSasiednichNiszy, const unsigned int nSasiednichNiszy, const char znakOrganizmu);
 protected:
     bool probaNajedzeniaSie(Organizm **nisze, unsigned int *pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy) override;
     void probaPoruszeniaSie(Organizm **nisze, unsigned int *pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy) override;
