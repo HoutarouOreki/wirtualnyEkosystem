@@ -19,6 +19,3 @@ HEADERS += \
     grzyb.h \
     organizm.h \
     srodowisko.h
-    
-LIBS += \
-    -L/usr/lib -lncurses
