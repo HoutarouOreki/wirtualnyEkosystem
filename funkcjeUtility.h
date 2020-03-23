@@ -8,7 +8,10 @@ namespace funkcjeUtility {
     int pobierzInt(std::string nazwa);
     int pobierzIntMinMax(std::string nazwa, int min, int max);
     int wylosujInt(int min, int max);
-    std::string nacisnijDowolnyKlawisz();
+    std::string dostanLinie();
+    void przelaczBool(bool *wartosc);
+    void dostanPozycjeKursora(int* kolumna, int* linia);
+    void ustawKursor(int kolumna, int linia);
 }
 
 #endif // FUNKCJEUTILITY_H

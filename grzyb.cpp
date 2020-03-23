@@ -11,32 +11,16 @@ Organizm* Grzyb::wygenerujDziecko()
     return new Grzyb(maxWiek, maxNajedzenie, kosztNarodzin);
 }
 
-void Grzyb::probaPoruszeniaSie(Organizm **nisze, int pozycjeSasiednichNiszy[], int nSasiednichNiszy)
+void Grzyb::probaPoruszeniaSie(Organizm**, unsigned int*, unsigned int)
 {
-    bool czyMoznaSiePrzemiescic = false;
-    for (int i = 0; i < nSasiednichNiszy; i++) {
-        if (nisze[pozycjeSasiednichNiszy[i]] == nullptr) {
-            czyMoznaSiePrzemiescic = true;
-            break;
-        }
-    }
-    if (!czyMoznaSiePrzemiescic) {
-        return;
-    }
-    int wylosowanaNisza;
-    nisze[wlasnyIndeks] = nullptr;
-    do {
-        wylosowanaNisza = funkcjeUtility::wylosujInt(0, nSasiednichNiszy - 1);
-    } while (nisze[pozycjeSasiednichNiszy[wylosowanaNisza]] != nullptr);
-    nisze[pozycjeSasiednichNiszy[wylosowanaNisza]] = this;
-    Organizm::probaPoruszeniaSie(nisze, pozycjeSasiednichNiszy, nSasiednichNiszy);
+    sprobujPrzemiescicSie();
 }
 
-bool Grzyb::probaNajedzeniaSie(Organizm** nisze, int pozycjeSasiednichNiszy[], int nSasiednichNiszy)
+bool Grzyb::probaNajedzeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy)
 {
     Organizm* sasiad;
     bool istniejeMartwySasiad = false;
-    for (int i = 0; i < nSasiednichNiszy; i++) {
+    for (unsigned int i = 0; i < nSasiednichNiszy; i++) {
         if (nisze[pozycjeSasiednichNiszy[i]] == nullptr) {
             continue;
         }
@@ -52,13 +36,13 @@ bool Grzyb::probaNajedzeniaSie(Organizm** nisze, int pozycjeSasiednichNiszy[], i
     int wylosowanyMartwySasiad;
     do {
         wylosowanyMartwySasiad = funkcjeUtility::wylosujInt(0, nSasiednichNiszy - 1);
-    } while (nisze[pozycjeSasiednichNiszy[wylosowanyMartwySasiad]] == nullptr || nisze[pozycjeSasiednichNiszy[wylosowanyMartwySasiad]]->bCzyZyje() == true);
-    delete nisze[pozycjeSasiednichNiszy[wylosowanyMartwySasiad]];
-    nisze[pozycjeSasiednichNiszy[wylosowanyMartwySasiad]] = nullptr;
+    } while (nisze[pozycjeSasiednichNiszy[wylosowanyMartwySasiad]] == nullptr ||
+             nisze[pozycjeSasiednichNiszy[wylosowanyMartwySasiad]]->bCzyZyje() == true);
+    wchlonOrganizm(pozycjeSasiednichNiszy[wylosowanyMartwySasiad]);
     return true;
 }
 
 char Grzyb::znak() const
 {
-    return '#';
+    return Organizm::ZNAK_GRZYBU;
 }

@@ -9,11 +9,11 @@ private:
     bool bWlasnieRozmnozyl;
     bool bWlasnieNajadl;
     Organizm** nisze;
-    int pozycjeSasiednichNiszy[8];
-    int nSasiednichNiszy;
+    unsigned int pozycjeSasiednichNiszy[8];
+    unsigned int nSasiednichNiszy;
 
     // czynności życiowe
-    bool probaRozmnozeniaSie(Organizm** nisze, int pozycjeSasiednichNiszy[], int nSasiednichNiszy);
+    bool probaRozmnozeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy);
 protected:
     unsigned int maxWiek;
     unsigned int maxNajedzenie;
@@ -22,8 +22,11 @@ protected:
     virtual char znak() const;
 
     // czynności życiowe
-    virtual bool probaNajedzeniaSie(Organizm** nisze, int pozycjeSasiednichNiszy[], int nSasiednichNiszy);
-    virtual void probaPoruszeniaSie(Organizm** nisze, int pozycjeSasiednichNiszy[], int nSasiednichNiszy);
+    virtual bool probaNajedzeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy);
+    virtual void probaPoruszeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy);
+
+    void wchlonOrganizm(unsigned int nrNiszy);
+    void sprobujPrzemiescicSie();
 public:
     Organizm(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin);
     virtual ~Organizm();
@@ -44,13 +47,19 @@ public:
     bool getWlasnieNajadl() const;
     bool getWlasnieRozmnozyl() const;
 
-    void zobaczSrodowisko(Organizm** nisze, int pozycjeSasiednichNiszy[], int nSasiednichNiszy);
+    void zobaczSrodowisko(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy);
 
     // czynności życiowe
     void mozeRozmnozSie();
     void mozeSprobujNajescSie();
     void mozeSprobujPoruszycSie();
     void starzenieSie();
+
+    // znaki organizmow
+    const static char ZNAK_GLONU = '*';
+    const static char ZNAK_GRZYBU = '#';
+    const static char ZNAK_BAKTERII = '@';
+    const static char ZNAK_MARTWEGO = '+';
 };
 
 #endif // ORGANIZM_H

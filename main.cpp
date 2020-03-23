@@ -14,6 +14,6 @@ int main()
     std::cout << "Wcisnij enter...";
     std::getline(std::cin, _);
     srodowisko = new Srodowisko();
-    srodowisko->rozpocznijPetle();
+    srodowisko->petla();
     return 0;
 }

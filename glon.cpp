@@ -8,14 +8,14 @@ Glon::~Glon()
 {
 }
 
-bool Glon::probaNajedzeniaSie(Organizm**, int[], int)
+bool Glon::probaNajedzeniaSie(Organizm**, unsigned int*, unsigned int)
 {
     return true;
 }
 
 char Glon::znak() const
 {
-    return '*';
+    return Organizm::ZNAK_GLONU;
 }
 
 Organizm* Glon::wygenerujDziecko()
