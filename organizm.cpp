@@ -20,9 +20,14 @@ bool Organizm::bCzyZyje() const
     return wiek <= maxWiek;
 }
 
-bool Organizm::bCzyNajedzony() const
+bool Organizm::bCzyPrzejedzony() const
 {
     return najedzenie >= maxNajedzenie;
+}
+
+bool Organizm::bCzyNajedzony() const
+{
+    return najedzenie >= kosztNarodzin;
 }
 
 bool Organizm::getWlasnieNajadl() const
@@ -83,7 +88,7 @@ void Organizm::zobaczSrodowisko(Organizm **nisze, unsigned int *pozycjeSasiednic
 
 // Organizm zdecyduje, czy jest teraz odpowiedni moment na potomków,
 // i jeśli uzna, że tak, spróbuje się rozmnożyć.
-void Organizm::mozeRozmnozSie()
+void Organizm::mozeSprobujRozmnozycSie()
 {
     bWlasnieRozmnozyl = false;
     if (bCzyNajedzony()) {
@@ -134,7 +139,7 @@ void Organizm::starzenieSie()
 void Organizm::mozeSprobujNajescSie()
 {
     bWlasnieNajadl = false;
-    if (!bCzyNajedzony() && !getWlasnieRozmnozyl()) {
+    if (!bCzyPrzejedzony() && !(dostanZnak() != ZNAK_BAKTERII && getWlasnieRozmnozyl())) {
         if (probaNajedzeniaSie(nisze, pozycjeSasiednichNiszy, nSasiednichNiszy)) {
             najedzenie++;
             bWlasnieNajadl = true;

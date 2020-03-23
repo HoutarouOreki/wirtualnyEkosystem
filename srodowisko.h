@@ -7,6 +7,8 @@
 class Srodowisko
 {
 private:
+    const unsigned int MAX_SZEROKOSC = 40;
+    const unsigned int MAX_WYSOKOSC = 26;
     unsigned int szerokosc;
     unsigned int wysokosc;
     unsigned int krokSymulacji;

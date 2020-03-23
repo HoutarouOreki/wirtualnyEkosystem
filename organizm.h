@@ -37,6 +37,7 @@ public:
 
     unsigned int wlasnyIndeks;
 
+    bool bCzyPrzejedzony() const;
     bool bCzyNajedzony() const;
     bool bCzyZyje() const;
 
@@ -50,7 +51,7 @@ public:
     void zobaczSrodowisko(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy);
 
     // czynności życiowe
-    void mozeRozmnozSie();
+    void mozeSprobujRozmnozycSie();
     void mozeSprobujNajescSie();
     void mozeSprobujPoruszycSie();
     void starzenieSie();
