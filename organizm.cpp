@@ -2,13 +2,13 @@
 #include "glon.h"
 #include "funkcjeUtility.h"
 
-Organizm::Organizm(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin)
+Organizm::Organizm(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin, const unsigned int poczatkowyWiek)
 {
     this->maxWiek = maxWiek;
     this->maxNajedzenie = maxNajedzenie;
     this->kosztNarodzin = kosztNarodzin;
     najedzenie = 0;
-    wiek = 0;
+    wiek = poczatkowyWiek;
 }
 
 Organizm::~Organizm()

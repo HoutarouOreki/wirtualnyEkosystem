@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "funkcjeUtility.h"
 #include "termcolor/termcolor.hpp"
 
 // wykrycie systemu
@@ -14,7 +15,6 @@
 #if defined(KONSOLA_MAC) || defined(KONSOLA_LINUX)
 #   include <unistd.h>
 #   include <termios.h>
-#   include "ncurses/ncurses.h"
 #   include <sys/ioctl.h>
 #   include <stdio.h>
 #elif defined(KONSOLA_WINDOWS)
@@ -72,11 +72,11 @@ namespace funkcjeUtility {
     void dostanPozycjeKursora(int* kolumna, int* linia)
     {
     #if defined (KONSOLA_WINDOWS)
-        PCONSOLE_SCREEN_BUFFER_INFO infoBufora;
+        struct _CONSOLE_SCREEN_BUFFER_INFO infoBufora;
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
         GetConsoleScreenBufferInfo(hConsole, &infoBufora);
-        *kolumna = infoBufora->dwCursorPosition.X;
-        *linia = infoBufora->dwCursorPosition.Y;
+        *kolumna = infoBufora.dwCursorPosition.X;
+        *linia = infoBufora.dwCursorPosition.Y;
     #elif defined (KONSOLA_LINUX) || defined (KONSOLA_MAC)
         struct winsize size;
         if (ioctl(0, TIOCGWINSZ, (char *) &size) < 0)
@@ -90,15 +90,46 @@ namespace funkcjeUtility {
     {
     #if defined (KONSOLA_WINDOWS)
         COORD koord;
-        koord.X = kolumna;
-        koord.Y = linia;
+        koord.X = kolumna + 1;
+        koord.Y = linia + 1;
 
         HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-        SetConsoleCursorPosition(hConsole, koord)
+        SetConsoleCursorPosition(hConsole, koord);
     #elif defined (KONSOLA_LINUX) || defined (KONSOLA_MAC)
         printf("\033[%d;%dH",linia+1,kolumna+1);
     #endif
 
     }
+
+    std::string liczbaBialeZnaki(int liczba, unsigned int lacznaIloscZnakow, bool liczbaPoPrawej)
+    {
+        int absLiczba = liczba;
+        if (liczba < 0) {
+            lacznaIloscZnakow--;
+            absLiczba = -liczba;
+        }
+
+        do {
+            lacznaIloscZnakow--;
+            absLiczba /= 10;
+        } while (absLiczba != 0);
+
+        std::string bialeZnaki = "";
+        for (unsigned int i = 0; i < lacznaIloscZnakow; i++) {
+            bialeZnaki += " ";
+        }
+        std::string liczbaString = std::to_string(liczba);
+        return liczbaPoPrawej ? (bialeZnaki + liczbaString) : (liczbaString + bialeZnaki);
+    }
+
+    std::string ilesBialychZnakow(unsigned int ile)
+    {
+        std::string s;
+        for (unsigned int i = 0; i < ile; i++) {
+            s += " ";
+        }
+        return s;
+    }
+
 }

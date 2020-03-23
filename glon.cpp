@@ -1,6 +1,7 @@
 #include "glon.h"
 
-Glon::Glon(unsigned int maxWiek, unsigned int maxNajedzenie, unsigned int kosztNarodzin) : Organizm(maxWiek, maxNajedzenie, kosztNarodzin)
+Glon::Glon(unsigned int maxWiek, unsigned int maxNajedzenie, unsigned int kosztNarodzin, unsigned int poczatkowyWiek)
+    : Organizm(maxWiek, maxNajedzenie, kosztNarodzin, poczatkowyWiek)
 {
 }
 
@@ -21,4 +22,6 @@ char Glon::znak() const
 Organizm* Glon::wygenerujDziecko()
 {
     return new Glon(maxWiek, maxNajedzenie, kosztNarodzin);
+    // odpowiadajacy delete wewnatrz Organizm::wchlonOrganizm
+    // oraz Srodowisko::~Srodowisko
 }

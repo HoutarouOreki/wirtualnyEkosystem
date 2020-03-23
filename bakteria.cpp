@@ -55,8 +55,8 @@ void Bakteria::probaPoruszeniaSie(Organizm **, unsigned int *, unsigned int)
     sprobujPrzemiescicSie();
 }
 
-Bakteria::Bakteria(const unsigned int maxWiek, const unsigned int maxNajedzenie, const unsigned int kosztNarodzin)
-    : Organizm(maxWiek, maxNajedzenie, kosztNarodzin)
+Bakteria::Bakteria(const unsigned int maxWiek, const unsigned int maxNajedzenie, const unsigned int kosztNarodzin, const unsigned int poczatkowyWiek)
+    : Organizm(maxWiek, maxNajedzenie, kosztNarodzin, poczatkowyWiek)
 {
 }
 
@@ -68,4 +68,6 @@ char Bakteria::znak() const
 Organizm *Bakteria::wygenerujDziecko()
 {
     return new Bakteria(maxWiek, maxNajedzenie, kosztNarodzin);
+    // odpowiadajacy delete wewnatrz Organizm::wchlonOrganizm
+    // oraz Srodowisko::~Srodowisko
 }

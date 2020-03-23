@@ -29,18 +29,35 @@ private:
     bool upewnijSieCzyOrganizmNadalIstnieje(int i);
 
     void wyswietlUstawienia();
+    std::string dostanKolejnaInformacje(std::string* informacje, unsigned int* indeksInformacji);
+public:
 
-    // preferencje wyświetlania
-    unsigned int obecnyTryb;
-    bool wyswietlajNajedzenie[3];
-    bool wyswietlajRozmnozenie[3];
-    bool wyswietlajInfo[3];
-    void wyswietlBoolUstawien(bool zmienna, std::basic_ostream<char>& f(std::basic_ostream<char>&));
+    struct ustawieniaWyswietlania
+    {
+    public:
+        enum trybWyswietlania
+        {
+            krokOrazWyswietlanieSrodowiska,
+            wyswietlanieSrodowiska,
+            wyswietlanieUstawien,
+            zaden
+        };
+
+        trybWyswietlania obecnyTryb;
+
+        // czy kolejne kroki symulacji powinny być rysowane na poprzednich (cofanie kursora)
+        bool nadrysowywanie;
+
+        bool wyswietlajNajedzenie[3];
+        bool wyswietlajRozmnozenie[3];
+        bool wyswietlajInfo[3];
+    };
     bool czyWyswietlacInfo(char znakOrganizmu) const;
     bool czySygnalizowacNajedzenie(char znakOrganizmu) const;
     bool czySygnalizowacRozmnozenie(char znakOrganizmu) const;
-public:
-    Srodowisko();
+    void wyswietlBoolUstawien(bool zmienna, std::basic_ostream<char>& f(std::basic_ostream<char>&));
+
+    Srodowisko(ustawieniaWyswietlania* ustawieniaWyswietlania);
     ~Srodowisko();
 
     void wykonajKrokSymulacji();
@@ -65,6 +82,8 @@ public:
 
     void wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko);
     void petla();
+
+    ustawieniaWyswietlania* ustWyswietlania;
 };
 
 #endif // SRODOWISKO_H

@@ -12,7 +12,7 @@ protected:
     char znak() const override;
     Organizm * wygenerujDziecko() override;
 public:
-    Bakteria(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin);
+    Bakteria(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin, unsigned int const poczatkowyWiek = 0);
 };
 
 #endif // BAKTERIA_H

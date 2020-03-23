@@ -1,7 +1,8 @@
 #include "grzyb.h"
 #include "funkcjeUtility.h"
 
-Grzyb::Grzyb(unsigned int maxWiek, unsigned int maxNajedzenie, unsigned int kosztNarodzin) : Organizm(maxWiek, maxNajedzenie, kosztNarodzin)
+Grzyb::Grzyb(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin, unsigned int const poczatkowyWiek)
+    : Organizm(maxWiek, maxNajedzenie, kosztNarodzin, poczatkowyWiek)
 {
 
 }
@@ -9,6 +10,8 @@ Grzyb::Grzyb(unsigned int maxWiek, unsigned int maxNajedzenie, unsigned int kosz
 Organizm* Grzyb::wygenerujDziecko()
 {
     return new Grzyb(maxWiek, maxNajedzenie, kosztNarodzin);
+    // odpowiadajacy delete wewnatrz Organizm::wchlonOrganizm
+    // oraz Srodowisko::~Srodowisko
 }
 
 void Grzyb::probaPoruszeniaSie(Organizm**, unsigned int*, unsigned int)

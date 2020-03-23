@@ -10,7 +10,7 @@ protected:
     virtual Organizm * wygenerujDziecko() override;
     virtual char znak() const override;
 public:
-    Glon(unsigned int maxWiek, unsigned int maxNajedzenie, unsigned int kosztNarodzin);
+    Glon(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin, unsigned int const poczatkowyWiek = 0);
     virtual ~Glon();
 };
 

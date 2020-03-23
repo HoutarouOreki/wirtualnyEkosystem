@@ -28,7 +28,7 @@ protected:
     void wchlonOrganizm(unsigned int nrNiszy);
     void sprobujPrzemiescicSie();
 public:
-    Organizm(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin);
+    Organizm(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin, unsigned int const poczatkowyWiek = 0);
     virtual ~Organizm();
 
     unsigned int getWiek() const;

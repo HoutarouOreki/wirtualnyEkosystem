@@ -30,24 +30,15 @@ void Srodowisko::setNisza(Organizm *organizm, unsigned int x, unsigned int y)
     nisze[dostanIndeks(x, y)] = organizm;
 }
 
-Srodowisko::Srodowisko()
+Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
 {
+    this->ustWyswietlania = ustWyswietlania;
     krokSymulacji = 0;
-    obecnyTryb = 10;
+    ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::zaden;
     iloscGlonow = 0;
     iloscGrzybow = 0;
     iloscBakterii = 0;
     iloscMartwych = 0;
-
-    wyswietlajNajedzenie[0] = false;
-    wyswietlajNajedzenie[1] = false;
-    wyswietlajNajedzenie[2] = false;
-    wyswietlajRozmnozenie[0] = false;
-    wyswietlajRozmnozenie[1] = false;
-    wyswietlajRozmnozenie[2] = false;
-    wyswietlajInfo[0] = false;
-    wyswietlajInfo[1] = true;
-    wyswietlajInfo[2] = true;
 
     szerokosc = funkcjeUtility::pobierzIntMinMax("szerokosc srodowiska", 3, 20);
     wysokosc = funkcjeUtility::pobierzIntMinMax("wysokosc srodowiska", 3, 20);
@@ -69,11 +60,11 @@ Srodowisko::Srodowisko()
         }
     }
     int wylosowanaNisza;
-    maxWiekGlonow = funkcjeUtility::wylosujInt(6, 10);
-    maxWiekGrzybow = funkcjeUtility::wylosujInt(18, 30);
+    maxWiekGlonow = funkcjeUtility::wylosujInt(8, 10);
+    maxWiekGrzybow = funkcjeUtility::wylosujInt(40, 60);
     maxWiekBakterii = funkcjeUtility::wylosujInt(14, 18);
-    maxNajedzenieGlonow = funkcjeUtility::wylosujInt(1, 2);
-    maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(4, 6);
+    maxNajedzenieGlonow = funkcjeUtility::wylosujInt(3, 4);
+    maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(8, 12);
     maxNajedzenieBakterii = funkcjeUtility::wylosujInt(2, 4);
     kosztNarodzinGlonow = funkcjeUtility::wylosujInt(1, 2);
     kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(2, (maxNajedzenieGrzybow + 2) / 2);
@@ -82,19 +73,19 @@ Srodowisko::Srodowisko()
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
         } while (nisze[wylosowanaNisza] != nullptr);
-        nisze[wylosowanaNisza] = new Glon(maxWiekGlonow, maxNajedzenieGlonow, kosztNarodzinGlonow);
+        nisze[wylosowanaNisza] = new Glon(maxWiekGlonow, maxNajedzenieGlonow, kosztNarodzinGlonow, i == 0 ? 0 : funkcjeUtility::wylosujInt(0, maxWiekGlonow / 2));
     }
     for (unsigned int i = 0; i < iloscGrzybow; i++) {
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
         } while (nisze[wylosowanaNisza] != nullptr);
-        nisze[wylosowanaNisza] = new Grzyb(maxWiekGrzybow, maxNajedzenieGrzybow, kosztNarodzinGrzybow);
+        nisze[wylosowanaNisza] = new Grzyb(maxWiekGrzybow, maxNajedzenieGrzybow, kosztNarodzinGrzybow, i == 0 ? 0 : funkcjeUtility::wylosujInt(0, maxWiekGrzybow / 2));
     }
     for (unsigned int i = 0; i < iloscBakterii; i++) {
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
         } while (nisze[wylosowanaNisza] != nullptr);
-        nisze[wylosowanaNisza] = new Bakteria(maxWiekBakterii, maxNajedzenieBakterii, kosztNarodzinBakterii);
+        nisze[wylosowanaNisza] = new Bakteria(maxWiekBakterii, maxNajedzenieBakterii, kosztNarodzinBakterii, i == 0 ? 0 : funkcjeUtility::wylosujInt(0, maxWiekBakterii / 2));
     }
     std::cin.clear();
     std::cin.ignore();
@@ -107,30 +98,49 @@ void Srodowisko::wyswietlUstawienia()
               << std::endl;
     std::cout << termcolor::green
               << "    glony = ";
-    wyswietlBoolUstawien(wyswietlajNajedzenie[0], termcolor::green);
+    wyswietlBoolUstawien(ustWyswietlania->wyswietlajNajedzenie[0], termcolor::green);
     std::cout << "     " << "     glony = ";
-    wyswietlBoolUstawien(wyswietlajRozmnozenie[0], termcolor::green);
+    wyswietlBoolUstawien(ustWyswietlania->wyswietlajRozmnozenie[0], termcolor::green);
     std::cout << "       " << "    glony = ";
-    wyswietlBoolUstawien(wyswietlajInfo[0], termcolor::green);
+    wyswietlBoolUstawien(ustWyswietlania->wyswietlajInfo[0], termcolor::green);
     std::cout << std::endl << termcolor::blue
               << "   grzyby = ";
-    wyswietlBoolUstawien(wyswietlajNajedzenie[1], termcolor::blue);
+    wyswietlBoolUstawien(ustWyswietlania->wyswietlajNajedzenie[1], termcolor::blue);
     std::cout << "     " << "    grzyby = ";
-    wyswietlBoolUstawien(wyswietlajRozmnozenie[1], termcolor::blue);
+    wyswietlBoolUstawien(ustWyswietlania->wyswietlajRozmnozenie[1], termcolor::blue);
     std::cout << "       " << "   grzyby = ";
-    wyswietlBoolUstawien(wyswietlajInfo[1], termcolor::blue);
+    wyswietlBoolUstawien(ustWyswietlania->wyswietlajInfo[1], termcolor::blue);
     std::cout << std::endl << termcolor::red
               << " bakterie = ";
-    wyswietlBoolUstawien(wyswietlajNajedzenie[2], termcolor::red);
+    wyswietlBoolUstawien(ustWyswietlania->wyswietlajNajedzenie[2], termcolor::red);
     std::cout << "     " << "  bakterie = ";
-    wyswietlBoolUstawien(wyswietlajRozmnozenie[2], termcolor::red);
+    wyswietlBoolUstawien(ustWyswietlania->wyswietlajRozmnozenie[2], termcolor::red);
     std::cout << "       " << " bakterie = ";
-    wyswietlBoolUstawien(wyswietlajInfo[2], termcolor::red);
+    wyswietlBoolUstawien(ustWyswietlania->wyswietlajInfo[2], termcolor::red);
     std::cout << std::endl << std::endl << termcolor::reset
-              << "Aby zmienic dane ustawienie, wpisz pierwsza litere podazana przez"
+              << "Aby zmieniac powyzsze ustawienia, wpisz odpowiednia litere podazana przez"
               << std::endl << "odpowiednia liczbe: 0 = glon, 1 = grzyb, 2 = bakteria"
               << std::endl << "Np. J0 aby zmienic wyswietlanie sygnalu jedzenia dla glonow"
+              << std::endl << std::endl
+              << "Nadrysowywanie bufora = " ;
+    wyswietlBoolUstawien(ustWyswietlania->nadrysowywanie, termcolor::reset);
+    std::cout << std::endl << "Czy kolejne kroki symulacji powinny byc rysowane w miejscu poprzednich."
+              << std::endl << "Jesli tak, przy szybkim wykonywaniu krokow konsola nie bedzie \"migac\","
+              << std::endl << "jednak nie bedzie tez widac poprzednich krokow symulacji."
+              << std::endl << "Wpisz n aby przelaczyc nadrysowywanie bufora"
               << std::endl << std::endl;
+}
+
+std::string Srodowisko::dostanKolejnaInformacje(string *informacje, unsigned int *indeksInformacji)
+{
+    while (*indeksInformacji < szerokosc * wysokosc && informacje[*indeksInformacji].length() == 0) {
+        (*indeksInformacji)++;
+    }
+    if (*indeksInformacji < szerokosc * wysokosc) {
+        return "  |  " + informacje[(*indeksInformacji)++];
+    } else {
+        return "                                      ";
+    }
 }
 
 void Srodowisko::wyswietlBoolUstawien(bool zmienna, std::basic_ostream<char>& f(std::basic_ostream<char>&))
@@ -140,12 +150,14 @@ void Srodowisko::wyswietlBoolUstawien(bool zmienna, std::basic_ostream<char>& f(
     } else {
         std::cout << termcolor::magenta << "nie";
     }
-    f(std::cout);
+    if (f != nullptr) {
+        f(std::cout);
+    }
 }
 
 unsigned int dostanNrOrganizmu(char znakOrganizmu)
 {
-    unsigned int nrOrganizmu = 0;
+    unsigned int nrOrganizmu = 3;
     switch (znakOrganizmu) {
     case '*':
         nrOrganizmu = 0;
@@ -162,17 +174,29 @@ unsigned int dostanNrOrganizmu(char znakOrganizmu)
 
 bool Srodowisko::czyWyswietlacInfo(char znakOrganizmu) const
 {
-    return wyswietlajInfo[dostanNrOrganizmu(znakOrganizmu)];
+    unsigned int nr = dostanNrOrganizmu(znakOrganizmu);
+    if (nr > 2) {
+        return false;
+    }
+    return ustWyswietlania->wyswietlajInfo[nr];
 }
 
 bool Srodowisko::czySygnalizowacNajedzenie(char znakOrganizmu) const
 {
-    return wyswietlajNajedzenie[dostanNrOrganizmu(znakOrganizmu)];
+    unsigned int nr = dostanNrOrganizmu(znakOrganizmu);
+    if (nr > 2) {
+        return false;
+    }
+    return ustWyswietlania->wyswietlajNajedzenie[nr];
 }
 
 bool Srodowisko::czySygnalizowacRozmnozenie(char znakOrganizmu) const
 {
-    return wyswietlajRozmnozenie[dostanNrOrganizmu(znakOrganizmu)];
+    unsigned int nr = dostanNrOrganizmu(znakOrganizmu);
+    if (nr > 2) {
+        return false;
+    }
+    return ustWyswietlania->wyswietlajRozmnozenie[nr];
 }
 
 std::string* Srodowisko::informacjeOrganizmow() const
@@ -189,7 +213,7 @@ std::string* Srodowisko::informacjeOrganizmow() const
         string liczba = to_string(y + 1);
         string nazwa;
         switch (nisze[i]->dostanZnak()) {
-        case '*':
+        case Organizm::ZNAK_GLONU:
             nazwa = "glon    ";
             break;
         case '#':
@@ -230,7 +254,7 @@ bool Srodowisko::upewnijSieCzyOrganizmNadalIstnieje(int i)
 
 void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
 {
-    if (czyOstatnioDrukowanoSrodowisko) {
+    if (ustWyswietlania->nadrysowywanie && czyOstatnioDrukowanoSrodowisko) {
         int linia;
         int kolumna;
         funkcjeUtility::dostanPozycjeKursora(&kolumna, &linia);
@@ -238,21 +262,44 @@ void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
         std::cout << std::endl;
         // cout << "linia: " << linia << ", kolumna: " << kolumna << endl;
     }
-    std::cout << "Krokow symulacji: " << krokSymulacji << std::endl << std::endl;
-    std::cout << " Ilosc glonow:   " << iloscGlonow << "    " << std::endl
-              << " Ilosc grzybow:  " << iloscGrzybow << "    " << std::endl
-              << " Ilosc bakterii: " << iloscBakterii << "    " << std::endl
-              << " Ilosc martwych: " << iloscMartwych << "    " << std::endl << std::endl;
+
     string* informacje = informacjeOrganizmow();
+    // odpowiadajacy delete na koncu funkcji
     unsigned int indeksInformacji = 0;
-    std::cout << "Wyswietlanie srodowiska" << std::endl << std::endl;
+
+    std::cout << " Ilosc krokow: " << funkcjeUtility::liczbaBialeZnaki(krokSymulacji, 7, false)
+              << funkcjeUtility::ilesBialychZnakow(20)
+              << "  |  Poz: nazwa    |  wiek | najedzenie" << std::endl
+              << "                 " << funkcjeUtility::ilesBialychZnakow(25)
+              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl
+              << "                 " << funkcjeUtility::ilesBialychZnakow(25)
+              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl;
+    std::cout << " Ilosc glonow:   " << funkcjeUtility::liczbaBialeZnaki(iloscGlonow, 5, true)
+              << funkcjeUtility::ilesBialychZnakow(20)
+              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl
+              << " Ilosc grzybow:  " << funkcjeUtility::liczbaBialeZnaki(iloscGrzybow, 5, true)
+              << funkcjeUtility::ilesBialychZnakow(20)
+              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl
+              << " Ilosc bakterii: " << funkcjeUtility::liczbaBialeZnaki(iloscBakterii, 5, true)
+              << funkcjeUtility::ilesBialychZnakow(20)
+              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl
+              << " Ilosc martwych: " << funkcjeUtility::liczbaBialeZnaki(iloscMartwych, 5, true)
+              << funkcjeUtility::ilesBialychZnakow(20)
+              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl
+              << "                 " << funkcjeUtility::ilesBialychZnakow(25)
+              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl;
+    std::cout << "Wyswietlanie srodowiska    " << funkcjeUtility::ilesBialychZnakow(15)
+              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl
+              << "                 " << funkcjeUtility::ilesBialychZnakow(25)
+              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl;
     for (unsigned char i = 'A'; i < 'A' + szerokosc; i++) {
         if (i == 'A') {
             std::cout << "   ";
         }
-        std::cout << i << " ";
+        std::cout << i << (i == 'A' + szerokosc - 1 ? "" : " ");
     }
-    std::cout << " |  Poz: nazwa    |  wiek | najedzenie" << std::endl;
+    std::cout << funkcjeUtility::ilesBialychZnakow(40 - szerokosc * 2)
+              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl;
     char znak;
     for (unsigned int i = 0; i < wysokosc; i++) {
         if (i + 1 < 10) {
@@ -296,18 +343,11 @@ void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
             std::cout << termcolor::on_grey << (j == szerokosc - 1 ? "" : " ");
         }
         std::cout << termcolor::reset;
-        while (indeksInformacji < szerokosc * wysokosc && informacje[indeksInformacji].length() == 0) {
-            indeksInformacji++;
-        }
-        if (indeksInformacji < szerokosc * wysokosc) {
-            std::cout << "  |  " << informacje[indeksInformacji];
-            indeksInformacji++;
-        } else {
-            std::cout << "                                      ";
-        }
+        std::cout << funkcjeUtility::ilesBialychZnakow(40 - szerokosc * 2)
+                  << dostanKolejnaInformacje(informacje, &indeksInformacji);
         std::cout << std::endl;
     }
-    std::cout << std::endl;
+    delete [] informacje;
 }
 
 void Srodowisko::petla()
@@ -320,7 +360,7 @@ void Srodowisko::petla()
         std::cout << "Enter bez znakow - wykonanie kroku symulacji i wyswietlenie srodowiska"
                   << std::endl << "s - wyswietlenie srodowiska"
                   << std::endl << "u - wyswietlenie ustawien"
-                  << std::endl << "e - wyjscie z programu"
+                  << std::endl << "e - opuszczenie srodowiska"
                   << std::endl;
 
         wejscie = pierwszeWejscie ? "S" : funkcjeUtility::dostanLinie();
@@ -336,41 +376,45 @@ void Srodowisko::petla()
         }
 
         if (wejscie == "") {
-            obecnyTryb = 0;
+            ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::krokOrazWyswietlanieSrodowiska;
         } else if (wejscie == "S") {
-            obecnyTryb = 1;
+            ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::wyswietlanieSrodowiska;
         } else if (wejscie == "U") {
-            obecnyTryb = 2;
+            ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::wyswietlanieUstawien;
         } else if (wejscie == "E") {
             return;
+        } else if (wejscie == "N") {
+            funkcjeUtility::przelaczBool(&ustWyswietlania->nadrysowywanie);
         } else if (wejscie.length() == 2 && wejscie[1] >= '0' && wejscie[1] <= '2') {
             switch (wejscie[0]) {
             case 'J':
-                funkcjeUtility::przelaczBool(&wyswietlajNajedzenie[(unsigned int)(wejscie[1] - '0')]);
+                funkcjeUtility::przelaczBool(&ustWyswietlania->wyswietlajNajedzenie[(unsigned int)(wejscie[1] - '0')]);
                 break;
             case 'R':
-                funkcjeUtility::przelaczBool(&wyswietlajRozmnozenie[(unsigned int)(wejscie[1] - '0')]);
+                funkcjeUtility::przelaczBool(&ustWyswietlania->wyswietlajRozmnozenie[(unsigned int)(wejscie[1] - '0')]);
                 break;
             case 'I':
-                funkcjeUtility::przelaczBool(&wyswietlajInfo[(unsigned int)(wejscie[1] - '0')]);
+                funkcjeUtility::przelaczBool(&ustWyswietlania->wyswietlajInfo[(unsigned int)(wejscie[1] - '0')]);
                 break;
             }
         } else {
-            obecnyTryb = 3;
+            ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::zaden;
         }
-        switch (obecnyTryb) {
-        case 0:
+        switch (ustWyswietlania->obecnyTryb) {
+        case ustawieniaWyswietlania::trybWyswietlania::krokOrazWyswietlanieSrodowiska:
             wykonajKrokSymulacji();
             wyswietlSrodowisko(ostatnioDrukowanoSrodowisko);
             break;
-        case 1:
+        case ustawieniaWyswietlania::trybWyswietlania::wyswietlanieSrodowiska:
             wyswietlSrodowisko(ostatnioDrukowanoSrodowisko);
             break;
-        case 2:
+        case ustawieniaWyswietlania::trybWyswietlania::wyswietlanieUstawien:
             wyswietlUstawienia();
             break;
+        case ustawieniaWyswietlania::trybWyswietlania::zaden:
+            break;
         }
-        ostatnioDrukowanoSrodowisko = obecnyTryb <= 1;
+        ostatnioDrukowanoSrodowisko = ustWyswietlania->obecnyTryb <= 1;
     }
 }
 

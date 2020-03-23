@@ -12,6 +12,8 @@ namespace funkcjeUtility {
     void przelaczBool(bool *wartosc);
     void dostanPozycjeKursora(int* kolumna, int* linia);
     void ustawKursor(int kolumna, int linia);
+    std::string liczbaBialeZnaki(int liczba, unsigned int lacznaIloscZnakow, bool liczbaPoPrawej);
+    std::string ilesBialychZnakow(unsigned int ile);
 }
 
 #endif // FUNKCJEUTILITY_H
