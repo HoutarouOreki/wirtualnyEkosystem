@@ -2,7 +2,7 @@
 #include "bakteria.h"
 #include "funkcjeUtility.h"
 
-bool Bakteria::probaNajedzeniaSieOrganizmem(Organizm **nisze, unsigned int const *pozycjeSasiednichNiszy, unsigned int const nSasiednichNiszy, char const znakOrganizmu)
+bool Bakteria::probaNajedzeniaSieOrganizmem(Organizm **nisze, unsigned int *pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy, char znakOrganizmu)
 {
     // najpierw szuka organizmu w sąsiedztwie
     bool znalezionoOrganizm = false;
@@ -22,10 +22,8 @@ bool Bakteria::probaNajedzeniaSieOrganizmem(Organizm **nisze, unsigned int const
         do {
             wylosowanyOrganizm = funkcjeUtility::wylosujInt(0, nSasiednichNiszy - 1);
         } while (nisze[pozycjeSasiednichNiszy[wylosowanyOrganizm]] == nullptr ||
-                 nisze[pozycjeSasiednichNiszy[wylosowanyOrganizm]]->dostanZnak() != ZNAK_GLONU);
+                 nisze[pozycjeSasiednichNiszy[wylosowanyOrganizm]]->dostanZnak() != znakOrganizmu);
 
-        std::cout << "Zmieniam pozycje z " << wlasnyIndeks << " na "
-                  << pozycjeSasiednichNiszy[wylosowanyOrganizm] << std::endl;
         wchlonOrazZajmijPozycjeOrganizmu(pozycjeSasiednichNiszy[wylosowanyOrganizm]);
         return true;
     }

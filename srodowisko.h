@@ -28,7 +28,7 @@ private:
     char dostanLitereKolumny(unsigned int nrKolumny) const;
 
     std::string* informacjeOrganizmow() const;
-    std::vector<unsigned int> pozycjeZywychOrganizmow;
+    std::vector<Organizm*> zyweOrganizmy;
     bool upewnijSieCzyOrganizmNadalIstnieje(int i);
 
     void wyswietlUstawienia();

@@ -9,6 +9,7 @@ Organizm::Organizm(unsigned int const maxWiek, unsigned int const maxNajedzenie,
     this->kosztNarodzin = kosztNarodzin;
     najedzenie = 0;
     wiek = poczatkowyWiek;
+    bZostalWchloniety = false;
 }
 
 Organizm::~Organizm()
@@ -99,6 +100,11 @@ void Organizm::mozeSprobujRozmnozycSie()
 }
 
 // Próba rozmnożenia się. Jeśli się powiedzie, zwraca true.
+bool Organizm::getZostalWchloniety() const
+{
+    return bZostalWchloniety;
+}
+
 bool Organizm::probaRozmnozeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy)
 {
     unsigned int zajeteNisze = 0;
@@ -167,20 +173,21 @@ void Organizm::probaPoruszeniaSie(Organizm **, unsigned int*, unsigned int)
 
 void Organizm::wchlonOrganizm(unsigned int nrNiszy)
 {
-    delete nisze[nrNiszy];
+    if (nisze[nrNiszy]->bCzyZyje()) {
+        // jeśli żyje, to jest w tablicy żywych organizmów w środowisku
+        // i tam powinien zostać usunięty
+        nisze[nrNiszy]->bZostalWchloniety = true;
+    } else {
+        delete nisze[nrNiszy];
+    }
     nisze[nrNiszy] = nullptr;
 }
 
 void Organizm::wchlonOrazZajmijPozycjeOrganizmu(unsigned int nrNiszy)
 {
-    nSasiednichNiszy = nisze[nrNiszy]->nSasiednichNiszy;
-    for (unsigned int i = 0; i < nSasiednichNiszy; i++) {
-        pozycjeSasiednichNiszy[i] = nisze[nrNiszy]->pozycjeSasiednichNiszy[i];
-    }
     wchlonOrganizm(nrNiszy);
-    nisze[nrNiszy] = this;
     nisze[wlasnyIndeks] = nullptr;
-    wlasnyIndeks = nrNiszy;
+    nisze[nrNiszy] = this;
 }
 
 void Organizm::sprobujPrzemiescicSie()

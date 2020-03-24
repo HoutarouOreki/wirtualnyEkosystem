@@ -70,13 +70,13 @@ Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
     int wylosowanaNisza;
     maxWiekGlonow = funkcjeUtility::wylosujInt(10, 12);
     maxWiekGrzybow = funkcjeUtility::wylosujInt(30, 40);
-    maxWiekBakterii = funkcjeUtility::wylosujInt(26, 36);
-    maxNajedzenieGlonow = funkcjeUtility::wylosujInt(3, 4);
-    maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(8, 12);
-    maxNajedzenieBakterii = funkcjeUtility::wylosujInt(4, 6);
-    kosztNarodzinGlonow = funkcjeUtility::wylosujInt(3, maxNajedzenieGlonow);
-    kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(4, (maxNajedzenieGrzybow + 2) / 2);
-    kosztNarodzinBakterii = funkcjeUtility::wylosujInt(1, (maxNajedzenieBakterii + 2) / 2);
+    maxWiekBakterii = funkcjeUtility::wylosujInt(8, 12);
+    maxNajedzenieGlonow = funkcjeUtility::wylosujInt(2, 3);
+    maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(5, 10);
+    maxNajedzenieBakterii = funkcjeUtility::wylosujInt(4, 7);
+    kosztNarodzinGlonow = funkcjeUtility::wylosujInt(1, maxNajedzenieGlonow);
+    kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(2, 5);
+    kosztNarodzinBakterii = funkcjeUtility::wylosujInt(3, (maxNajedzenieBakterii + 2) / 2);
     for (unsigned int i = 0; i < iloscGlonow; i++) {
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
@@ -207,6 +207,18 @@ bool Srodowisko::czySygnalizowacRozmnozenie(char znakOrganizmu) const
     return ustWyswietlania->wyswietlajRozmnozenie[nr];
 }
 
+bool Srodowisko::upewnijSieCzyOrganizmNadalIstnieje(int i)
+{
+    // bakterie mogły zjeść inne organizmy żywe, więc trzeba upewniać się czy organizm jeszcze żyje
+    Organizm* organizm = zyweOrganizmy[i];
+    if (zyweOrganizmy[i]->getZostalWchloniety()) {
+        delete organizm;
+        zyweOrganizmy.erase(zyweOrganizmy.begin() + i);
+        return false;
+    }
+    return true;
+}
+
 std::string* Srodowisko::informacjeOrganizmow() const
 {
     string* linie = new string[szerokosc * wysokosc];
@@ -248,16 +260,6 @@ std::string* Srodowisko::informacjeOrganizmow() const
                 + najedzenie + "/" + maxNajedzenie + zmianaNajedzenia + "  ";
     }
     return linie;
-}
-
-bool Srodowisko::upewnijSieCzyOrganizmNadalIstnieje(int i)
-{
-    // bakterie mogły zjeść inne organizmy żywe, więc trzeba upewniać się czy organizm jeszcze żyje
-    if (nisze[pozycjeZywychOrganizmow[i]] == nullptr) {
-        pozycjeZywychOrganizmow.erase(pozycjeZywychOrganizmow.begin() + i);
-        return false;
-    }
-    return true;
 }
 
 void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
@@ -444,13 +446,13 @@ void Srodowisko::wykonajKrokSymulacji()
 
     // udostępnianie organizmom informacji o otoczeniu oraz zgromadzenie
     // informacji o żywych organizmach do przyspieszenia iteracji czynności życiowych
-    pozycjeZywychOrganizmow.clear();
+    zyweOrganizmy.clear();
     for (unsigned int i = 0; i < wysokosc * szerokosc; i++) {
         if (nisze[i] == nullptr || !nisze[i]->bCzyZyje()) {
             continue;
         }
 
-        pozycjeZywychOrganizmow.push_back(i);
+        zyweOrganizmy.push_back(nisze[i]);
 
         nisze[i]->wlasnyIndeks = i;
         bool sasiedzi[8];
@@ -488,38 +490,40 @@ void Srodowisko::wykonajKrokSymulacji()
     }
 
     // wywołanie możliwych prób rozmnażania się u organizmów
-    for (unsigned int i = 0; i < pozycjeZywychOrganizmow.size(); i++) {
-        obecnyOrganizm = nisze[pozycjeZywychOrganizmow[i]];
+    for (unsigned int i = 0; i < zyweOrganizmy.size(); i++) {
+        obecnyOrganizm = zyweOrganizmy[i];
         if (obecnyOrganizm->bCzyZyje() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
             obecnyOrganizm->mozeSprobujRozmnozycSie();
         }
     }
 
     // wywołanie możliwych prób najedzenia się u organizmów
-    for (unsigned int i = 0; i < pozycjeZywychOrganizmow.size(); i++) {
+    for (unsigned int i = 0; i < zyweOrganizmy.size(); i++) {
         if (!upewnijSieCzyOrganizmNadalIstnieje(i)) {
             i--;
             continue;
         }
-        obecnyOrganizm = nisze[pozycjeZywychOrganizmow[i]];
+        obecnyOrganizm = zyweOrganizmy[i];
         if (obecnyOrganizm->bCzyZyje() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
             obecnyOrganizm->mozeSprobujNajescSie();
         }
     }
 
     // wywołanie starzenia się u organizmów
-    for (unsigned int i = 0; i < pozycjeZywychOrganizmow.size(); i++) {
+    // na tym kroku zwalniamy też miejsce zajmowane
+    // przez wchłonięte żywe organizmy poprzez sprawdzenie czy nadal istnieją
+    for (unsigned int i = 0; i < zyweOrganizmy.size(); i++) {
         if (!upewnijSieCzyOrganizmNadalIstnieje(i)) {
             i--;
             continue;
         }
-        obecnyOrganizm = nisze[pozycjeZywychOrganizmow[i]];
+        obecnyOrganizm = zyweOrganizmy[i];
         obecnyOrganizm->starzenieSie();
     }
 
     // wywołanie możliwych prób poruszenia się u organizmów
-    for (unsigned int i = 0; i < pozycjeZywychOrganizmow.size(); i++) {
-        obecnyOrganizm = nisze[pozycjeZywychOrganizmow[i]];
+    for (unsigned int i = 0; i < zyweOrganizmy.size(); i++) {
+        obecnyOrganizm = zyweOrganizmy[i];
         if (obecnyOrganizm->bCzyZyje() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
             obecnyOrganizm->mozeSprobujPoruszycSie();
         }

@@ -11,6 +11,7 @@ private:
     Organizm** nisze;
     unsigned int pozycjeSasiednichNiszy[8];
     unsigned int nSasiednichNiszy;
+    bool bZostalWchloniety;
 
     // czynności życiowe
     bool probaRozmnozeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy);
@@ -41,6 +42,7 @@ public:
     bool bCzyPrzejedzony() const;
     bool bCzyNajedzony() const;
     bool bCzyZyje() const;
+    bool getZostalWchloniety() const;
 
     char dostanZnak() const;
     unsigned int getMaxWiek() const;
