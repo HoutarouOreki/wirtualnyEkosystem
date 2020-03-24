@@ -5,6 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         bakteria.cpp \
+        funkcjeKonsoli.cpp \
         funkcjeUtility.cpp \
         glon.cpp \
         grzyb.cpp \
@@ -14,6 +15,7 @@ SOURCES += \
 
 HEADERS += \
     bakteria.h \
+    funkcjeKonsoli.h \
     funkcjeUtility.h \
     glon.h \
     grzyb.h \

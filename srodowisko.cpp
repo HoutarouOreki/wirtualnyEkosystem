@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include "srodowisko.h"
 #include "funkcjeUtility.h"
+#include "funkcjeKonsoli.h"
 #include "glon.h"
 #include "grzyb.h"
 #include "bakteria.h"
@@ -163,7 +164,7 @@ void Srodowisko::wyswietlBoolUstawien(bool zmienna, std::basic_ostream<char>& f(
     }
 }
 
-unsigned int dostanNrOrganizmu(char znakOrganizmu)
+unsigned int Srodowisko::dostanNrOrganizmu(char znakOrganizmu) const
 {
     unsigned int nrOrganizmu = 3;
     switch (znakOrganizmu) {
@@ -267,8 +268,8 @@ void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
     if (ustWyswietlania->nadrysowywanie && czyOstatnioDrukowanoSrodowisko) {
         int linia;
         int kolumna;
-        funkcjeUtility::dostanPozycjeKursora(&kolumna, &linia);
-        funkcjeUtility::ustawKursor(0, linia - 18 - wysokosc);
+        funkcjeKonsoli::dostanPozycjeKursora(&kolumna, &linia);
+        funkcjeKonsoli::ustawKursor(0, linia - 15 - wysokosc);
         std::cout << std::endl;
         // cout << "linia: " << linia << ", kolumna: " << kolumna << endl;
     }
@@ -282,11 +283,7 @@ void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
     std::cout << " Ilosc krokow: " << funkcjeUtility::liczbaBialeZnaki(krokSymulacji, 7, false)
               << funkcjeUtility::ilesBialychZnakow(MARGINES - 20)
               << "  |  Poz: nazwa    |  wiek | najedzenie" << std::endl
-              << "                 " << funkcjeUtility::ilesBialychZnakow(MARGINES - 15)
-              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl
-              << "                 " << funkcjeUtility::ilesBialychZnakow(MARGINES - 15)
-              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl;
-    std::cout << " Ilosc glonow:   " << funkcjeUtility::liczbaBialeZnaki(iloscGlonow, 5, true)
+              << " Ilosc glonow:   " << funkcjeUtility::liczbaBialeZnaki(iloscGlonow, 5, true)
               << funkcjeUtility::ilesBialychZnakow(MARGINES - 20)
               << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl
               << " Ilosc grzybow:  " << funkcjeUtility::liczbaBialeZnaki(iloscGrzybow, 5, true)
@@ -298,9 +295,7 @@ void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
               << " Ilosc martwych: " << funkcjeUtility::liczbaBialeZnaki(iloscMartwych, 5, true)
               << funkcjeUtility::ilesBialychZnakow(MARGINES - 20)
               << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl
-              << "                 " << funkcjeUtility::ilesBialychZnakow(MARGINES - 15)
-              << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl;
-    std::cout << "Wyswietlanie srodowiska    " << funkcjeUtility::ilesBialychZnakow(MARGINES - 25)
+              << "Wyswietlanie srodowiska    " << funkcjeUtility::ilesBialychZnakow(MARGINES - 25)
               << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl
               << "                 " << funkcjeUtility::ilesBialychZnakow(MARGINES - 15)
               << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl;

@@ -1,4 +1,5 @@
 #include "funkcjeUtility.h"
+#include "funkcjeKonsoli.h"
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
@@ -23,11 +24,13 @@ void ustawDomyslneUstawieniaWyswietlania(Srodowisko::ustawieniaWyswietlania *ust
 
 int main()
 {
+    const unsigned int wysokosc_wyswietlania = 43;
+    funkcjeKonsoli::ustawWielkoscKonsoli(130, wysokosc_wyswietlania);
     srand(time(nullptr));
     ustawDomyslneUstawieniaWyswietlania(&ustawieniaWyswietlania);
     std::cout << "Wirtualny Ekosystem                                              Wirtualny Ekosystem"
               << std::endl;
-    for (unsigned int i = 0; i < 38 - 4; i++) {
+    for (unsigned int i = 0; i < wysokosc_wyswietlania - 7; i++) {
         std::cout << std::endl;
     }
 

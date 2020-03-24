@@ -33,6 +33,7 @@ private:
 
     void wyswietlUstawienia();
     std::string dostanKolejnaInformacje(std::string* informacje, unsigned int* indeksInformacji);
+    unsigned int dostanNrOrganizmu(char znakOrganizmu) const;
 public:
 
     struct ustawieniaWyswietlania
