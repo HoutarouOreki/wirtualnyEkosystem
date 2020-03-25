@@ -53,7 +53,7 @@ namespace funkcjeKonsoli {
     #endif
     }
 
-    void ustawWielkoscKonsoli(unsigned int x, unsigned int y)
+    void powiekszOkno(unsigned int x, unsigned int y)
     {
     #if defined (KONSOLA_WINDOWS)
         HANDLE hKonsoli = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -68,7 +68,13 @@ namespace funkcjeKonsoli {
         GetWindowRect(konsola, &ConsoleRect);
         MoveWindow(konsola, ConsoleRect.left, ConsoleRect.top, x, y, TRUE);
     #elif defined (KONSOLA_LINUX) || defined (KONSOLA_MAC)
-        std::cout << "\e[8;" << x << ";" << y << "t";
+        // dostań wielkość konsoli
+        struct winsize w;
+        ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+
+        // jeśli dany wymiar konsoli jest mniejszy niż pożądany, powiększ
+        std::cout << "\e[8;" << std::max(y, (unsigned int)w.ws_row) << ";"
+                  << std::max(x, (unsigned int)w.ws_col) << "t";
     #endif
     }
 }
