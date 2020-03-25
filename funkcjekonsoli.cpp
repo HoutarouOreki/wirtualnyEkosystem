@@ -49,7 +49,7 @@ namespace funkcjeKonsoli {
 
         SetConsoleCursorPosition(hConsole, koord);
     #elif defined (KONSOLA_LINUX) || defined (KONSOLA_MAC)
-        printf("\033[%d;%dH",linia+1,kolumna+1);
+        std::cout << "\033[" << linia + 1 << ";" << kolumna + 1 << "H";
     #endif
     }
 
@@ -67,6 +67,8 @@ namespace funkcjeKonsoli {
         RECT ConsoleRect;
         GetWindowRect(konsola, &ConsoleRect);
         MoveWindow(konsola, ConsoleRect.left, ConsoleRect.top, x, y, TRUE);
+    #elif defined (KONSOLA_LINUX) || defined (KONSOLA_MAC)
+        std::cout << "\e[8;" << x << ";" << y << "t";
     #endif
     }
 }
