@@ -60,12 +60,12 @@ namespace funkcjeKonsoli {
         CONSOLE_FONT_INFO infoCzcionki;
         GetCurrentConsoleFont(hKonsoli, false, &infoCzcionki);
         COORD wielkoscCzcionki = GetConsoleFontSize(hKonsoli, infoCzcionki.nFont);
-        std::cout << wielkoscCzcionki.X << " / " << wielkoscCzcionki.Y;
-        x *= wielkoscCzcionki.X;
-        y *= wielkoscCzcionki.Y;
         HWND konsola = GetConsoleWindow();
         RECT ConsoleRect;
         GetWindowRect(konsola, &ConsoleRect);
+        std::cout << (ConsoleRect.right - ConsoleRect.left) / wielkoscCzcionki.X << " / " << (ConsoleRect.bottom - ConsoleRect.top) / wielkoscCzcionki.Y;
+        x = std::max(ConsoleRect.right - ConsoleRect.left, (long)x * wielkoscCzcionki.X);
+        y = std::max(ConsoleRect.bottom - ConsoleRect.top, (long)y * wielkoscCzcionki.Y);
         MoveWindow(konsola, ConsoleRect.left, ConsoleRect.top, x, y, TRUE);
     #elif defined (KONSOLA_LINUX) || defined (KONSOLA_MAC)
         // dostań wielkość konsoli

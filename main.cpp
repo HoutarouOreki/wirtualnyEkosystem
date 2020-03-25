@@ -25,7 +25,7 @@ void ustawDomyslneUstawieniaWyswietlania(Srodowisko::ustawieniaWyswietlania *ust
 int main()
 {
     const unsigned int wysokosc_wyswietlania = 43;
-    funkcjeKonsoli::ustawWielkoscKonsoli(130, wysokosc_wyswietlania);
+    funkcjeKonsoli::powiekszOkno(130, wysokosc_wyswietlania);
     srand(time(nullptr));
     ustawDomyslneUstawieniaWyswietlania(&ustawieniaWyswietlania);
     std::cout << "Wirtualny Ekosystem                                              Wirtualny Ekosystem"
