@@ -3,9 +3,16 @@
 
 namespace funkcjeKonsoli
 {
-    void dostanPozycjeKursora(int* kolumna, int* linia);
-    void ustawKursor(int kolumna, int linia);
-    void powiekszOkno(unsigned int x, unsigned int y);
+    /// Ustawia kursor iloscLinii linijek wyżej.
+    /// pre: brak
+    /// post: Kursor znajdzie się iloscLinii linijek wyżej na początku linii.
+    void cofnijKursor(unsigned int iloscLinii);
+
+    /// Jeśli dany wymiar konsoli jest mniejszy niż podany,
+    /// to zostaje powiększony do podanej wartości.
+    /// pre: brak
+    /// post: Konsola ma wielkość o co najmniej podanych wymiarach.
+    void powiekszOkno(unsigned int minSzerokosc, unsigned int minWysokosc);
 };
 
 #endif // FUNKCJEKONSOLI_H

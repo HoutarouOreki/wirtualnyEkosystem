@@ -21,7 +21,7 @@
 #endif
 
 namespace funkcjeKonsoli {
-    void dostanPozycjeKursora(int* kolumna, int* linia)
+    void dostanPozycjeKursora(unsigned int* kolumna, unsigned int* linia)
     {
     #if defined (KONSOLA_WINDOWS)
         struct _CONSOLE_SCREEN_BUFFER_INFO infoBufora;
@@ -53,20 +53,23 @@ namespace funkcjeKonsoli {
     #endif
     }
 
-    void powiekszOkno(unsigned int x, unsigned int y)
+    void powiekszOkno(unsigned int minSzerokosc, unsigned int minWysokosc)
     {
     #if defined (KONSOLA_WINDOWS)
         HANDLE hKonsoli = GetStdHandle(STD_OUTPUT_HANDLE);
+        HWND konsola = GetConsoleWindow();
+
+        RECT prostokatKonsoli;
+        GetWindowRect(konsola, &prostokatKonsoli);
         CONSOLE_FONT_INFO infoCzcionki;
         GetCurrentConsoleFont(hKonsoli, false, &infoCzcionki);
         COORD wielkoscCzcionki = GetConsoleFontSize(hKonsoli, infoCzcionki.nFont);
-        HWND konsola = GetConsoleWindow();
-        RECT ConsoleRect;
-        GetWindowRect(konsola, &ConsoleRect);
-        std::cout << (ConsoleRect.right - ConsoleRect.left) / wielkoscCzcionki.X << " / " << (ConsoleRect.bottom - ConsoleRect.top) / wielkoscCzcionki.Y;
-        x = std::max(ConsoleRect.right - ConsoleRect.left, (long)x * wielkoscCzcionki.X);
-        y = std::max(ConsoleRect.bottom - ConsoleRect.top, (long)y * wielkoscCzcionki.Y);
-        MoveWindow(konsola, ConsoleRect.left, ConsoleRect.top, x, y, TRUE);
+
+        minSzerokosc = std::max(prostokatKonsoli.right - prostokatKonsoli.left,
+                                (long)minSzerokosc * wielkoscCzcionki.X);
+        minWysokosc = std::max(prostokatKonsoli.bottom - prostokatKonsoli.top,
+                               (long)minWysokosc * wielkoscCzcionki.Y);
+        MoveWindow(konsola, prostokatKonsoli.left, prostokatKonsoli.top, minSzerokosc, minWysokosc, TRUE);
     #elif defined (KONSOLA_LINUX) || defined (KONSOLA_MAC)
         // dostań wielkość konsoli
         struct winsize w;
@@ -75,6 +78,14 @@ namespace funkcjeKonsoli {
         // jeśli dany wymiar konsoli jest mniejszy niż pożądany, powiększ
         std::cout << "\e[8;" << std::max(y, (unsigned int)w.ws_row) << ";"
                   << std::max(x, (unsigned int)w.ws_col) << "t";
-    #endif
+#endif
     }
+
+    void cofnijKursor(unsigned int iloscLinii)
+    {
+        unsigned int x, y;
+        dostanPozycjeKursora(&x, &y);
+        ustawKursor(0, y - iloscLinii);
+    }
+
 }

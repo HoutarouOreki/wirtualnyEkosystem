@@ -266,10 +266,7 @@ std::string* Srodowisko::informacjeOrganizmow() const
 void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
 {
     if (ustWyswietlania->nadrysowywanie && czyOstatnioDrukowanoSrodowisko) {
-        int linia;
-        int kolumna;
-        funkcjeKonsoli::dostanPozycjeKursora(&kolumna, &linia);
-        funkcjeKonsoli::ustawKursor(0, linia - 15 - wysokosc);
+        funkcjeKonsoli::cofnijKursor(15 + wysokosc);
         std::cout << std::endl;
         // cout << "linia: " << linia << ", kolumna: " << kolumna << endl;
     }

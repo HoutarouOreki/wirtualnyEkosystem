@@ -24,18 +24,11 @@ void ustawDomyslneUstawieniaWyswietlania(Srodowisko::ustawieniaWyswietlania *ust
 
 int main()
 {
-    const unsigned int wysokosc_wyswietlania = 43;
+    const unsigned int wysokosc_wyswietlania = 44;
     funkcjeKonsoli::powiekszOkno(130, wysokosc_wyswietlania);
     srand(time(nullptr));
     ustawDomyslneUstawieniaWyswietlania(&ustawieniaWyswietlania);
-    std::cout << "Wirtualny Ekosystem                                              Wirtualny Ekosystem"
-              << std::endl;
-    for (unsigned int i = 0; i < wysokosc_wyswietlania - 7; i++) {
-        std::cout << std::endl;
-    }
-
-    std::cout << "Powieksz okno tak, aby napisy na gorze oraz ten mogly byc jednoczesnie widoczne"
-              << std::endl << "(oba gorne powinny sie zmiescic w jednej linii), nastepnie wcisnij enter";
+    std::cout << "Wirtualny Ekosystem" << std::endl << "Wcisnij enter...";
     std::string wejscie;
     std::getline(std::cin, wejscie);
 
