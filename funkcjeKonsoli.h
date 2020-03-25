@@ -5,7 +5,7 @@ namespace funkcjeKonsoli
 {
     void dostanPozycjeKursora(int* kolumna, int* linia);
     void ustawKursor(int kolumna, int linia);
-    void powiekszOknoKonsoli(unsigned int x, unsigned int y);
+    void powiekszOkno(unsigned int x, unsigned int y);
 };
 
 #endif // FUNKCJEKONSOLI_H
