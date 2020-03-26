@@ -76,8 +76,6 @@ unsigned int Organizm::getMaxNajedzenie() const
     return maxNajedzenie;
 }
 
-// organizm dostaje informacje o niszach i sąsiednich niszach
-// od środowiska aby mógł funkcjonować
 void Organizm::zobaczSrodowisko(Organizm **nisze, unsigned int *pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy)
 {
     this->nisze = nisze;
@@ -87,8 +85,6 @@ void Organizm::zobaczSrodowisko(Organizm **nisze, unsigned int *pozycjeSasiednic
     this->nSasiednichNiszy = nSasiednichNiszy;
 }
 
-// Organizm zdecyduje, czy jest teraz odpowiedni moment na potomków,
-// i jeśli uzna, że tak, spróbuje się rozmnożyć.
 void Organizm::mozeSprobujRozmnozycSie()
 {
     bWlasnieRozmnozyl = false;
@@ -99,7 +95,6 @@ void Organizm::mozeSprobujRozmnozycSie()
     }
 }
 
-// Próba rozmnożenia się. Jeśli się powiedzie, zwraca true.
 bool Organizm::getZostalWchloniety() const
 {
     return bZostalWchloniety;
@@ -140,8 +135,6 @@ void Organizm::starzenieSie()
     wiek++;
 }
 
-// Organizm sprawdza, czy to odpowiedni moment na najedzenie się,
-// i jesli tak, to próbuje to zrobić
 void Organizm::mozeSprobujNajescSie()
 {
     bWlasnieNajadl = false;
@@ -158,8 +151,6 @@ bool Organizm::probaNajedzeniaSie(Organizm**, unsigned int*, unsigned int)
     return false;
 }
 
-// Organizm sprawdza, czy to odpowiedni moment na zmianę pozycji
-// i jeśli tak, próbuje to zrobić
 void Organizm::mozeSprobujPoruszycSie()
 {
     if (!getWlasnieNajadl() && !getWlasnieRozmnozyl()) {
@@ -208,7 +199,7 @@ void Organizm::sprobujPrzemiescicSie()
         wylosowanaNisza = funkcjeUtility::wylosujInt(0, nSasiednichNiszy - 1);
     } while (nisze[pozycjeSasiednichNiszy[wylosowanaNisza]] != nullptr);
     nisze[pozycjeSasiednichNiszy[wylosowanaNisza]] = this;
-    Organizm::probaPoruszeniaSie(nisze, pozycjeSasiednichNiszy, nSasiednichNiszy);
+    wlasnyIndeks = pozycjeSasiednichNiszy[wylosowanaNisza];
 }
 
 Organizm* Organizm::wygenerujDziecko()
