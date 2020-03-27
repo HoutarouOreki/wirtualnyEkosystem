@@ -7,20 +7,29 @@
 class Grzyb : public Organizm
 {
 protected:
-    /// \brief Zwraca Grzyb(maxWiek, maxNajedzenie, kosztNarodzin).
-    virtual Organizm * wygenerujDziecko() override;
+    /// \copybrief Organizm::wygenerujDziecko()
+    /// \returns Grzyb(Organizm::maxWiek, Organizm::maxNajedzenie, Organizm::kosztNarodzin).
+    virtual Organizm *wygenerujDziecko() override;
 
-    /// \brief Szuka w sąsiedztwie martwych organizmów.
+    /// \brief Szuka w sąsiedztwie martwych \ref Organizm "organizmów".
     /// Jeśli znajdzie, losowo wchłania jednego.
+    /// \returns \c true, jeśli udało się znaleźć i zjeść martwy \ref Organizm "organizmów".
+    /// \see Organizm::czyZywy()
     virtual bool probaNajedzeniaSie() override;
 
-    /// \brief Zwraca #
+    /// \copybrief Organizm::znak()
+    /// \returns \#
     virtual char znak() const override;
 
-    /// \brief Wywołuje sprobujPrzemiescicSie()
-    virtual void probaPoruszeniaSie() override;
+    /// \brief Wywołuje sprobujPrzemiescicSie().
+    void probaPoruszeniaSie() override;
 public:
-    /// \copydoc Organizm(unsigned int const, unsigned int const, unsigned int const, unsigned int const)
+    /// \brief Wywołuje konstruktor Organizm::Organizm(\p maxWiek,
+    /// \p maxNajedzenie, \p kosztNarodzin, \p poczatkowyWiek).
+    /// \param[in] maxWiek
+    /// \param[in] maxNajedzenie
+    /// \param[in] kosztNarodzin
+    /// \param[in] poczatkowyWiek
     Grzyb(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin, unsigned int const poczatkowyWiek = 0);
 };
 

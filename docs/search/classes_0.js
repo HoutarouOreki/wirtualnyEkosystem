@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bakteria_67',['Bakteria',['../class_bakteria.html',1,'']]]
+  ['bakteria_91',['Bakteria',['../class_bakteria.html',1,'']]]
 ];

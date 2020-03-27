@@ -26,9 +26,9 @@ Organizm* Srodowisko::getNisza(const unsigned int x, const unsigned int y) const
     return nisze[getIndeksNiszyOdKoordynat(x, y)];
 }
 
-void Srodowisko::setNisza(Organizm *organizm, const unsigned int x, const unsigned int y)
+void Srodowisko::setNisza(Organizm *const organizm, const unsigned int x, const unsigned int y)
 {
-    unsigned int indeks = getIndeksNiszyOdKoordynat(x, y);
+    const unsigned int indeks = getIndeksNiszyOdKoordynat(x, y);
     nisze[indeks] = organizm;
     organizm->wlasnyIndeks = indeks;
 }
@@ -56,7 +56,7 @@ Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
     wysokosc = funkcjeUtility::pobierzIntMinMax("wysokosc srodowiska", 5, MAX_WYSOKOSC);
     nisze = new Organizm*[szerokosc * wysokosc];
     fill_n(nisze, szerokosc * wysokosc, nullptr);
-    unsigned int iloscNisz = szerokosc * wysokosc;
+    const unsigned int iloscNisz = szerokosc * wysokosc;
     bool bDopuszczalnaIloscOrganizmow = false;
     while (!bDopuszczalnaIloscOrganizmow) {
         iloscGlonow = funkcjeUtility::pobierzIntMinMax("ilosc glonow", 0, iloscNisz);
@@ -71,15 +71,15 @@ Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
         }
     }
     int wylosowanaNisza;
-    maxWiekGlonow = funkcjeUtility::wylosujInt(10, 12);
-    maxWiekGrzybow = funkcjeUtility::wylosujInt(30, 40);
-    maxWiekBakterii = funkcjeUtility::wylosujInt(8, 12);
-    maxNajedzenieGlonow = funkcjeUtility::wylosujInt(2, 3);
-    maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(5, 10);
-    maxNajedzenieBakterii = funkcjeUtility::wylosujInt(4, 7);
-    kosztNarodzinGlonow = funkcjeUtility::wylosujInt(1, maxNajedzenieGlonow);
-    kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(2, 5);
-    kosztNarodzinBakterii = funkcjeUtility::wylosujInt(3, (maxNajedzenieBakterii + 2) / 2);
+    const unsigned int maxWiekGlonow = funkcjeUtility::wylosujInt(10, 12);
+    const unsigned int maxWiekGrzybow = funkcjeUtility::wylosujInt(30, 40);
+    const unsigned int maxWiekBakterii = funkcjeUtility::wylosujInt(8, 12);
+    const unsigned int maxNajedzenieGlonow = funkcjeUtility::wylosujInt(2, 3);
+    const unsigned int maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(5, 10);
+    const unsigned int maxNajedzenieBakterii = funkcjeUtility::wylosujInt(4, 7);
+    const unsigned int kosztNarodzinGlonow = funkcjeUtility::wylosujInt(1, maxNajedzenieGlonow);
+    const unsigned int kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(2, 5);
+    const unsigned int kosztNarodzinBakterii = funkcjeUtility::wylosujInt(3, (maxNajedzenieBakterii + 2) / 2);
     for (unsigned int i = 0; i < iloscGlonow; i++) {
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
@@ -154,7 +154,7 @@ std::string Srodowisko::dostanKolejnaInformacje(string *informacje, unsigned int
     }
 }
 
-void Srodowisko::wyswietlBoolUstawien(bool zmienna, std::basic_ostream<char>& f(std::basic_ostream<char>&))
+void Srodowisko::wyswietlBoolUstawien(const bool zmienna, std::basic_ostream<char>& f(std::basic_ostream<char>&))
 {
     if (zmienna) {
         std::cout << termcolor::cyan << "tak";
@@ -166,44 +166,44 @@ void Srodowisko::wyswietlBoolUstawien(bool zmienna, std::basic_ostream<char>& f(
     }
 }
 
-unsigned int Srodowisko::dostanNrOrganizmu(char znakOrganizmu) const
+unsigned int Srodowisko::dostanNrOrganizmu(const char znakOrganizmu) const
 {
     unsigned int nrOrganizmu = 3;
     switch (znakOrganizmu) {
-    case '*':
+    case Organizm::ZNAK_GLONU:
         nrOrganizmu = 0;
         break;
-    case '#':
+    case Organizm::ZNAK_GRZYBU:
         nrOrganizmu = 1;
         break;
-    case '@':
+    case Organizm::ZNAK_BAKTERII:
         nrOrganizmu = 2;
         break;
     }
     return nrOrganizmu;
 }
 
-bool Srodowisko::czyWyswietlacInfo(char znakOrganizmu) const
+bool Srodowisko::czyWyswietlacInfo(const char znakOrganizmu) const
 {
-    unsigned int nr = dostanNrOrganizmu(znakOrganizmu);
+    const unsigned int nr = dostanNrOrganizmu(znakOrganizmu);
     if (nr > 2) {
         return false;
     }
     return ustWyswietlania->wyswietlajInfo[nr];
 }
 
-bool Srodowisko::czySygnalizowacNajedzenie(char znakOrganizmu) const
+bool Srodowisko::czySygnalizowacNajedzenie(const char znakOrganizmu) const
 {
-    unsigned int nr = dostanNrOrganizmu(znakOrganizmu);
+    const unsigned int nr = dostanNrOrganizmu(znakOrganizmu);
     if (nr > 2) {
         return false;
     }
     return ustWyswietlania->wyswietlajNajedzenie[nr];
 }
 
-bool Srodowisko::czySygnalizowacRozmnozenie(char znakOrganizmu) const
+bool Srodowisko::czySygnalizowacRozmnozenie(const char znakOrganizmu) const
 {
-    unsigned int nr = dostanNrOrganizmu(znakOrganizmu);
+    const unsigned int nr = dostanNrOrganizmu(znakOrganizmu);
     if (nr > 2) {
         return false;
     }
@@ -213,7 +213,7 @@ bool Srodowisko::czySygnalizowacRozmnozenie(char znakOrganizmu) const
 bool Srodowisko::upewnijSieCzyOrganizmNadalIstnieje(const unsigned int i)
 {
     // bakterie mogły zjeść inne organizmy żywe, więc trzeba upewniać się czy organizm jeszcze żyje
-    Organizm* organizm = zyweOrganizmy[i];
+    Organizm* const organizm = zyweOrganizmy[i];
     if (zyweOrganizmy[i]->getCzyZostalWchloniety()) {
         delete organizm;
         zyweOrganizmy.erase(zyweOrganizmy.begin() + i);
@@ -224,16 +224,16 @@ bool Srodowisko::upewnijSieCzyOrganizmNadalIstnieje(const unsigned int i)
 
 std::string* Srodowisko::informacjeOrganizmow() const
 {
-    string* linie = new string[szerokosc * wysokosc];
+    string* const linie = new string[szerokosc * wysokosc];
     for (unsigned int i = 0; i < wysokosc * szerokosc; i++) {
         if (nisze[i] == nullptr || !czyWyswietlacInfo(nisze[i]->dostanZnak())) {
             linie[i] = "";
             continue;
         }
-        unsigned int x = dostanX(i);
-        unsigned int y = dostanY(i);
-        string litera(1, dostanLitereKolumny(x + 1));
-        string liczba = to_string(y + 1);
+        const unsigned int x = dostanX(i);
+        const unsigned int y = dostanY(i);
+        const string litera(1, dostanLitereKolumny(x + 1));
+        const string liczba = to_string(y + 1);
         string nazwa;
         switch (nisze[i]->dostanZnak()) {
         case Organizm::ZNAK_GLONU:
@@ -252,11 +252,11 @@ std::string* Srodowisko::informacjeOrganizmow() const
             nazwa = "nieznany";
             break;
         }
-        string wiek = (nisze[i]->getWiek() < 10 ? " " : "") + to_string(nisze[i]->getWiek());
-        string maxWiek = to_string(nisze[i]->getMaxWiek()) + (nisze[i]->getMaxWiek() < 10 ? " " : "");
-        string najedzenie = (nisze[i]->getNajedzenie() < 10 ? " " : "") + to_string(nisze[i]->getNajedzenie());
-        string maxNajedzenie = to_string(nisze[i]->getMaxNajedzenie()) + (nisze[i]->getMaxNajedzenie() < 10 ? " " : "");
-        string zmianaNajedzenia = nisze[i]->getWlasnieNajadl() ? "+" :
+        const string wiek = (nisze[i]->getWiek() < 10 ? " " : "") + to_string(nisze[i]->getWiek());
+        const string maxWiek = to_string(nisze[i]->getMaxWiek()) + (nisze[i]->getMaxWiek() < 10 ? " " : "");
+        const string najedzenie = (nisze[i]->getNajedzenie() < 10 ? " " : "") + to_string(nisze[i]->getNajedzenie());
+        const string maxNajedzenie = to_string(nisze[i]->getMaxNajedzenie()) + (nisze[i]->getMaxNajedzenie() < 10 ? " " : "");
+        const string zmianaNajedzenia = nisze[i]->getWlasnieNajadl() ? "+" :
                                     nisze[i]->getWlasnieRozmnozyl() ? "-" : " ";
         linie[i] = (y + 1 < 10 ? " " : "") + litera + liczba + ": " + nazwa + " | "
                 + wiek + "/" + maxWiek + " |   "
@@ -275,6 +275,7 @@ void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
 
     string* informacje = informacjeOrganizmow();
     // odpowiadajacy delete na koncu funkcji
+
     unsigned int indeksInformacji = 0;
 
     const unsigned int MARGINES = MAX_SZEROKOSC * 2;
@@ -429,6 +430,10 @@ void Srodowisko::petla()
 Srodowisko::~Srodowisko()
 {
     for (unsigned int i = 0; i < szerokosc * wysokosc; i++) {
+
+        // polecenie delete samo wykonuje sprawdzenie, czy
+        // usuwany wskaźnik nie wynosi nullptr,
+        // więc bez sensu byłoby jeszcze raz tutaj to sprawdzać
         delete nisze[i];
     }
     delete [] nisze;

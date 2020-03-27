@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['setnisza_105',['setNisza',['../class_srodowisko.html#a3465abd02b763f9262bc990e394da741',1,'Srodowisko']]],
-  ['sprobujprzemiescicsie_106',['sprobujPrzemiescicSie',['../class_organizm.html#a8d52bf12065a9659b5cb0bae86a103d9',1,'Organizm']]],
-  ['starzeniesie_107',['starzenieSie',['../class_organizm.html#ab4f361431c04c6c6c979cf03c0be5b41',1,'Organizm']]]
+  ['petla_132',['petla',['../class_srodowisko.html#ac0ec74b4a7e191cd222e9b352c6dd561',1,'Srodowisko']]],
+  ['podliczilosciorganizmow_133',['podliczIlosciOrganizmow',['../class_srodowisko.html#a1de405a908f857490ff0dc97ed695ee1',1,'Srodowisko']]],
+  ['probanajedzeniasie_134',['probaNajedzeniaSie',['../class_bakteria.html#af22c644296c4a294fdac3319ae6471b9',1,'Bakteria::probaNajedzeniaSie()'],['../class_glon.html#a21b228c521339d3b2f45c06a30952193',1,'Glon::probaNajedzeniaSie()'],['../class_grzyb.html#a269447c381dde54d6bf03fb648e94c77',1,'Grzyb::probaNajedzeniaSie()'],['../class_organizm.html#a552aaa1912cd25d11dafc962936af2df',1,'Organizm::probaNajedzeniaSie()']]],
+  ['probanajedzeniasieorganizmem_135',['probaNajedzeniaSieOrganizmem',['../class_bakteria.html#a945b237db1631bb93df1198863a4f650',1,'Bakteria']]],
+  ['probaporuszeniasie_136',['probaPoruszeniaSie',['../class_bakteria.html#a8c23106a8ef32ea1172e61dad899407d',1,'Bakteria::probaPoruszeniaSie()'],['../class_grzyb.html#af1f2fe8cebc543639c12c91f7cb554cb',1,'Grzyb::probaPoruszeniaSie()'],['../class_organizm.html#a97f367ea28ddde519e2cfbb02db5388c',1,'Organizm::probaPoruszeniaSie()']]],
+  ['probarozmnozeniasie_137',['probaRozmnozeniaSie',['../class_organizm.html#a9dda553de6a6f1a845fd9ee2c5853068',1,'Organizm']]]
 ];

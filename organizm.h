@@ -47,15 +47,19 @@ private:
     /// \details Szuka wolnych niszy w sąsiedztwie.
     /// Jeśli znajdzie, w jednej z nich umieszcza swojego potomka.
     /// \post #nisze[#pozycjeSasiednichNiszy[wylosowanaNisza]] = wygenerujDziecko()
+    /// \returns \c true, jeśli próba się powiodła.
     bool probaRozmnozeniaSie();
 protected:
     /// \copydoc nisze
+    /// \returns #nisze
     Organizm **getNisze() const;
 
     /// \copydoc pozycjeSasiednichNiszy
+    /// \returns pozycjeSasiednichNiszy
     unsigned int* getPozycjeSasiednichNiszy();
 
     /// \copydoc iloscSasiednichNiszy
+    /// \returns iloscSasiednichNiszy
     unsigned int getIloscSasiednichNiszy() const;
 
     /// \brief Jeśli #wiek przekroczy tę wartość, organizm staje się martwy.
@@ -74,23 +78,27 @@ protected:
     /// \brief Zwraca potomka.
     /// \note Funkcja ta powinna być nadpisana przez poszczególne klasy
     /// organizmów, aby zwracała odpowiednich potomków.
+    /// \returns Wskaźnik do potomka.
     virtual Organizm* wygenerujDziecko();
 
-    /// \brief Znak danego typu organizmu wyświetlany na planszy środowiska.
+    /// \brief Znak organizmu wyświetlany na planszy środowiska.
     /// \note Funkcja ta powinna być nadpisana przez poszczególne organizmy,
     /// aby zwracała ich odpowiednie znaki.
+    /// \returns Znak organizmu.
     virtual char znak() const;
 
     /// \brief Funkcja wywoływana po zdecydowaniu się na próbę najedzenia się.
     /// \note Powinna być zaimplementowana w dziedziczących klasach organizmów,
     /// i powinna zwracać \c true, jeśli próba się powiodła,
     /// oraz \c false, jeśli się nie powiodła.
+    /// \returns \c true, jeśli próba się powiodła.
     virtual bool probaNajedzeniaSie();
 
     /// \brief Funkcja wywoływana po zdecydowaniu się na próbę najedzenia się.
-    /// \note Powinna być zaimplementowana w dziedziczących klasach organizmów,
-    /// i powinna zwracać \c true, jeśli próba się powiodła,
-    /// oraz \c false, jeśli się nie powiodła.
+    /// \note Domyślna implementacja nie wykonuje niczego, więc funkcja ta
+    /// powinna być zaimplementowana w dziedziczących klasach organizmów,
+    /// które są w stanie się poruszać.
+    /// \returns
     virtual void probaPoruszeniaSie();
 
     /// \brief Pozbywa się innego organizmu ze środowiska.
@@ -99,6 +107,8 @@ protected:
     /// organizmu na \c true, aby Srodowisko wiedziało, aby usunąć
     /// go ze swojego vectora Srodowisko::zyweOrganizmy.
     /// \post #nisze[\p nrNiszy] = \c nullptr
+    /// \param[in] nrNiszy to pozycja wchłanianego organizmu
+    /// w tablicy #nisze.
     void wchlonOrganizm(unsigned int nrNiszy);
 
     /// \brief Pozbywa się innego organizmu ze środowiska i zajmuje jego miejsce.
@@ -106,7 +116,9 @@ protected:
     /// a następnie zmienia pozycję na pozycję tego wchłoniętego organizmu.
     /// \post #nisze[#wlasnyIndeks] = \c nullptr;
     /// #nisze[\c nrNiszy] = \c this
-    void wchlonOrazZajmijPozycjeOrganizmu(unsigned int nrNiszy);
+    /// \param[in] nrNiszy to pozycja wchłanianego organizmu
+    /// w tablicy #nisze.
+    void wchlonOrazZajmijPozycjeOrganizmu(const unsigned int nrNiszy);
 
     /// \brief Próbuje zmienić swoją pozycję.
     /// \details Szuka wolnej niszy w sąsiedztwie. Jeśli znajdzie,
@@ -118,6 +130,10 @@ protected:
 public:
     /// \brief Ustawia zmienne #maxWiek, #maxNajedzenie,
     /// #kosztNarodzin i #wiek na wartości podane w parametrach.
+    /// \param[in] maxWiek
+    /// \param[in] maxNajedzenie
+    /// \param[in] kosztNarodzin
+    /// \param[in] poczatkowyWiek
     Organizm(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin, unsigned int const poczatkowyWiek = 0);
 
     /// \brief Pusty destruktor.
@@ -126,30 +142,36 @@ public:
     virtual ~Organizm();
 
     /// \copydoc wiek
+    /// \returns wiek
     unsigned int getWiek() const;
 
     /// \copydoc najedzenie
+    /// \returns najedzenie
     unsigned int getNajedzenie() const;
 
     /// \brief Indeks tego organizmu w tablicy Srodowisko::nisze.
     unsigned int wlasnyIndeks;
 
     /// \brief Czy #najedzenie osiągnęło wartość #maxNajedzenie.
+    /// \returns \c true, jeśli przejedzony.
     bool czyPrzejedzony() const;
 
     /// \brief Czy poziom zmiennej #najedzenie przekroczył #kosztNarodzin potomka.
+    /// \returns \c true, jeśli najedzony.
     bool czyNajedzony() const;
 
     /// \brief Czy #wiek nie przekroczył jeszcze wartości #maxWiek.
+    /// \returns \c true, jeśli żywy.
     bool czyZywy() const;
 
-    /// \copydoc czyZostalWchloniety
+    /// \returns czyZostalWchloniety
     bool getCzyZostalWchloniety() const;
 
     /// \brief Zwraca znak swojego typu, bądź martwego organizmu.
     /// \details Jeśli organizm jest żywy, zwraca wartość funkcji znak().
     /// W przeciwnym wypadku zwraca Organizm::ZNAK_MARTWEGO.
     /// \see czyZywy()
+    /// \returns Znak swojego gatunku bądź znak martwego organizmu.
     char dostanZnak() const;
 
     /// \returns #maxWiek
@@ -199,9 +221,16 @@ public:
     void starzenieSie();
 
     // znaki organizmow
+    /// \brief Znak, który reprezentuje gatunek \ref Glon "glonu".
     const static char ZNAK_GLONU = '*';
+
+    /// \brief Znak, który reprezentuje gatunek \ref Grzyb "grzybu".
     const static char ZNAK_GRZYBU = '#';
+
+    /// \brief Znak, który reprezentuje gatunek \ref Bakteria "bakterii".
     const static char ZNAK_BAKTERII = '@';
+
+    /// \brief Znak, który reprezentuje martwe \ref Organizm "organizmy".
     const static char ZNAK_MARTWEGO = '+';
 };
 

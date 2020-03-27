@@ -3,21 +3,28 @@
 #define GLON_H
 
 /// Organizm pasywny, prowadzący fotosyntezę.
-/// \par Sposób żywienia się:
-/// Prowadzi fotosyntezę - w każdym kroku symulacji,
-/// w którym próbuje się najeść, udaje mu się to.
 class Glon : public Organizm
 {
 protected:
-    /// Zawsze zwraca prawdę (prowadzi fotosyntezę).
+    /// \brief Próba najedzenia się. Jako, że prowadzi
+    /// fotosyntezę, zawsze się ona udaje.
+    /// \returns \c true
     virtual bool probaNajedzeniaSie() override;
 
-    /// Zwraca Glon(maxWiek, maxNajedzenie, kosztNarodzin).
-    virtual Organizm * wygenerujDziecko() override;
+    /// \copybrief
+    /// \returns Glon(Organizm::maxWiek, Organizm::maxNajedzenie, Organizm::kosztNarodzin).
+    virtual Organizm *wygenerujDziecko() override;
 
-    /// Zwraca *
+    /// \copybrief Organizm::znak()
+    /// \returns *
     virtual char znak() const override;
 public:
+    /// \brief Wywołuje konstruktor Organizm::Organizm(\p maxWiek,
+    /// \p maxNajedzenie, \p kosztNarodzin, \p poczatkowyWiek).
+    /// \param[in] maxWiek
+    /// \param[in] maxNajedzenie
+    /// \param[in] kosztNarodzin
+    /// \param[in] poczatkowyWiek
     Glon(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin, unsigned int const poczatkowyWiek = 0);
 };
 

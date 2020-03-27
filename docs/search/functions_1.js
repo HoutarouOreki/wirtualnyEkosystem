@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['dostanindekssasiada_76',['dostanIndeksSasiada',['../class_srodowisko.html#a5805db17656c47edb7b9725ba98988e5',1,'Srodowisko']]],
-  ['dostankolejnainformacje_77',['dostanKolejnaInformacje',['../class_srodowisko.html#a3bd57dcbd0e13a008ccce3c72c5c0a36',1,'Srodowisko']]],
-  ['dostanliterekolumny_78',['dostanLitereKolumny',['../class_srodowisko.html#acd16674edb47575b3146c135a40b83c5',1,'Srodowisko']]],
-  ['dostanx_79',['dostanX',['../class_srodowisko.html#a13a8b28b3d0b5c94ec97060eef5d0b9d',1,'Srodowisko']]],
-  ['dostany_80',['dostanY',['../class_srodowisko.html#a391cfc61e4b177302c53856d42e7312a',1,'Srodowisko']]],
-  ['dostanznak_81',['dostanZnak',['../class_organizm.html#a17644b69ccebe8bb7fc6b7cf5c578b24',1,'Organizm']]]
+  ['czynajedzony_98',['czyNajedzony',['../class_organizm.html#a26cd2b7099e58d60f6a0db5f5f5431ae',1,'Organizm']]],
+  ['czyprzejedzony_99',['czyPrzejedzony',['../class_organizm.html#ac5a8622e5f18c368a4aec743916795ec',1,'Organizm']]],
+  ['czysygnalizowacnajedzenie_100',['czySygnalizowacNajedzenie',['../class_srodowisko.html#a8fbf257ed2873af91477e324714fad0a',1,'Srodowisko']]],
+  ['czysygnalizowacrozmnozenie_101',['czySygnalizowacRozmnozenie',['../class_srodowisko.html#a2c26014205d418e7695171d7e2308de3',1,'Srodowisko']]],
+  ['czywyswietlacinfo_102',['czyWyswietlacInfo',['../class_srodowisko.html#ac1795e200c29439ad38810e3cd6c6f95',1,'Srodowisko']]],
+  ['czyzywy_103',['czyZywy',['../class_organizm.html#adadb94bfe521faf60eccbda6c11c08d2',1,'Organizm']]]
 ];

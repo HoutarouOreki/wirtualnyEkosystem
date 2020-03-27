@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pozycjesasiednichniszy_130',['pozycjeSasiednichNiszy',['../class_organizm.html#a8c84280ba5977a798cb93f0ba4e3b60e',1,'Organizm']]]
+  ['obecnytryb_171',['obecnyTryb',['../struct_srodowisko_1_1ustawienia_wyswietlania.html#ad37298baecef1d6669b1a3d9735a5b2c',1,'Srodowisko::ustawieniaWyswietlania']]]
 ];

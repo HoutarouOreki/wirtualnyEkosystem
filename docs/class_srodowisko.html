@@ -72,40 +72,52 @@ $(function() {
 <div class="title">Dokumentacja klasy Srodowisko</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Wewnątrz środowiska rozwijają się różne gatunki <a class="el" href="class_organizm.html">organizmów</a>.  
+ <a href="class_srodowisko.html#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="srodowisko_8h_source.html">srodowisko.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Komponenty</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html">ustawieniaWyswietlania</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struktura przechowująca opcje dla funkcji Srodowisko::wyswietlSrodowisko(ustWysw).  <a href="struct_srodowisko_1_1ustawienia_wyswietlania.html#details">Więcej...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
-<tr class="memitem:a33a6c8a51eb7f610a325ebebffa491f8"><td class="memItemLeft" align="right" valign="top"><a id="a33a6c8a51eb7f610a325ebebffa491f8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>czyWyswietlacInfo</b> (char znakOrganizmu) const</td></tr>
-<tr class="separator:a33a6c8a51eb7f610a325ebebffa491f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae724a5e417bd700db080b6e1afbe91b5"><td class="memItemLeft" align="right" valign="top"><a id="ae724a5e417bd700db080b6e1afbe91b5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>czySygnalizowacNajedzenie</b> (char znakOrganizmu) const</td></tr>
-<tr class="separator:ae724a5e417bd700db080b6e1afbe91b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a205ea65313df2d616cbae2b961812a"><td class="memItemLeft" align="right" valign="top"><a id="a9a205ea65313df2d616cbae2b961812a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>czySygnalizowacRozmnozenie</b> (char znakOrganizmu) const</td></tr>
-<tr class="separator:a9a205ea65313df2d616cbae2b961812a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8646a162d1137ef3ffaaaffe8c54b50a"><td class="memItemLeft" align="right" valign="top"><a id="a8646a162d1137ef3ffaaaffe8c54b50a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>wyswietlBoolUstawien</b> (bool zmienna, std::basic_ostream&lt; char &gt; &amp;f(std::basic_ostream&lt; char &gt; &amp;))</td></tr>
-<tr class="separator:a8646a162d1137ef3ffaaaffe8c54b50a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad11b108125465d06fa3616bba5df2fa4"><td class="memItemLeft" align="right" valign="top"><a id="ad11b108125465d06fa3616bba5df2fa4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Srodowisko</b> (<a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html">ustawieniaWyswietlania</a> *<a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html">ustawieniaWyswietlania</a>)</td></tr>
+<tr class="memitem:ac1795e200c29439ad38810e3cd6c6f95"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#ac1795e200c29439ad38810e3cd6c6f95">czyWyswietlacInfo</a> (const char znakOrganizmu) const</td></tr>
+<tr class="memdesc:ac1795e200c29439ad38810e3cd6c6f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca wartość z tablicy <a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8" title="Opcje wyświetlania używane w wyswietlSrodowisko(bool).">ustWyswietlania</a>-&gt;wyswietlajInfo z indeksu odpowiadającego <a class="el" href="class_organizm.html">organizmowi</a> o danym znaku.  <a href="class_srodowisko.html#ac1795e200c29439ad38810e3cd6c6f95">Więcej...</a><br /></td></tr>
+<tr class="separator:ac1795e200c29439ad38810e3cd6c6f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fbf257ed2873af91477e324714fad0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a8fbf257ed2873af91477e324714fad0a">czySygnalizowacNajedzenie</a> (const char znakOrganizmu) const</td></tr>
+<tr class="memdesc:a8fbf257ed2873af91477e324714fad0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca wartość z tablicy <a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8" title="Opcje wyświetlania używane w wyswietlSrodowisko(bool).">ustWyswietlania</a>-&gt;wyswietlajNajedzenie z indeksu odpowiadającego <a class="el" href="class_organizm.html">organizmowi</a> o danym znaku.  <a href="class_srodowisko.html#a8fbf257ed2873af91477e324714fad0a">Więcej...</a><br /></td></tr>
+<tr class="separator:a8fbf257ed2873af91477e324714fad0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c26014205d418e7695171d7e2308de3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a2c26014205d418e7695171d7e2308de3">czySygnalizowacRozmnozenie</a> (const char znakOrganizmu) const</td></tr>
+<tr class="memdesc:a2c26014205d418e7695171d7e2308de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca wartość z tablicy <a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8" title="Opcje wyświetlania używane w wyswietlSrodowisko(bool).">ustWyswietlania</a>-&gt;wyswietlajRozmnozenie z indeksu odpowiadającego <a class="el" href="class_organizm.html">organizmowi</a> o danym znaku.  <a href="class_srodowisko.html#a2c26014205d418e7695171d7e2308de3">Więcej...</a><br /></td></tr>
+<tr class="separator:a2c26014205d418e7695171d7e2308de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297a50f773b64772e1af1af9522ea40b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a297a50f773b64772e1af1af9522ea40b">wyswietlBoolUstawien</a> (const bool zmienna, std::basic_ostream&lt; char &gt; &amp;f(std::basic_ostream&lt; char &gt; &amp;))</td></tr>
+<tr class="memdesc:a297a50f773b64772e1af1af9522ea40b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyświetla pokolorowaną wartość zmiennej <code>bool</code> i ustawia kolor tekstu.  <a href="class_srodowisko.html#a297a50f773b64772e1af1af9522ea40b">Więcej...</a><br /></td></tr>
+<tr class="separator:a297a50f773b64772e1af1af9522ea40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11b108125465d06fa3616bba5df2fa4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#ad11b108125465d06fa3616bba5df2fa4">Srodowisko</a> (<a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html">ustawieniaWyswietlania</a> *<a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html">ustawieniaWyswietlania</a>)</td></tr>
+<tr class="memdesc:ad11b108125465d06fa3616bba5df2fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pyta użytkownika o konfigurację siebie i losuje właściwości <a class="el" href="class_organizm.html">Organizm</a> organizmów.  <a href="class_srodowisko.html#ad11b108125465d06fa3616bba5df2fa4">Więcej...</a><br /></td></tr>
 <tr class="separator:ad11b108125465d06fa3616bba5df2fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba391a1b7b4c0850c5cc57461f6c749c"><td class="memItemLeft" align="right" valign="top"><a id="aba391a1b7b4c0850c5cc57461f6c749c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#aba391a1b7b4c0850c5cc57461f6c749c">~Srodowisko</a> ()</td></tr>
+<tr class="memdesc:aba391a1b7b4c0850c5cc57461f6c749c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wywołuje destruktory wszystkich <a class="el" href="class_organizm.html">organizmów</a> oraz zwalnia miejsce zajmowane przez tablicę <a class="el" href="class_srodowisko.html#a9780a6242e261bd9d0e544d7c85157ee" title="Tablica przechowująca wskaźniki do organizmów na odpowiadających im pozycjach.">nisze</a>. <br /></td></tr>
+<tr class="separator:aba391a1b7b4c0850c5cc57461f6c749c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a599a77f852a4b9b3648cce080e70fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a1a599a77f852a4b9b3648cce080e70fd">wykonajKrokSymulacji</a> ()</td></tr>
+<tr class="memdesc:a1a599a77f852a4b9b3648cce080e70fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wywołuje czynności życiowe w <a class="el" href="class_organizm.html">organizmach</a>.  <a href="class_srodowisko.html#a1a599a77f852a4b9b3648cce080e70fd">Więcej...</a><br /></td></tr>
 <tr class="separator:a1a599a77f852a4b9b3648cce080e70fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8edd6987d2b4dabb963ba80f9363acb5"><td class="memItemLeft" align="right" valign="top"><a id="a8edd6987d2b4dabb963ba80f9363acb5"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getSzerokosc</b> () const</td></tr>
+<tr class="memitem:a8edd6987d2b4dabb963ba80f9363acb5"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a8edd6987d2b4dabb963ba80f9363acb5">getSzerokosc</a> () const</td></tr>
 <tr class="separator:a8edd6987d2b4dabb963ba80f9363acb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a465fb10facf95e350ffcf390c805ccb4"><td class="memItemLeft" align="right" valign="top"><a id="a465fb10facf95e350ffcf390c805ccb4"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getWysokosc</b> () const</td></tr>
+<tr class="memitem:a465fb10facf95e350ffcf390c805ccb4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a465fb10facf95e350ffcf390c805ccb4">getWysokosc</a> () const</td></tr>
 <tr class="separator:a465fb10facf95e350ffcf390c805ccb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d0a18acb9717a716204f34ed4dfc6fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a8d0a18acb9717a716204f34ed4dfc6fd">wyswietlSrodowisko</a> (bool czyOstatnioDrukowanoSrodowisko)</td></tr>
+<tr class="memdesc:a8d0a18acb9717a716204f34ed4dfc6fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyświetla planszę środowiska oraz informacje o organizmach.  <a href="class_srodowisko.html#a8d0a18acb9717a716204f34ed4dfc6fd">Więcej...</a><br /></td></tr>
 <tr class="separator:a8d0a18acb9717a716204f34ed4dfc6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0ec74b4a7e191cd222e9b352c6dd561"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#ac0ec74b4a7e191cd222e9b352c6dd561">petla</a> ()</td></tr>
+<tr class="memitem:ac0ec74b4a7e191cd222e9b352c6dd561"><td class="memItemLeft" align="right" valign="top"><a id="ac0ec74b4a7e191cd222e9b352c6dd561"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#ac0ec74b4a7e191cd222e9b352c6dd561">petla</a> ()</td></tr>
+<tr class="memdesc:ac0ec74b4a7e191cd222e9b352c6dd561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Udostępnia użytkownikowi interfejs obsługi środowiska oraz nim zarządza. <br /></td></tr>
 <tr class="separator:ac0ec74b4a7e191cd222e9b352c6dd561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -114,35 +126,9 @@ Atrybuty publiczne</h2></td></tr>
 <a class="el" href="class_organizm.html">Organizm</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a9780a6242e261bd9d0e544d7c85157ee">nisze</a></td></tr>
 <tr class="memdesc:a9780a6242e261bd9d0e544d7c85157ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tablica przechowująca wskaźniki do organizmów na odpowiadających im pozycjach. <br /></td></tr>
 <tr class="separator:a9780a6242e261bd9d0e544d7c85157ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac61529858364b1abf29550356b27242c"><td class="memItemLeft" align="right" valign="top"><a id="ac61529858364b1abf29550356b27242c"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>maxWiekGlonow</b></td></tr>
-<tr class="separator:ac61529858364b1abf29550356b27242c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52f30b96e3d2f03dcaaff709b182353b"><td class="memItemLeft" align="right" valign="top"><a id="a52f30b96e3d2f03dcaaff709b182353b"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>maxWiekGrzybow</b></td></tr>
-<tr class="separator:a52f30b96e3d2f03dcaaff709b182353b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1e1df48543ffd2803cd04cf529887a0"><td class="memItemLeft" align="right" valign="top"><a id="af1e1df48543ffd2803cd04cf529887a0"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>maxWiekBakterii</b></td></tr>
-<tr class="separator:af1e1df48543ffd2803cd04cf529887a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77a9ce2a3284fd84f171a440d9f0bcb2"><td class="memItemLeft" align="right" valign="top"><a id="a77a9ce2a3284fd84f171a440d9f0bcb2"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>maxNajedzenieGlonow</b></td></tr>
-<tr class="separator:a77a9ce2a3284fd84f171a440d9f0bcb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b80622e5d53b7c0b7a69a0119926d2e"><td class="memItemLeft" align="right" valign="top"><a id="a7b80622e5d53b7c0b7a69a0119926d2e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>maxNajedzenieGrzybow</b></td></tr>
-<tr class="separator:a7b80622e5d53b7c0b7a69a0119926d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16f755df0b94ee9c8400f5df48f347ed"><td class="memItemLeft" align="right" valign="top"><a id="a16f755df0b94ee9c8400f5df48f347ed"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>maxNajedzenieBakterii</b></td></tr>
-<tr class="separator:a16f755df0b94ee9c8400f5df48f347ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc6384bd91ad76003a74c933687d331f"><td class="memItemLeft" align="right" valign="top"><a id="adc6384bd91ad76003a74c933687d331f"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kosztNarodzinGlonow</b></td></tr>
-<tr class="separator:adc6384bd91ad76003a74c933687d331f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a039439203805c195c11fd64ea1f57a68"><td class="memItemLeft" align="right" valign="top"><a id="a039439203805c195c11fd64ea1f57a68"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kosztNarodzinGrzybow</b></td></tr>
-<tr class="separator:a039439203805c195c11fd64ea1f57a68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee0b7e2477f00c91402ae0ff8a2b7575"><td class="memItemLeft" align="right" valign="top"><a id="aee0b7e2477f00c91402ae0ff8a2b7575"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>kosztNarodzinBakterii</b></td></tr>
-<tr class="separator:aee0b7e2477f00c91402ae0ff8a2b7575"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af81255149fc95281795e0df4b9eb07e8"><td class="memItemLeft" align="right" valign="top"><a id="af81255149fc95281795e0df4b9eb07e8"></a>
-<a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html">ustawieniaWyswietlania</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ustWyswietlania</b></td></tr>
+<a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html">ustawieniaWyswietlania</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8">ustWyswietlania</a></td></tr>
+<tr class="memdesc:af81255149fc95281795e0df4b9eb07e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opcje wyświetlania używane w <a class="el" href="class_srodowisko.html#a8d0a18acb9717a716204f34ed4dfc6fd" title="Wyświetla planszę środowiska oraz informacje o organizmach.">wyswietlSrodowisko(bool)</a>. <br /></td></tr>
 <tr class="separator:af81255149fc95281795e0df4b9eb07e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -152,32 +138,35 @@ Metody prywatne</h2></td></tr>
 <tr class="memitem:a4f41939fb90b6d6616d7820ca8484cdd"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a4f41939fb90b6d6616d7820ca8484cdd">getIndeksNiszyOdKoordynat</a> (const unsigned int x, const unsigned int y) const</td></tr>
 <tr class="separator:a4f41939fb90b6d6616d7820ca8484cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a190201e5afb1398de445e6b2861c8067"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_organizm.html">Organizm</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a190201e5afb1398de445e6b2861c8067">getNisza</a> (const unsigned int x, const unsigned int y) const</td></tr>
+<tr class="memdesc:a190201e5afb1398de445e6b2861c8067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca <a class="el" href="class_organizm.html">organizm</a> zajmujący niszę na podanych koordynatach w tablicy <a class="el" href="class_srodowisko.html#a9780a6242e261bd9d0e544d7c85157ee" title="Tablica przechowująca wskaźniki do organizmów na odpowiadających im pozycjach.">nisze</a>.  <a href="class_srodowisko.html#a190201e5afb1398de445e6b2861c8067">Więcej...</a><br /></td></tr>
 <tr class="separator:a190201e5afb1398de445e6b2861c8067"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3465abd02b763f9262bc990e394da741"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a3465abd02b763f9262bc990e394da741">setNisza</a> (<a class="el" href="class_organizm.html">Organizm</a> *organizm, const unsigned int x, const unsigned int y)</td></tr>
-<tr class="separator:a3465abd02b763f9262bc990e394da741"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13a8b28b3d0b5c94ec97060eef5d0b9d"><td class="memItemLeft" align="right" valign="top"><a id="a13a8b28b3d0b5c94ec97060eef5d0b9d"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a13a8b28b3d0b5c94ec97060eef5d0b9d">dostanX</a> (const unsigned int indeksNiszy) const</td></tr>
-<tr class="memdesc:a13a8b28b3d0b5c94ec97060eef5d0b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca liczoną od 0 horyzontalną koordynatę niszy na danym indeksie. <br /></td></tr>
+<tr class="memitem:ab1b85908e11e237a8fce5fb769b70ce2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#ab1b85908e11e237a8fce5fb769b70ce2">setNisza</a> (<a class="el" href="class_organizm.html">Organizm</a> *const organizm, const unsigned int x, const unsigned int y)</td></tr>
+<tr class="memdesc:ab1b85908e11e237a8fce5fb769b70ce2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Umieszcza <a class="el" href="class_organizm.html">organizm</a> na podanych koordynatach w tablicy <a class="el" href="class_srodowisko.html#a9780a6242e261bd9d0e544d7c85157ee" title="Tablica przechowująca wskaźniki do organizmów na odpowiadających im pozycjach.">nisze</a>.  <a href="class_srodowisko.html#ab1b85908e11e237a8fce5fb769b70ce2">Więcej...</a><br /></td></tr>
+<tr class="separator:ab1b85908e11e237a8fce5fb769b70ce2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a8b28b3d0b5c94ec97060eef5d0b9d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a13a8b28b3d0b5c94ec97060eef5d0b9d">dostanX</a> (const unsigned int indeksNiszy) const</td></tr>
 <tr class="separator:a13a8b28b3d0b5c94ec97060eef5d0b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a391cfc61e4b177302c53856d42e7312a"><td class="memItemLeft" align="right" valign="top"><a id="a391cfc61e4b177302c53856d42e7312a"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a391cfc61e4b177302c53856d42e7312a">dostanY</a> (const unsigned int indeksNiszy) const</td></tr>
-<tr class="memdesc:a391cfc61e4b177302c53856d42e7312a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca liczoną od 0 wertykalną koordynatę niszy na danym indeksie. <br /></td></tr>
+<tr class="memitem:a391cfc61e4b177302c53856d42e7312a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a391cfc61e4b177302c53856d42e7312a">dostanY</a> (const unsigned int indeksNiszy) const</td></tr>
 <tr class="separator:a391cfc61e4b177302c53856d42e7312a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5805db17656c47edb7b9725ba98988e5"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a5805db17656c47edb7b9725ba98988e5">dostanIndeksSasiada</a> (unsigned int x, unsigned int y, const unsigned int nrSasiada) const</td></tr>
 <tr class="separator:a5805db17656c47edb7b9725ba98988e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd16674edb47575b3146c135a40b83c5"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#acd16674edb47575b3146c135a40b83c5">dostanLitereKolumny</a> (unsigned int nrKolumny) const</td></tr>
 <tr class="separator:acd16674edb47575b3146c135a40b83c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4be63be9d79128527a81c2bca33bcc4"><td class="memItemLeft" align="right" valign="top">std::string *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#ab4be63be9d79128527a81c2bca33bcc4">informacjeOrganizmow</a> () const</td></tr>
+<tr class="memdesc:ab4be63be9d79128527a81c2bca33bcc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tablica napisów z informacjami o organizmach.  <a href="class_srodowisko.html#ab4be63be9d79128527a81c2bca33bcc4">Więcej...</a><br /></td></tr>
 <tr class="separator:ab4be63be9d79128527a81c2bca33bcc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10aee99ef5e97eca20127f3092e89a20"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a10aee99ef5e97eca20127f3092e89a20">upewnijSieCzyOrganizmNadalIstnieje</a> (const unsigned int i)</td></tr>
+<tr class="memdesc:a10aee99ef5e97eca20127f3092e89a20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza, czy organizm nadal żyje.  <a href="class_srodowisko.html#a10aee99ef5e97eca20127f3092e89a20">Więcej...</a><br /></td></tr>
 <tr class="separator:a10aee99ef5e97eca20127f3092e89a20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6223ddbafd2f6e747962e32fdd03a06b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a6223ddbafd2f6e747962e32fdd03a06b">wyswietlUstawienia</a> ()</td></tr>
+<tr class="memitem:a6223ddbafd2f6e747962e32fdd03a06b"><td class="memItemLeft" align="right" valign="top"><a id="a6223ddbafd2f6e747962e32fdd03a06b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a6223ddbafd2f6e747962e32fdd03a06b">wyswietlUstawienia</a> ()</td></tr>
+<tr class="memdesc:a6223ddbafd2f6e747962e32fdd03a06b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyświetla na wyjściu informacje o obecnych ustawieniach oraz sposobach ich zmiany. <br /></td></tr>
 <tr class="separator:a6223ddbafd2f6e747962e32fdd03a06b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bd57dcbd0e13a008ccce3c72c5c0a36"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a3bd57dcbd0e13a008ccce3c72c5c0a36">dostanKolejnaInformacje</a> (std::string *informacje, unsigned int *indeksInformacji)</td></tr>
+<tr class="memdesc:a3bd57dcbd0e13a008ccce3c72c5c0a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca kolejnego stringa z podanej tablicy <code>*informacje</code>.  <a href="class_srodowisko.html#a3bd57dcbd0e13a008ccce3c72c5c0a36">Więcej...</a><br /></td></tr>
 <tr class="separator:a3bd57dcbd0e13a008ccce3c72c5c0a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b2f4d22e2a4fedbedc7c844ae4d8868"><td class="memItemLeft" align="right" valign="top"><a id="a4b2f4d22e2a4fedbedc7c844ae4d8868"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>dostanNrOrganizmu</b> (char znakOrganizmu) const</td></tr>
-<tr class="separator:a4b2f4d22e2a4fedbedc7c844ae4d8868"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd4b5b56cd99ee3675ed9ede3d78da5f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#abd4b5b56cd99ee3675ed9ede3d78da5f">dostanNrOrganizmu</a> (const char znakOrganizmu) const</td></tr>
+<tr class="memdesc:abd4b5b56cd99ee3675ed9ede3d78da5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca indeks danego typu organizmu w tablicach w <a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html">ustawieniach wyświetlania</a>.  <a href="class_srodowisko.html#abd4b5b56cd99ee3675ed9ede3d78da5f">Więcej...</a><br /></td></tr>
+<tr class="separator:abd4b5b56cd99ee3675ed9ede3d78da5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Atrybuty prywatne</h2></td></tr>
@@ -201,22 +190,129 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a7880fd893b4593f8ef397dcc1916db2e">krokSymulacji</a></td></tr>
 <tr class="memdesc:a7880fd893b4593f8ef397dcc1916db2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ile kroków symulacji zostało wykonanych. <br /></td></tr>
 <tr class="separator:a7880fd893b4593f8ef397dcc1916db2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79cac6ab618fd2be9df5dabeae1fb22e"><td class="memItemLeft" align="right" valign="top"><a id="a79cac6ab618fd2be9df5dabeae1fb22e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscGlonow</b></td></tr>
+<tr class="memitem:a79cac6ab618fd2be9df5dabeae1fb22e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a79cac6ab618fd2be9df5dabeae1fb22e">iloscGlonow</a></td></tr>
 <tr class="separator:a79cac6ab618fd2be9df5dabeae1fb22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70128345db06647e9e453e0ebd5107b0"><td class="memItemLeft" align="right" valign="top"><a id="a70128345db06647e9e453e0ebd5107b0"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscGrzybow</b></td></tr>
+<tr class="memitem:a70128345db06647e9e453e0ebd5107b0"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a70128345db06647e9e453e0ebd5107b0">iloscGrzybow</a></td></tr>
 <tr class="separator:a70128345db06647e9e453e0ebd5107b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff09f9c17ca4867c403740b99b07d066"><td class="memItemLeft" align="right" valign="top"><a id="aff09f9c17ca4867c403740b99b07d066"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscBakterii</b></td></tr>
+<tr class="memitem:aff09f9c17ca4867c403740b99b07d066"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#aff09f9c17ca4867c403740b99b07d066">iloscBakterii</a></td></tr>
 <tr class="separator:aff09f9c17ca4867c403740b99b07d066"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1295077a0782246c6a8ffd585d46dfe9"><td class="memItemLeft" align="right" valign="top"><a id="a1295077a0782246c6a8ffd585d46dfe9"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych</b></td></tr>
+<tr class="memitem:a1295077a0782246c6a8ffd585d46dfe9"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a1295077a0782246c6a8ffd585d46dfe9">iloscMartwych</a></td></tr>
 <tr class="separator:a1295077a0782246c6a8ffd585d46dfe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9b999ab84791e8345f07eef0242aceb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_organizm.html">Organizm</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#aa9b999ab84791e8345f07eef0242aceb">zyweOrganizmy</a></td></tr>
+<tr class="memdesc:aa9b999ab84791e8345f07eef0242aceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźniki do żywych organizmów.  <a href="class_srodowisko.html#aa9b999ab84791e8345f07eef0242aceb">Więcej...</a><br /></td></tr>
 <tr class="separator:aa9b999ab84791e8345f07eef0242aceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Wewnątrz środowiska rozwijają się różne gatunki <a class="el" href="class_organizm.html">organizmów</a>. </p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="ad11b108125465d06fa3616bba5df2fa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad11b108125465d06fa3616bba5df2fa4">&#9670;&nbsp;</a></span>Srodowisko()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Srodowisko::Srodowisko </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html">ustawieniaWyswietlania</a> *&#160;</td>
+          <td class="paramname"><em>ustawieniaWyswietlania</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pyta użytkownika o konfigurację siebie i losuje właściwości <a class="el" href="class_organizm.html">Organizm</a> organizmów. </p>
+<p>Prosi użytkownika o podanie <a class="el" href="class_srodowisko.html#af7e9a73b38cef1b320ff9f8eceead99c">szerokości</a> i <a class="el" href="class_srodowisko.html#a765d95720a5a676af3e4b20612b8e29f">wysokości</a>, początkowych liczebności organizmów, oraz losuje własności <a class="el" href="class_organizm.html#a1c0887b39839f5ad3c666c50d20f5d35" title="Jeśli wiek przekroczy tę wartość, organizm staje się martwy.">Organizm::maxWiek</a>, <a class="el" href="class_organizm.html#ae314b335b78c6bdcd5565a90ad4e0d26" title="Maksymalna wartość zmiennej najedzenie.">Organizm::maxNajedzenie</a>, <a class="el" href="class_organizm.html#a41169a4cf298a6d65e4af35ab9366d52" title="Przy rozmnażaniu się najedzenie jest zmniejszane o tę wartość.">Organizm::kosztNarodzin</a> dla każdego gatunku <a class="el" href="class_organizm.html">organizmów</a>. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname"><a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html" title="Struktura przechowująca opcje dla funkcji Srodowisko::wyswietlSrodowisko(ustWysw).">ustawieniaWyswietlania</a></td><td>wskaźnik, który zostaje przechowany w <a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8" title="Opcje wyświetlania używane w wyswietlSrodowisko(bool).">ustWyswietlania</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a8fbf257ed2873af91477e324714fad0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fbf257ed2873af91477e324714fad0a">&#9670;&nbsp;</a></span>czySygnalizowacNajedzenie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Srodowisko::czySygnalizowacNajedzenie </td>
+          <td>(</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>znakOrganizmu</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwraca wartość z tablicy <a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8" title="Opcje wyświetlania używane w wyswietlSrodowisko(bool).">ustWyswietlania</a>-&gt;wyswietlajNajedzenie z indeksu odpowiadającego <a class="el" href="class_organizm.html">organizmowi</a> o danym znaku. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">znakOrganizmu</td><td>Znak <a class="el" href="class_organizm.html">organizmu</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>wartość z tablicy <a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8" title="Opcje wyświetlania używane w wyswietlSrodowisko(bool).">ustWyswietlania</a>-&gt;wyswietlajNajedzenie </dd></dl>
+
+</div>
+</div>
+<a id="a2c26014205d418e7695171d7e2308de3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c26014205d418e7695171d7e2308de3">&#9670;&nbsp;</a></span>czySygnalizowacRozmnozenie()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Srodowisko::czySygnalizowacRozmnozenie </td>
+          <td>(</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>znakOrganizmu</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwraca wartość z tablicy <a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8" title="Opcje wyświetlania używane w wyswietlSrodowisko(bool).">ustWyswietlania</a>-&gt;wyswietlajRozmnozenie z indeksu odpowiadającego <a class="el" href="class_organizm.html">organizmowi</a> o danym znaku. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">znakOrganizmu</td><td>Znak <a class="el" href="class_organizm.html">organizmu</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>wartość z tablicy <a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8" title="Opcje wyświetlania używane w wyswietlSrodowisko(bool).">ustWyswietlania</a>-&gt;wyswietlajRozmnozenie </dd></dl>
+
+</div>
+</div>
+<a id="ac1795e200c29439ad38810e3cd6c6f95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1795e200c29439ad38810e3cd6c6f95">&#9670;&nbsp;</a></span>czyWyswietlacInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Srodowisko::czyWyswietlacInfo </td>
+          <td>(</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>znakOrganizmu</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwraca wartość z tablicy <a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8" title="Opcje wyświetlania używane w wyswietlSrodowisko(bool).">ustWyswietlania</a>-&gt;wyswietlajInfo z indeksu odpowiadającego <a class="el" href="class_organizm.html">organizmowi</a> o danym znaku. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">znakOrganizmu</td><td>Znak <a class="el" href="class_organizm.html">organizmu</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>wartość z tablicy <a class="el" href="class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8" title="Opcje wyświetlania używane w wyswietlSrodowisko(bool).">ustWyswietlania</a>-&gt;wyswietlajInfo </dd></dl>
+
+</div>
+</div>
 <a id="a5805db17656c47edb7b9725ba98988e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5805db17656c47edb7b9725ba98988e5">&#9670;&nbsp;</a></span>dostanIndeksSasiada()</h2>
 
@@ -264,7 +360,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Zwraca</dt><dd></dd></dl>
+<dl class="section return"><dt>Zwraca</dt><dd>indeks sąsiada </dd></dl>
 
 </div>
 </div>
@@ -301,13 +397,16 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Zwraca kolejnego stringa z podanej tablicy <em>informacje</em>. </p><dl class="params"><dt>Parametry</dt><dd>
+
+<p>Zwraca kolejnego stringa z podanej tablicy <code>*informacje</code>. </p>
+<dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
-    <tr><td class="paramname">informacje</td><td>Tablica napisów. </td></tr>
-    <tr><td class="paramname">indeksInformacji</td><td>Indeks oznaczający, która informacja powinna zostać zwrócona. Zostanie powiększony o 1. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">informacje</td><td>Tablica napisów. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">*indeksInformacji</td><td>Indeks oznaczający, która informacja powinna zostać zwrócona. Zostanie powiększony o 1. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Napis z tablicy. </dd></dl>
 
 </div>
 </div>
@@ -337,6 +436,113 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
 <p>Zwraca literę danej kolumny, pierwsza kolumna (0) ma literę A, druga (1) B, itd..., kolumna 26 (25) = Z, kolumna 27 (26) = a. </p><dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
     <tr><td class="paramname">nrKolumny</td><td>Liczony od zera nr kolumny. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Literę kolumny. </dd></dl>
+
+</div>
+</div>
+<a id="abd4b5b56cd99ee3675ed9ede3d78da5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd4b5b56cd99ee3675ed9ede3d78da5f">&#9670;&nbsp;</a></span>dostanNrOrganizmu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::dostanNrOrganizmu </td>
+          <td>(</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>znakOrganizmu</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Zwraca indeks danego typu organizmu w tablicach w <a class="el" href="struct_srodowisko_1_1ustawienia_wyswietlania.html">ustawieniach wyświetlania</a>. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">znakOrganizmu</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd><ul>
+<li>0 dla <a class="el" href="class_organizm.html#aafc40a25603436d3eefa3ab617538d74" title="Znak, który reprezentuje gatunek glonu.">Organizm::ZNAK_GLONU</a> </li>
+<li>1 dla <a class="el" href="class_organizm.html#a9ee5ce6c758e9d4ceba56b42aa9dc775" title="Znak, który reprezentuje gatunek grzybu.">Organizm::ZNAK_GRZYBU</a> </li>
+<li>2 dla <a class="el" href="class_organizm.html#a603e6d7473189dd5ee209d4c008fa4da" title="Znak, który reprezentuje gatunek bakterii.">Organizm::ZNAK_BAKTERII</a> </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a13a8b28b3d0b5c94ec97060eef5d0b9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a8b28b3d0b5c94ec97060eef5d0b9d">&#9670;&nbsp;</a></span>dostanX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::dostanX </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>indeksNiszy</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Zwraca liczoną od 0 horyzontalną koordynatę niszy na danym indeksie. </p><dl class="section return"><dt>Zwraca</dt><dd>horyzontalną koordynatę niszy. </dd></dl>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">indeksNiszy</td><td>w tablicy <a class="el" href="class_srodowisko.html#a9780a6242e261bd9d0e544d7c85157ee" title="Tablica przechowująca wskaźniki do organizmów na odpowiadających im pozycjach.">nisze</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a391cfc61e4b177302c53856d42e7312a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a391cfc61e4b177302c53856d42e7312a">&#9670;&nbsp;</a></span>dostanY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::dostanY </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
+          <td class="paramname"><em>indeksNiszy</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Zwraca liczoną od 0 wertykalną koordynatę niszy na danym indeksie. </p><dl class="section return"><dt>Zwraca</dt><dd>wertykalną koordynatę niszy. </dd></dl>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">indeksNiszy</td><td>w tablicy <a class="el" href="class_srodowisko.html#a9780a6242e261bd9d0e544d7c85157ee" title="Tablica przechowująca wskaźniki do organizmów na odpowiadających im pozycjach.">nisze</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -383,6 +589,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Zwraca</dt><dd>indeks niszy. </dd></dl>
 
 </div>
 </div>
@@ -419,13 +626,52 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Zwraca organizm zajmujący niszę na podanych koordynatach w tablicy nisze. Jeśli żaden organizm jej nie zajmuje, zwraca nullptr. </p><dl class="params"><dt>Parametry</dt><dd>
+
+<p>Zwraca <a class="el" href="class_organizm.html">organizm</a> zajmujący niszę na podanych koordynatach w tablicy <a class="el" href="class_srodowisko.html#a9780a6242e261bd9d0e544d7c85157ee" title="Tablica przechowująca wskaźniki do organizmów na odpowiadających im pozycjach.">nisze</a>. </p>
+<p>Jeśli nie ma tam żadnego organizmu, zwraca nullptr. </p><dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>Horyzontalna koordynata niszy, dla pierwszej kolumny wynosi zero. </td></tr>
     <tr><td class="paramname">y</td><td>Wertykalna koordynata niszy, dla pierwszego wiersza wynosi zero. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik do organizmu lub nullptr. </dd></dl>
+
+</div>
+</div>
+<a id="a8edd6987d2b4dabb963ba80f9363acb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8edd6987d2b4dabb963ba80f9363acb5">&#9670;&nbsp;</a></span>getSzerokosc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::getSzerokosc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Zwraca</dt><dd><a class="el" href="class_srodowisko.html#af7e9a73b38cef1b320ff9f8eceead99c" title="Ilość niszy w wymiarze horyzontalnym.">szerokosc</a> </dd></dl>
+
+</div>
+</div>
+<a id="a465fb10facf95e350ffcf390c805ccb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a465fb10facf95e350ffcf390c805ccb4">&#9670;&nbsp;</a></span>getWysokosc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::getWysokosc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Zwraca</dt><dd><a class="el" href="class_srodowisko.html#a765d95720a5a676af3e4b20612b8e29f" title="Ilość niszy w wymiarze wertykalnym.">wysokosc</a> </dd></dl>
 
 </div>
 </div>
@@ -451,25 +697,9 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Zwraca tablicę napisów, gdzie każdy z nich opisuje pozycję, nazwę, wiek oraz najedzenie i sygnalizację zmiany najedzenia jednego organizmu. </p>
 
-</div>
-</div>
-<a id="ac0ec74b4a7e191cd222e9b352c6dd561"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0ec74b4a7e191cd222e9b352c6dd561">&#9670;&nbsp;</a></span>petla()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Srodowisko::petla </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Udostępnia użytkownikowi interfejs obsługi środowiska oraz nim zarządza. </p>
+<p>Tablica napisów z informacjami o organizmach. </p>
+<p>Generuje i zwraca wskaźnik do nowej tablicy napisów, gdzie każdy z nich opisuje pozycję, nazwę, wiek oraz najedzenie i sygnalizację zmiany najedzenia jednego organizmu. Napisy dla danego gatunku nie są generowane, jeśli czyWyswietlacInfo(<code>znakGatunku</code>) zwraca <code>false</code>. </p><dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik do nowej tablicy napisów. </dd></dl>
 
 </div>
 </div>
@@ -495,12 +725,12 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Ustawia wartości zmiennych <em>#iloscGlonow</em>, <em>#iloscGrzybow</em> <em>#iloscBakterii</em>, <em>#iloscMartwych</em>. </p>
+<p>Ustawia wartości zmiennych <em><a class="el" href="class_srodowisko.html#a79cac6ab618fd2be9df5dabeae1fb22e">iloscGlonow</a></em>, <em><a class="el" href="class_srodowisko.html#a70128345db06647e9e453e0ebd5107b0">iloscGrzybow</a></em> <em><a class="el" href="class_srodowisko.html#aff09f9c17ca4867c403740b99b07d066">iloscBakterii</a></em>, <em><a class="el" href="class_srodowisko.html#a1295077a0782246c6a8ffd585d46dfe9">iloscMartwych</a></em>. </p>
 
 </div>
 </div>
-<a id="a3465abd02b763f9262bc990e394da741"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3465abd02b763f9262bc990e394da741">&#9670;&nbsp;</a></span>setNisza()</h2>
+<a id="ab1b85908e11e237a8fce5fb769b70ce2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1b85908e11e237a8fce5fb769b70ce2">&#9670;&nbsp;</a></span>setNisza()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -511,7 +741,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
         <tr>
           <td class="memname">void Srodowisko::setNisza </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_organizm.html">Organizm</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_organizm.html">Organizm</a> *const&#160;</td>
           <td class="paramname"><em>organizm</em>, </td>
         </tr>
         <tr>
@@ -538,10 +768,13 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Umieszcza organizm na podanych koordynatach w tablicy nisze. Jeśli żaden organizm jej nie zajmuje, zwraca nullptr. </p><dl class="params"><dt>Parametry</dt><dd>
+
+<p>Umieszcza <a class="el" href="class_organizm.html">organizm</a> na podanych koordynatach w tablicy <a class="el" href="class_srodowisko.html#a9780a6242e261bd9d0e544d7c85157ee" title="Tablica przechowująca wskaźniki do organizmów na odpowiadających im pozycjach.">nisze</a>. </p>
+<p>Jeśli żaden organizm jej nie zajmuje, zwraca nullptr. </p><dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Horyzontalna koordynata niszy, dla pierwszej kolumny wynosi zero. </td></tr>
-    <tr><td class="paramname">y</td><td>Wertykalna koordynata niszy, dla pierwszego wiersza wynosi zero. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">organizm</td><td>Wskaźnik do organizmu. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>Horyzontalna koordynata niszy, dla pierwszej kolumny wynosi zero. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>Wertykalna koordynata niszy, dla pierwszego wiersza wynosi zero. </td></tr>
   </table>
   </dd>
 </dl>
@@ -572,12 +805,15 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Sprawdza, czy organizm znajdujący się na podanym indeksie nie został wchłonięty. Jeśli nadal żyje, zwraca true. </p><dl class="params"><dt>Parametry</dt><dd>
+
+<p>Sprawdza, czy organizm nadal żyje. </p>
+<p>Czy organizm znajdujący się na podanym indeksie w tablicy <a class="el" href="class_srodowisko.html#aa9b999ab84791e8345f07eef0242aceb" title="Wskaźniki do żywych organizmów.">zyweOrganizmy</a> nie został wchłonięty. </p><dl class="params"><dt>Parametry</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Indeks organizmu. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Zwraca</dt><dd><code>true</code>, jeśli organizm nadal żyje. </dd></dl>
 
 </div>
 </div>
@@ -595,7 +831,46 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Wywołuje czynności życiowe w <a class="el" href="class_organizm.html">organizmach</a>. </p>
 <p>Najpierw udostępnia wszystkim żywym organizmom informacje o wszystkich niszach oraz o sąsiedztwie. Następnie, w oddzielnych krokach dla wszystkich organizmów żywych na początku wywołania funkcji, dopóki są żywe i niewchłonięte, jednocześnie dla wszystkich z nich: wywołuje zastanawienie się w organizmach nad rozmnożeniem się, następnie nad najedzeniem się, starzenie się, oraz finalnie zastanowienie nad przemieszczeniem się. </p><dl class="section post"><dt>Warunek końcowy</dt><dd><a class="el" href="class_srodowisko.html#a7880fd893b4593f8ef397dcc1916db2e">Srodowisko::krokSymulacji</a> został zwiększony o 1. </dd></dl>
+
+</div>
+</div>
+<a id="a297a50f773b64772e1af1af9522ea40b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a297a50f773b64772e1af1af9522ea40b">&#9670;&nbsp;</a></span>wyswietlBoolUstawien()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Srodowisko::wyswietlBoolUstawien </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>zmienna</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::basic_ostream&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>f</em>std::basic_ostream&lt; char &gt; &amp;&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wyświetla pokolorowaną wartość zmiennej <code>bool</code> i ustawia kolor tekstu. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">zmienna</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>operator TermColoru oznaczający kolor tekstu, jaki powinien być ustawiony po wyświetleniu wartości zmiennej. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -614,12 +889,20 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Wyświetla w pierwszej kolumnie ilość wykonanych kroków, aktualne ilości organizmów w środowisku, oraz planszę wyświetlającą nisze środowiska z organizmami, a w drugiej kolumnie wyświetla pozycje organizmów, ich nazwy, wiek, oraz najedzenie. </p>
+
+<p>Wyświetla planszę środowiska oraz informacje o organizmach. </p>
+<p>Wyświetla w pierwszej kolumnie ilość wykonanych kroków, aktualne ilości organizmów w środowisku, oraz planszę wyświetlającą nisze środowiska z organizmami, a w drugiej kolumnie wyświetla pozycje organizmów, ich nazwy, wiek, oraz najedzenie. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">czyOstatnioDrukowanoSrodowisko</td><td>to zmienna informująca o tym, czy ostatnio wyświetlono planszę środowiska, co jest jednoznaczne z tym, że można ją nadrysować. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a6223ddbafd2f6e747962e32fdd03a06b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6223ddbafd2f6e747962e32fdd03a06b">&#9670;&nbsp;</a></span>wyswietlUstawienia()</h2>
+<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a id="aff09f9c17ca4867c403740b99b07d066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff09f9c17ca4867c403740b99b07d066">&#9670;&nbsp;</a></span>iloscBakterii</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -628,10 +911,7 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Srodowisko::wyswietlUstawienia </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">unsigned int Srodowisko::iloscBakterii</td>
         </tr>
       </table>
   </td>
@@ -640,11 +920,79 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Wyświetla na wyjściu informacje o obecnych ustawieniach oraz sposobach ich zmiany. </p>
+<p>Ile <a class="el" href="class_bakteria.html">bakterii</a> aktualnie żyje w tym środowisku. </p><dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="class_organizm.html#adadb94bfe521faf60eccbda6c11c08d2" title="Czy wiek nie przekroczył jeszcze wartości maxWiek.">Organizm::czyZywy()</a> </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Dokumentacja atrybutów składowych</h2>
+<a id="a79cac6ab618fd2be9df5dabeae1fb22e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79cac6ab618fd2be9df5dabeae1fb22e">&#9670;&nbsp;</a></span>iloscGlonow</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::iloscGlonow</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Ile <a class="el" href="class_glon.html">glonów</a> aktualnie żyje w tym środowisku. </p><dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="class_organizm.html#adadb94bfe521faf60eccbda6c11c08d2" title="Czy wiek nie przekroczył jeszcze wartości maxWiek.">Organizm::czyZywy()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a70128345db06647e9e453e0ebd5107b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70128345db06647e9e453e0ebd5107b0">&#9670;&nbsp;</a></span>iloscGrzybow</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::iloscGrzybow</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Ile <a class="el" href="class_grzyb.html">grzybów</a> aktualnie żyje w tym środowisku. </p><dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="class_organizm.html#adadb94bfe521faf60eccbda6c11c08d2" title="Czy wiek nie przekroczył jeszcze wartości maxWiek.">Organizm::czyZywy()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a1295077a0782246c6a8ffd585d46dfe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1295077a0782246c6a8ffd585d46dfe9">&#9670;&nbsp;</a></span>iloscMartwych</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::iloscMartwych</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Ile martwych organizmów aktualnie znajduje się w środowisku. </p><dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="class_organizm.html#adadb94bfe521faf60eccbda6c11c08d2" title="Czy wiek nie przekroczył jeszcze wartości maxWiek.">Organizm::czyZywy()</a> </dd></dl>
+
+</div>
+</div>
 <a id="aa9b999ab84791e8345f07eef0242aceb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa9b999ab84791e8345f07eef0242aceb">&#9670;&nbsp;</a></span>zyweOrganizmy</h2>
 
@@ -664,7 +1012,9 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iloscMartwych
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Przechowuje wskaźniki do żywych organizmów, aby nie musieć za każdym razem przechodzić każdego indeksu tablicy "nisze". Prawdopodobnie nie daje to żadnego realnego zysku, jednak niczego też nie pogarsza, więc pozostawiam. </p>
+
+<p>Wskaźniki do żywych organizmów. </p>
+<p>Przechowuje wskaźniki do żywych organizmów, aby nie musieć za każdym razem przechodzić każdego indeksu tablicy "nisze". </p><dl class="section note"><dt>Nota</dt><dd>Prawdopodobnie nie daje to żadnego realnego zysku, jednak niczego też nie pogarsza, więc pozostawiam. </dd></dl>
 
 </div>
 </div>

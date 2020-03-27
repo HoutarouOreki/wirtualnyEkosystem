@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['organizm_99',['Organizm',['../class_organizm.html#a9e71f77d7f16f8c1c7c93192cde0cdf2',1,'Organizm']]]
+  ['mozesprobujnajescsie_128',['mozeSprobujNajescSie',['../class_organizm.html#a577aa3a5f7913fe3308e9caa14f8f363',1,'Organizm']]],
+  ['mozesprobujporuszycsie_129',['mozeSprobujPoruszycSie',['../class_organizm.html#a06b998b2bd1514900bb26d0484b1fe15',1,'Organizm']]],
+  ['mozesprobujrozmnozycsie_130',['mozeSprobujRozmnozycSie',['../class_organizm.html#a4bea12ec57f3e56652f9da81bb12afbe',1,'Organizm']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zyweorganizmy_135',['zyweOrganizmy',['../class_srodowisko.html#aa9b999ab84791e8345f07eef0242aceb',1,'Srodowisko']]]
+  ['ustwyswietlania_174',['ustWyswietlania',['../class_srodowisko.html#af81255149fc95281795e0df4b9eb07e8',1,'Srodowisko']]]
 ];
