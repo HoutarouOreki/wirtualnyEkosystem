@@ -1,0 +1,289 @@
+\hypertarget{class_srodowisko}{}\doxysection{Srodowisko Class Reference}
+\label{class_srodowisko}\index{Srodowisko@{Srodowisko}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_srodowisko_1_1ustawienia_wyswietlania}{ustawienia\+Wyswietlania}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_srodowisko_a33a6c8a51eb7f610a325ebebffa491f8}\label{class_srodowisko_a33a6c8a51eb7f610a325ebebffa491f8}} 
+bool {\bfseries czy\+Wyswietlac\+Info} (char znak\+Organizmu) const
+\item 
+\mbox{\Hypertarget{class_srodowisko_ae724a5e417bd700db080b6e1afbe91b5}\label{class_srodowisko_ae724a5e417bd700db080b6e1afbe91b5}} 
+bool {\bfseries czy\+Sygnalizowac\+Najedzenie} (char znak\+Organizmu) const
+\item 
+\mbox{\Hypertarget{class_srodowisko_a9a205ea65313df2d616cbae2b961812a}\label{class_srodowisko_a9a205ea65313df2d616cbae2b961812a}} 
+bool {\bfseries czy\+Sygnalizowac\+Rozmnozenie} (char znak\+Organizmu) const
+\item 
+\mbox{\Hypertarget{class_srodowisko_a8646a162d1137ef3ffaaaffe8c54b50a}\label{class_srodowisko_a8646a162d1137ef3ffaaaffe8c54b50a}} 
+void {\bfseries wyswietl\+Bool\+Ustawien} (bool zmienna, std\+::basic\+\_\+ostream$<$ char $>$ \&f(std\+::basic\+\_\+ostream$<$ char $>$ \&))
+\item 
+\mbox{\Hypertarget{class_srodowisko_ad11b108125465d06fa3616bba5df2fa4}\label{class_srodowisko_ad11b108125465d06fa3616bba5df2fa4}} 
+{\bfseries Srodowisko} (\mbox{\hyperlink{struct_srodowisko_1_1ustawienia_wyswietlania}{ustawienia\+Wyswietlania}} $\ast$\mbox{\hyperlink{struct_srodowisko_1_1ustawienia_wyswietlania}{ustawienia\+Wyswietlania}})
+\item 
+void \mbox{\hyperlink{class_srodowisko_a1a599a77f852a4b9b3648cce080e70fd}{wykonaj\+Krok\+Symulacji}} ()
+\item 
+\mbox{\Hypertarget{class_srodowisko_a8edd6987d2b4dabb963ba80f9363acb5}\label{class_srodowisko_a8edd6987d2b4dabb963ba80f9363acb5}} 
+unsigned int {\bfseries get\+Szerokosc} () const
+\item 
+\mbox{\Hypertarget{class_srodowisko_a465fb10facf95e350ffcf390c805ccb4}\label{class_srodowisko_a465fb10facf95e350ffcf390c805ccb4}} 
+unsigned int {\bfseries get\+Wysokosc} () const
+\item 
+void \mbox{\hyperlink{class_srodowisko_a8d0a18acb9717a716204f34ed4dfc6fd}{wyswietl\+Srodowisko}} (bool czy\+Ostatnio\+Drukowano\+Srodowisko)
+\item 
+void \mbox{\hyperlink{class_srodowisko_ac0ec74b4a7e191cd222e9b352c6dd561}{petla}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_srodowisko_a9780a6242e261bd9d0e544d7c85157ee}\label{class_srodowisko_a9780a6242e261bd9d0e544d7c85157ee}} 
+\mbox{\hyperlink{class_organizm}{Organizm}} $\ast$$\ast$ \mbox{\hyperlink{class_srodowisko_a9780a6242e261bd9d0e544d7c85157ee}{nisze}}
+\begin{DoxyCompactList}\small\item\em Tablica przechowująca wskaźniki do organizmów na odpowiadających im pozycjach. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_srodowisko_ac61529858364b1abf29550356b27242c}\label{class_srodowisko_ac61529858364b1abf29550356b27242c}} 
+unsigned int {\bfseries max\+Wiek\+Glonow}
+\item 
+\mbox{\Hypertarget{class_srodowisko_a52f30b96e3d2f03dcaaff709b182353b}\label{class_srodowisko_a52f30b96e3d2f03dcaaff709b182353b}} 
+unsigned int {\bfseries max\+Wiek\+Grzybow}
+\item 
+\mbox{\Hypertarget{class_srodowisko_af1e1df48543ffd2803cd04cf529887a0}\label{class_srodowisko_af1e1df48543ffd2803cd04cf529887a0}} 
+unsigned int {\bfseries max\+Wiek\+Bakterii}
+\item 
+\mbox{\Hypertarget{class_srodowisko_a77a9ce2a3284fd84f171a440d9f0bcb2}\label{class_srodowisko_a77a9ce2a3284fd84f171a440d9f0bcb2}} 
+unsigned int {\bfseries max\+Najedzenie\+Glonow}
+\item 
+\mbox{\Hypertarget{class_srodowisko_a7b80622e5d53b7c0b7a69a0119926d2e}\label{class_srodowisko_a7b80622e5d53b7c0b7a69a0119926d2e}} 
+unsigned int {\bfseries max\+Najedzenie\+Grzybow}
+\item 
+\mbox{\Hypertarget{class_srodowisko_a16f755df0b94ee9c8400f5df48f347ed}\label{class_srodowisko_a16f755df0b94ee9c8400f5df48f347ed}} 
+unsigned int {\bfseries max\+Najedzenie\+Bakterii}
+\item 
+\mbox{\Hypertarget{class_srodowisko_adc6384bd91ad76003a74c933687d331f}\label{class_srodowisko_adc6384bd91ad76003a74c933687d331f}} 
+unsigned int {\bfseries koszt\+Narodzin\+Glonow}
+\item 
+\mbox{\Hypertarget{class_srodowisko_a039439203805c195c11fd64ea1f57a68}\label{class_srodowisko_a039439203805c195c11fd64ea1f57a68}} 
+unsigned int {\bfseries koszt\+Narodzin\+Grzybow}
+\item 
+\mbox{\Hypertarget{class_srodowisko_aee0b7e2477f00c91402ae0ff8a2b7575}\label{class_srodowisko_aee0b7e2477f00c91402ae0ff8a2b7575}} 
+unsigned int {\bfseries koszt\+Narodzin\+Bakterii}
+\item 
+\mbox{\Hypertarget{class_srodowisko_af81255149fc95281795e0df4b9eb07e8}\label{class_srodowisko_af81255149fc95281795e0df4b9eb07e8}} 
+\mbox{\hyperlink{struct_srodowisko_1_1ustawienia_wyswietlania}{ustawienia\+Wyswietlania}} $\ast$ {\bfseries ust\+Wyswietlania}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_srodowisko_a1de405a908f857490ff0dc97ed695ee1}{podlicz\+Ilosci\+Organizmow}} ()
+\item 
+unsigned int \mbox{\hyperlink{class_srodowisko_a4f41939fb90b6d6616d7820ca8484cdd}{get\+Indeks\+Niszy\+Od\+Koordynat}} (const unsigned int x, const unsigned int y) const
+\item 
+\mbox{\hyperlink{class_organizm}{Organizm}} $\ast$ \mbox{\hyperlink{class_srodowisko_a190201e5afb1398de445e6b2861c8067}{get\+Nisza}} (const unsigned int x, const unsigned int y) const
+\item 
+void \mbox{\hyperlink{class_srodowisko_a3465abd02b763f9262bc990e394da741}{set\+Nisza}} (\mbox{\hyperlink{class_organizm}{Organizm}} $\ast$organizm, const unsigned int x, const unsigned int y)
+\item 
+\mbox{\Hypertarget{class_srodowisko_a13a8b28b3d0b5c94ec97060eef5d0b9d}\label{class_srodowisko_a13a8b28b3d0b5c94ec97060eef5d0b9d}} 
+unsigned int \mbox{\hyperlink{class_srodowisko_a13a8b28b3d0b5c94ec97060eef5d0b9d}{dostanX}} (const unsigned int indeks\+Niszy) const
+\begin{DoxyCompactList}\small\item\em Zwraca liczoną od 0 horyzontalną koordynatę niszy na danym indeksie. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_srodowisko_a391cfc61e4b177302c53856d42e7312a}\label{class_srodowisko_a391cfc61e4b177302c53856d42e7312a}} 
+unsigned int \mbox{\hyperlink{class_srodowisko_a391cfc61e4b177302c53856d42e7312a}{dostanY}} (const unsigned int indeks\+Niszy) const
+\begin{DoxyCompactList}\small\item\em Zwraca liczoną od 0 wertykalną koordynatę niszy na danym indeksie. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_srodowisko_a5805db17656c47edb7b9725ba98988e5}{dostan\+Indeks\+Sasiada}} (unsigned int x, unsigned int y, const unsigned int nr\+Sasiada) const
+\item 
+char \mbox{\hyperlink{class_srodowisko_acd16674edb47575b3146c135a40b83c5}{dostan\+Litere\+Kolumny}} (unsigned int nr\+Kolumny) const
+\item 
+std\+::string $\ast$ \mbox{\hyperlink{class_srodowisko_ab4be63be9d79128527a81c2bca33bcc4}{informacje\+Organizmow}} () const
+\item 
+bool \mbox{\hyperlink{class_srodowisko_a10aee99ef5e97eca20127f3092e89a20}{upewnij\+Sie\+Czy\+Organizm\+Nadal\+Istnieje}} (const unsigned int i)
+\item 
+void \mbox{\hyperlink{class_srodowisko_a6223ddbafd2f6e747962e32fdd03a06b}{wyswietl\+Ustawienia}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_srodowisko_a3bd57dcbd0e13a008ccce3c72c5c0a36}{dostan\+Kolejna\+Informacje}} (std\+::string $\ast$informacje, unsigned int $\ast$indeks\+Informacji)
+\item 
+\mbox{\Hypertarget{class_srodowisko_a4b2f4d22e2a4fedbedc7c844ae4d8868}\label{class_srodowisko_a4b2f4d22e2a4fedbedc7c844ae4d8868}} 
+unsigned int {\bfseries dostan\+Nr\+Organizmu} (char znak\+Organizmu) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_srodowisko_a50d8a3511638c1becd65bb29cdcf15a4}\label{class_srodowisko_a50d8a3511638c1becd65bb29cdcf15a4}} 
+const unsigned int \mbox{\hyperlink{class_srodowisko_a50d8a3511638c1becd65bb29cdcf15a4}{M\+A\+X\+\_\+\+S\+Z\+E\+R\+O\+K\+O\+SC}} = 40
+\begin{DoxyCompactList}\small\item\em Maksymalna ilość niszy w wymiarze horyzontalnym. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_srodowisko_a54246aecb5af5e6adda82a99dd2313d7}\label{class_srodowisko_a54246aecb5af5e6adda82a99dd2313d7}} 
+const unsigned int \mbox{\hyperlink{class_srodowisko_a54246aecb5af5e6adda82a99dd2313d7}{M\+A\+X\+\_\+\+W\+Y\+S\+O\+K\+O\+SC}} = 26
+\begin{DoxyCompactList}\small\item\em Maksymalna ilość niszy w wymiarze wertykalnym. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_srodowisko_af7e9a73b38cef1b320ff9f8eceead99c}\label{class_srodowisko_af7e9a73b38cef1b320ff9f8eceead99c}} 
+unsigned int \mbox{\hyperlink{class_srodowisko_af7e9a73b38cef1b320ff9f8eceead99c}{szerokosc}}
+\begin{DoxyCompactList}\small\item\em Ilość niszy w wymiarze horyzontalnym. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_srodowisko_a765d95720a5a676af3e4b20612b8e29f}\label{class_srodowisko_a765d95720a5a676af3e4b20612b8e29f}} 
+unsigned int \mbox{\hyperlink{class_srodowisko_a765d95720a5a676af3e4b20612b8e29f}{wysokosc}}
+\begin{DoxyCompactList}\small\item\em Ilość niszy w wymiarze wertykalnym. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_srodowisko_a7880fd893b4593f8ef397dcc1916db2e}\label{class_srodowisko_a7880fd893b4593f8ef397dcc1916db2e}} 
+unsigned int \mbox{\hyperlink{class_srodowisko_a7880fd893b4593f8ef397dcc1916db2e}{krok\+Symulacji}}
+\begin{DoxyCompactList}\small\item\em Ile kroków symulacji zostało wykonanych. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_srodowisko_a79cac6ab618fd2be9df5dabeae1fb22e}\label{class_srodowisko_a79cac6ab618fd2be9df5dabeae1fb22e}} 
+unsigned int {\bfseries ilosc\+Glonow}
+\item 
+\mbox{\Hypertarget{class_srodowisko_a70128345db06647e9e453e0ebd5107b0}\label{class_srodowisko_a70128345db06647e9e453e0ebd5107b0}} 
+unsigned int {\bfseries ilosc\+Grzybow}
+\item 
+\mbox{\Hypertarget{class_srodowisko_aff09f9c17ca4867c403740b99b07d066}\label{class_srodowisko_aff09f9c17ca4867c403740b99b07d066}} 
+unsigned int {\bfseries ilosc\+Bakterii}
+\item 
+\mbox{\Hypertarget{class_srodowisko_a1295077a0782246c6a8ffd585d46dfe9}\label{class_srodowisko_a1295077a0782246c6a8ffd585d46dfe9}} 
+unsigned int {\bfseries ilosc\+Martwych}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_organizm}{Organizm}} $\ast$ $>$ \mbox{\hyperlink{class_srodowisko_aa9b999ab84791e8345f07eef0242aceb}{zywe\+Organizmy}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_srodowisko_a5805db17656c47edb7b9725ba98988e5}\label{class_srodowisko_a5805db17656c47edb7b9725ba98988e5}} 
+\index{Srodowisko@{Srodowisko}!dostanIndeksSasiada@{dostanIndeksSasiada}}
+\index{dostanIndeksSasiada@{dostanIndeksSasiada}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{dostanIndeksSasiada()}{dostanIndeksSasiada()}}
+{\footnotesize\ttfamily unsigned int Srodowisko\+::dostan\+Indeks\+Sasiada (\begin{DoxyParamCaption}\item[{unsigned int}]{x,  }\item[{unsigned int}]{y,  }\item[{const unsigned int}]{nr\+Sasiada }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Zwraca indeks niszy w tablicy nisze sąsiada o podanym numerze. 
+\begin{DoxyParams}{Parameters}
+{\em x} & Horyzontalny, liczony od zera, indeks niszy, której indeks sąsiada zostanie zwrócony. \\
+\hline
+{\em y} & Wertykalny, liczony od zera, indeks niszy, której indeks sąsiada zostanie zwrócony. \\
+\hline
+{\em nr\+Sasiada} & Liczony od zera nr sąsiada, zaczynając od lewego górnego, następnie idąc w prawo, a następnie w dół. 0 = po lewej u góry, 7 = po prawej u dołu. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_srodowisko_a3bd57dcbd0e13a008ccce3c72c5c0a36}\label{class_srodowisko_a3bd57dcbd0e13a008ccce3c72c5c0a36}} 
+\index{Srodowisko@{Srodowisko}!dostanKolejnaInformacje@{dostanKolejnaInformacje}}
+\index{dostanKolejnaInformacje@{dostanKolejnaInformacje}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{dostanKolejnaInformacje()}{dostanKolejnaInformacje()}}
+{\footnotesize\ttfamily std\+::string Srodowisko\+::dostan\+Kolejna\+Informacje (\begin{DoxyParamCaption}\item[{std\+::string $\ast$}]{informacje,  }\item[{unsigned int $\ast$}]{indeks\+Informacji }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Zwraca kolejnego stringa z podanej tablicy {\itshape informacje}. 
+\begin{DoxyParams}{Parameters}
+{\em informacje} & Tablica napisów. \\
+\hline
+{\em indeks\+Informacji} & Indeks oznaczający, która informacja powinna zostać zwrócona. Zostanie powiększony o 1. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_srodowisko_acd16674edb47575b3146c135a40b83c5}\label{class_srodowisko_acd16674edb47575b3146c135a40b83c5}} 
+\index{Srodowisko@{Srodowisko}!dostanLitereKolumny@{dostanLitereKolumny}}
+\index{dostanLitereKolumny@{dostanLitereKolumny}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{dostanLitereKolumny()}{dostanLitereKolumny()}}
+{\footnotesize\ttfamily char Srodowisko\+::dostan\+Litere\+Kolumny (\begin{DoxyParamCaption}\item[{unsigned int}]{nr\+Kolumny }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Zwraca literę danej kolumny, pierwsza kolumna (0) ma literę A, druga (1) B, itd..., kolumna 26 (25) = Z, kolumna 27 (26) = a. 
+\begin{DoxyParams}{Parameters}
+{\em nr\+Kolumny} & Liczony od zera nr kolumny. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_srodowisko_a4f41939fb90b6d6616d7820ca8484cdd}\label{class_srodowisko_a4f41939fb90b6d6616d7820ca8484cdd}} 
+\index{Srodowisko@{Srodowisko}!getIndeksNiszyOdKoordynat@{getIndeksNiszyOdKoordynat}}
+\index{getIndeksNiszyOdKoordynat@{getIndeksNiszyOdKoordynat}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{getIndeksNiszyOdKoordynat()}{getIndeksNiszyOdKoordynat()}}
+{\footnotesize\ttfamily unsigned int Srodowisko\+::get\+Indeks\+Niszy\+Od\+Koordynat (\begin{DoxyParamCaption}\item[{const unsigned int}]{x,  }\item[{const unsigned int}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Zwraca jaki indeks w tablicy {\itshape nisze} ma nisza na podanych koordynatach. 
+\begin{DoxyParams}{Parameters}
+{\em x} & Horyzontalna koordynata niszy, dla pierwszej kolumny wynosi zero. \\
+\hline
+{\em y} & Wertykalna koordynata niszy, dla pierwszego wiersza wynosi zero. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_srodowisko_a190201e5afb1398de445e6b2861c8067}\label{class_srodowisko_a190201e5afb1398de445e6b2861c8067}} 
+\index{Srodowisko@{Srodowisko}!getNisza@{getNisza}}
+\index{getNisza@{getNisza}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{getNisza()}{getNisza()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_organizm}{Organizm}} $\ast$ Srodowisko\+::get\+Nisza (\begin{DoxyParamCaption}\item[{const unsigned int}]{x,  }\item[{const unsigned int}]{y }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Zwraca organizm zajmujący niszę na podanych koordynatach w tablicy nisze. Jeśli żaden organizm jej nie zajmuje, zwraca nullptr. 
+\begin{DoxyParams}{Parameters}
+{\em x} & Horyzontalna koordynata niszy, dla pierwszej kolumny wynosi zero. \\
+\hline
+{\em y} & Wertykalna koordynata niszy, dla pierwszego wiersza wynosi zero. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_srodowisko_ab4be63be9d79128527a81c2bca33bcc4}\label{class_srodowisko_ab4be63be9d79128527a81c2bca33bcc4}} 
+\index{Srodowisko@{Srodowisko}!informacjeOrganizmow@{informacjeOrganizmow}}
+\index{informacjeOrganizmow@{informacjeOrganizmow}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{informacjeOrganizmow()}{informacjeOrganizmow()}}
+{\footnotesize\ttfamily std\+::string $\ast$ Srodowisko\+::informacje\+Organizmow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Zwraca tablicę napisów, gdzie każdy z nich opisuje pozycję, nazwę, wiek oraz najedzenie i sygnalizację zmiany najedzenia jednego organizmu. \mbox{\Hypertarget{class_srodowisko_ac0ec74b4a7e191cd222e9b352c6dd561}\label{class_srodowisko_ac0ec74b4a7e191cd222e9b352c6dd561}} 
+\index{Srodowisko@{Srodowisko}!petla@{petla}}
+\index{petla@{petla}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{petla()}{petla()}}
+{\footnotesize\ttfamily void Srodowisko\+::petla (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Udostępnia użytkownikowi interfejs obsługi środowiska oraz nim zarządza. \mbox{\Hypertarget{class_srodowisko_a1de405a908f857490ff0dc97ed695ee1}\label{class_srodowisko_a1de405a908f857490ff0dc97ed695ee1}} 
+\index{Srodowisko@{Srodowisko}!podliczIlosciOrganizmow@{podliczIlosciOrganizmow}}
+\index{podliczIlosciOrganizmow@{podliczIlosciOrganizmow}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{podliczIlosciOrganizmow()}{podliczIlosciOrganizmow()}}
+{\footnotesize\ttfamily void Srodowisko\+::podlicz\+Ilosci\+Organizmow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Ustawia wartości zmiennych {\itshape \#ilosc\+Glonow}, {\itshape \#ilosc\+Grzybow} {\itshape \#ilosc\+Bakterii}, {\itshape \#ilosc\+Martwych}. \mbox{\Hypertarget{class_srodowisko_a3465abd02b763f9262bc990e394da741}\label{class_srodowisko_a3465abd02b763f9262bc990e394da741}} 
+\index{Srodowisko@{Srodowisko}!setNisza@{setNisza}}
+\index{setNisza@{setNisza}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{setNisza()}{setNisza()}}
+{\footnotesize\ttfamily void Srodowisko\+::set\+Nisza (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_organizm}{Organizm}} $\ast$}]{organizm,  }\item[{const unsigned int}]{x,  }\item[{const unsigned int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Umieszcza organizm na podanych koordynatach w tablicy nisze. Jeśli żaden organizm jej nie zajmuje, zwraca nullptr. 
+\begin{DoxyParams}{Parameters}
+{\em x} & Horyzontalna koordynata niszy, dla pierwszej kolumny wynosi zero. \\
+\hline
+{\em y} & Wertykalna koordynata niszy, dla pierwszego wiersza wynosi zero. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+organizm-\/$>$wlasny\+Indeks zostal odpowiednio zmieniony. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_srodowisko_a10aee99ef5e97eca20127f3092e89a20}\label{class_srodowisko_a10aee99ef5e97eca20127f3092e89a20}} 
+\index{Srodowisko@{Srodowisko}!upewnijSieCzyOrganizmNadalIstnieje@{upewnijSieCzyOrganizmNadalIstnieje}}
+\index{upewnijSieCzyOrganizmNadalIstnieje@{upewnijSieCzyOrganizmNadalIstnieje}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{upewnijSieCzyOrganizmNadalIstnieje()}{upewnijSieCzyOrganizmNadalIstnieje()}}
+{\footnotesize\ttfamily bool Srodowisko\+::upewnij\+Sie\+Czy\+Organizm\+Nadal\+Istnieje (\begin{DoxyParamCaption}\item[{const unsigned int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Sprawdza, czy organizm znajdujący się na podanym indeksie nie został wchłonięty. Jeśli nadal żyje, zwraca true. 
+\begin{DoxyParams}{Parameters}
+{\em i} & Indeks organizmu. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_srodowisko_a1a599a77f852a4b9b3648cce080e70fd}\label{class_srodowisko_a1a599a77f852a4b9b3648cce080e70fd}} 
+\index{Srodowisko@{Srodowisko}!wykonajKrokSymulacji@{wykonajKrokSymulacji}}
+\index{wykonajKrokSymulacji@{wykonajKrokSymulacji}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{wykonajKrokSymulacji()}{wykonajKrokSymulacji()}}
+{\footnotesize\ttfamily void Srodowisko\+::wykonaj\+Krok\+Symulacji (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Najpierw udostępnia wszystkim żywym organizmom informacje o wszystkich niszach oraz o sąsiedztwie. Następnie, w oddzielnych krokach dla wszystkich organizmów żywych na początku wywołania funkcji, dopóki są żywe i niewchłonięte, jednocześnie dla wszystkich z nich\+: wywołuje zastanawienie się w organizmach nad rozmnożeniem się, następnie nad najedzeniem się, starzenie się, oraz finalnie zastanowienie nad przemieszczeniem się. \begin{DoxyPostcond}{Postcondition}
+\mbox{\hyperlink{class_srodowisko_a7880fd893b4593f8ef397dcc1916db2e}{Srodowisko\+::krok\+Symulacji}} został zwiększony o 1. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_srodowisko_a8d0a18acb9717a716204f34ed4dfc6fd}\label{class_srodowisko_a8d0a18acb9717a716204f34ed4dfc6fd}} 
+\index{Srodowisko@{Srodowisko}!wyswietlSrodowisko@{wyswietlSrodowisko}}
+\index{wyswietlSrodowisko@{wyswietlSrodowisko}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{wyswietlSrodowisko()}{wyswietlSrodowisko()}}
+{\footnotesize\ttfamily void Srodowisko\+::wyswietl\+Srodowisko (\begin{DoxyParamCaption}\item[{bool}]{czy\+Ostatnio\+Drukowano\+Srodowisko }\end{DoxyParamCaption})}
+
+Wyświetla w pierwszej kolumnie ilość wykonanych kroków, aktualne ilości organizmów w środowisku, oraz planszę wyświetlającą nisze środowiska z organizmami, a w drugiej kolumnie wyświetla pozycje organizmów, ich nazwy, wiek, oraz najedzenie. \mbox{\Hypertarget{class_srodowisko_a6223ddbafd2f6e747962e32fdd03a06b}\label{class_srodowisko_a6223ddbafd2f6e747962e32fdd03a06b}} 
+\index{Srodowisko@{Srodowisko}!wyswietlUstawienia@{wyswietlUstawienia}}
+\index{wyswietlUstawienia@{wyswietlUstawienia}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{wyswietlUstawienia()}{wyswietlUstawienia()}}
+{\footnotesize\ttfamily void Srodowisko\+::wyswietl\+Ustawienia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Wyświetla na wyjściu informacje o obecnych ustawieniach oraz sposobach ich zmiany. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_srodowisko_aa9b999ab84791e8345f07eef0242aceb}\label{class_srodowisko_aa9b999ab84791e8345f07eef0242aceb}} 
+\index{Srodowisko@{Srodowisko}!zyweOrganizmy@{zyweOrganizmy}}
+\index{zyweOrganizmy@{zyweOrganizmy}!Srodowisko@{Srodowisko}}
+\doxysubsubsection{\texorpdfstring{zyweOrganizmy}{zyweOrganizmy}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_organizm}{Organizm}}$\ast$$>$ Srodowisko\+::zywe\+Organizmy\hspace{0.3cm}{\ttfamily [private]}}
+
+Przechowuje wskaźniki do żywych organizmów, aby nie musieć za każdym razem przechodzić każdego indeksu tablicy \char`\"{}nisze\char`\"{}. Prawdopodobnie nie daje to żadnego realnego zysku, jednak niczego też nie pogarsza, więc pozostawiam. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+srodowisko.\+h\item 
+srodowisko.\+cpp\end{DoxyCompactItemize}

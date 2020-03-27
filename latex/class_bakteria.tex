@@ -1,0 +1,80 @@
+\hypertarget{class_bakteria}{}\doxysection{Bakteria Class Reference}
+\label{class_bakteria}\index{Bakteria@{Bakteria}}
+
+
+{\ttfamily \#include $<$bakteria.\+h$>$}
+
+Inheritance diagram for Bakteria\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bakteria}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bakteria_a796d361a3ad1e45bfb29dfda51ef4c5a}\label{class_bakteria_a796d361a3ad1e45bfb29dfda51ef4c5a}} 
+{\bfseries Bakteria} (unsigned int const \mbox{\hyperlink{class_organizm_a1c0887b39839f5ad3c666c50d20f5d35}{max\+Wiek}}, unsigned int const \mbox{\hyperlink{class_organizm_ae314b335b78c6bdcd5565a90ad4e0d26}{max\+Najedzenie}}, unsigned int const \mbox{\hyperlink{class_organizm_a41169a4cf298a6d65e4af35ab9366d52}{koszt\+Narodzin}}, unsigned int const poczatkowy\+Wiek=0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_bakteria_af22c644296c4a294fdac3319ae6471b9}{proba\+Najedzenia\+Sie}} () override
+\item 
+\mbox{\Hypertarget{class_bakteria_a8c23106a8ef32ea1172e61dad899407d}\label{class_bakteria_a8c23106a8ef32ea1172e61dad899407d}} 
+void \mbox{\hyperlink{class_bakteria_a8c23106a8ef32ea1172e61dad899407d}{proba\+Poruszenia\+Sie}} () override
+\begin{DoxyCompactList}\small\item\em Wywołuje funkcję \mbox{\hyperlink{class_organizm_a8d52bf12065a9659b5cb0bae86a103d9}{Organizm\+::sprobuj\+Przemiescic\+Sie}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_bakteria_ac1387c741e9538359e327b069ba825b2}\label{class_bakteria_ac1387c741e9538359e327b069ba825b2}} 
+char \mbox{\hyperlink{class_bakteria_ac1387c741e9538359e327b069ba825b2}{znak}} () const override
+\begin{DoxyCompactList}\small\item\em Zwraca . \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_organizm}{Organizm}} $\ast$ \mbox{\hyperlink{class_bakteria_ac6d4f9b4d1beebb9934a68991977e9af}{wygeneruj\+Dziecko}} () override
+\begin{DoxyCompactList}\small\item\em Zwraca potomka. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bakteria_a945b237db1631bb93df1198863a4f650}\label{class_bakteria_a945b237db1631bb93df1198863a4f650}} 
+bool {\bfseries proba\+Najedzenia\+Sie\+Organizmem} (char znak\+Organizmu)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_organizm}{Organizm}} agresywny, atakujący glony. \begin{DoxyParagraph}{Sposób żywienia się\+:}
+Bakterie najpierw szukają w swoim sąsiedztwie glonów. Jeśli jakieś znajdą -\/ wybierają losowo jednego i go wchłaniają. Jeśli nie -\/ szukają innych bakterii i je pochłaniają. Po wchłonięciu organizmu bakteria zajmuje jego miejsce. Umożliwia to jej żywienie się ciągami glonów bez przypadkowego odwędrowania w przeciwnym kierunku -\/ zwiększa to szanse przetrwania bakterii. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bakteria_af22c644296c4a294fdac3319ae6471b9}\label{class_bakteria_af22c644296c4a294fdac3319ae6471b9}} 
+\index{Bakteria@{Bakteria}!probaNajedzeniaSie@{probaNajedzeniaSie}}
+\index{probaNajedzeniaSie@{probaNajedzeniaSie}!Bakteria@{Bakteria}}
+\doxysubsubsection{\texorpdfstring{probaNajedzeniaSie()}{probaNajedzeniaSie()}}
+{\footnotesize\ttfamily bool Bakteria\+::proba\+Najedzenia\+Sie (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Najpierw szuka w sąsiedztwie żywych glonów. Jeśli znajdzie, to wchłanie jednego. Jeśli nie, szuka w sąsiedztwie innych żywych bakterii. Jeśli znajdzie, to wchłania jedną. Zajmuje miejsce wchłonionego organizmu. 
+
+Reimplemented from \mbox{\hyperlink{class_organizm_a552aaa1912cd25d11dafc962936af2df}{Organizm}}.
+
+\mbox{\Hypertarget{class_bakteria_ac6d4f9b4d1beebb9934a68991977e9af}\label{class_bakteria_ac6d4f9b4d1beebb9934a68991977e9af}} 
+\index{Bakteria@{Bakteria}!wygenerujDziecko@{wygenerujDziecko}}
+\index{wygenerujDziecko@{wygenerujDziecko}!Bakteria@{Bakteria}}
+\doxysubsubsection{\texorpdfstring{wygenerujDziecko()}{wygenerujDziecko()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_organizm}{Organizm}} $\ast$ Bakteria\+::wygeneruj\+Dziecko (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Zwraca potomka. 
+
+\begin{DoxyNote}{Note}
+Funkcja ta powinna być nadpisana przez poszczególne klasy organizmów, aby zwracała odpowiednich potomków. 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{class_organizm_a984c39a52db726975ab5fc0da7a20d8b}{Organizm}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bakteria.\+h\item 
+bakteria.\+cpp\end{DoxyCompactItemize}

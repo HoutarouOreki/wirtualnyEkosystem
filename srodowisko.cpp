@@ -21,14 +21,16 @@ unsigned int Srodowisko::getWysokosc() const
     return wysokosc;
 }
 
-Organizm* Srodowisko::getNisza(unsigned int x, unsigned int y) const
+Organizm* Srodowisko::getNisza(const unsigned int x, const unsigned int y) const
 {
-    return nisze[dostanIndeks(x, y)];
+    return nisze[getIndeksNiszyOdKoordynat(x, y)];
 }
 
-void Srodowisko::setNisza(Organizm *organizm, unsigned int x, unsigned int y)
+void Srodowisko::setNisza(Organizm *organizm, const unsigned int x, const unsigned int y)
 {
-    nisze[dostanIndeks(x, y)] = organizm;
+    unsigned int indeks = getIndeksNiszyOdKoordynat(x, y);
+    nisze[indeks] = organizm;
+    organizm->wlasnyIndeks = indeks;
 }
 
 char Srodowisko::dostanLitereKolumny(unsigned int nrKolumny) const
@@ -208,11 +210,11 @@ bool Srodowisko::czySygnalizowacRozmnozenie(char znakOrganizmu) const
     return ustWyswietlania->wyswietlajRozmnozenie[nr];
 }
 
-bool Srodowisko::upewnijSieCzyOrganizmNadalIstnieje(int i)
+bool Srodowisko::upewnijSieCzyOrganizmNadalIstnieje(const unsigned int i)
 {
     // bakterie mogły zjeść inne organizmy żywe, więc trzeba upewniać się czy organizm jeszcze żyje
     Organizm* organizm = zyweOrganizmy[i];
-    if (zyweOrganizmy[i]->getZostalWchloniety()) {
+    if (zyweOrganizmy[i]->getCzyZostalWchloniety()) {
         delete organizm;
         zyweOrganizmy.erase(zyweOrganizmy.begin() + i);
         return false;
@@ -298,7 +300,7 @@ void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
               << dostanKolejnaInformacje(informacje, &indeksInformacji) << std::endl;
 
     for (unsigned int i = 1; i <= szerokosc; i++) {
-        if (i == 'A') {
+        if (i == 1) {
             std::cout << "   ";
         }
         std::cout << dostanLitereKolumny(i) << (i == szerokosc ? "" : " ");
@@ -440,7 +442,7 @@ void Srodowisko::wykonajKrokSymulacji()
     // informacji o żywych organizmach do przyspieszenia iteracji czynności życiowych
     zyweOrganizmy.clear();
     for (unsigned int i = 0; i < wysokosc * szerokosc; i++) {
-        if (nisze[i] == nullptr || !nisze[i]->bCzyZyje()) {
+        if (nisze[i] == nullptr || !nisze[i]->czyZywy()) {
             continue;
         }
 
@@ -484,7 +486,7 @@ void Srodowisko::wykonajKrokSymulacji()
     // wywołanie możliwych prób rozmnażania się u organizmów
     for (unsigned int i = 0; i < zyweOrganizmy.size(); i++) {
         obecnyOrganizm = zyweOrganizmy[i];
-        if (obecnyOrganizm->bCzyZyje() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
+        if (obecnyOrganizm->czyZywy() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
             obecnyOrganizm->mozeSprobujRozmnozycSie();
         }
     }
@@ -496,7 +498,7 @@ void Srodowisko::wykonajKrokSymulacji()
             continue;
         }
         obecnyOrganizm = zyweOrganizmy[i];
-        if (obecnyOrganizm->bCzyZyje() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
+        if (obecnyOrganizm->czyZywy() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
             obecnyOrganizm->mozeSprobujNajescSie();
         }
     }
@@ -516,10 +518,11 @@ void Srodowisko::wykonajKrokSymulacji()
     // wywołanie możliwych prób poruszenia się u organizmów
     for (unsigned int i = 0; i < zyweOrganizmy.size(); i++) {
         obecnyOrganizm = zyweOrganizmy[i];
-        if (obecnyOrganizm->bCzyZyje() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
+        if (obecnyOrganizm->czyZywy() && obecnyOrganizm->getWiek() != obecnyOrganizm->getMaxWiek()) {
             obecnyOrganizm->mozeSprobujPoruszycSie();
         }
     }
+
     krokSymulacji++;
 
     podliczIlosciOrganizmow();
@@ -549,22 +552,22 @@ void Srodowisko::podliczIlosciOrganizmow()
     }
 }
 
-unsigned int Srodowisko::dostanX(int indeksNiszy) const
+unsigned int Srodowisko::dostanX(const unsigned int indeksNiszy) const
 {
     return indeksNiszy % szerokosc;
 }
 
-unsigned int Srodowisko::dostanY(int indeksNiszy) const
+unsigned int Srodowisko::dostanY(const unsigned int indeksNiszy) const
 {
     return indeksNiszy / szerokosc;
 }
 
-unsigned int Srodowisko::dostanIndeks(unsigned int x, unsigned int y) const
+unsigned int Srodowisko::getIndeksNiszyOdKoordynat(const unsigned int x, const unsigned int y) const
 {
     return (y * szerokosc) + x;
 }
 
-unsigned int Srodowisko::dostanIndeksSasiada(unsigned int x, unsigned int y, unsigned int nrSasiada) const
+unsigned int Srodowisko::dostanIndeksSasiada( unsigned int x, unsigned int y, unsigned int nrSasiada) const
 {
     if (nrSasiada < 3) {
         y--;
@@ -576,5 +579,5 @@ unsigned int Srodowisko::dostanIndeksSasiada(unsigned int x, unsigned int y, uns
     } else if (nrSasiada != 1 && nrSasiada != 6) {
         x++;
     }
-    return dostanIndeks(x, y);
+    return getIndeksNiszyOdKoordynat(x, y);
 }

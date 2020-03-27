@@ -9,36 +9,36 @@ Organizm::Organizm(unsigned int const maxWiek, unsigned int const maxNajedzenie,
     this->kosztNarodzin = kosztNarodzin;
     najedzenie = 0;
     wiek = poczatkowyWiek;
-    bZostalWchloniety = false;
+    czyZostalWchloniety = false;
 }
 
 Organizm::~Organizm()
 {
 }
 
-bool Organizm::bCzyZyje() const
+bool Organizm::czyZywy() const
 {
     return wiek <= maxWiek;
 }
 
-bool Organizm::bCzyPrzejedzony() const
+bool Organizm::czyPrzejedzony() const
 {
     return najedzenie >= maxNajedzenie;
 }
 
-bool Organizm::bCzyNajedzony() const
+bool Organizm::czyNajedzony() const
 {
     return najedzenie >= kosztNarodzin;
 }
 
 bool Organizm::getWlasnieNajadl() const
 {
-    return bCzyZyje() ? bWlasnieNajadl : false;
+    return czyZywy() ? czyWlasnieNajadl : false;
 }
 
 bool Organizm::getWlasnieRozmnozyl() const
 {
-    return bCzyZyje() ? bWlasnieRozmnozyl : false;
+    return czyZywy() ? czyWlasnieRozmnozyl : false;
 }
 
 
@@ -49,7 +49,7 @@ char Organizm::znak() const
 
 char Organizm::dostanZnak() const
 {
-    if (bCzyZyje()) {
+    if (czyZywy()) {
         return znak();
     } else {
         return ZNAK_MARTWEGO;
@@ -82,43 +82,58 @@ void Organizm::zobaczSrodowisko(Organizm **nisze, unsigned int *pozycjeSasiednic
     for (unsigned int i = 0; i < nSasiednichNiszy; i++) {
         this->pozycjeSasiednichNiszy[i] = pozycjeSasiednichNiszy[i];
     }
-    this->nSasiednichNiszy = nSasiednichNiszy;
+    this->iloscSasiednichNiszy = nSasiednichNiszy;
 }
 
 void Organizm::mozeSprobujRozmnozycSie()
 {
-    bWlasnieRozmnozyl = false;
-    if (bCzyNajedzony()) {
-        if (probaRozmnozeniaSie(nisze, pozycjeSasiednichNiszy, nSasiednichNiszy)) {
-            bWlasnieRozmnozyl = true;
+    czyWlasnieRozmnozyl = false;
+    if (czyNajedzony()) {
+        if (probaRozmnozeniaSie()) {
+            czyWlasnieRozmnozyl = true;
         }
     }
 }
 
-bool Organizm::getZostalWchloniety() const
+bool Organizm::getCzyZostalWchloniety() const
 {
-    return bZostalWchloniety;
+    return czyZostalWchloniety;
 }
 
-bool Organizm::probaRozmnozeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy)
+Organizm **Organizm::getNisze() const
+{
+    return nisze;
+}
+
+unsigned int *Organizm::getPozycjeSasiednichNiszy()
+{
+    return pozycjeSasiednichNiszy;
+}
+
+unsigned int Organizm::getIloscSasiednichNiszy() const
+{
+    return iloscSasiednichNiszy;
+}
+
+bool Organizm::probaRozmnozeniaSie()
 {
     unsigned int zajeteNisze = 0;
-    for (unsigned int i = 0; i < nSasiednichNiszy; i++) {
+    for (unsigned int i = 0; i < iloscSasiednichNiszy; i++) {
         if (nisze[pozycjeSasiednichNiszy[i]] != nullptr) {
             zajeteNisze++;
         }
     }
 
     // jeśli każda nisza w sąsiedztwie jest zajęta, to nie można się rozmnożyć
-    if (zajeteNisze == nSasiednichNiszy) {
+    if (zajeteNisze == iloscSasiednichNiszy) {
         return false;
     }
 
     // w tym miejscu wiemy, że na pewno istnieje wolna nisza dla potomka
     // losujemy dla niego sąsiednią niszę dopóki nie znajdziemy jakiejś wolnej
-    int wylosowanySasiad = funkcjeUtility::wylosujInt(0, nSasiednichNiszy - 1);
+    int wylosowanySasiad = funkcjeUtility::wylosujInt(0, iloscSasiednichNiszy - 1);
     while (nisze[pozycjeSasiednichNiszy[wylosowanySasiad]] != nullptr) {
-        wylosowanySasiad = funkcjeUtility::wylosujInt(0, nSasiednichNiszy - 1);
+        wylosowanySasiad = funkcjeUtility::wylosujInt(0, iloscSasiednichNiszy - 1);
     }
 
     // umieszczamy nowego potomka w wylosowanej niszy
@@ -137,16 +152,16 @@ void Organizm::starzenieSie()
 
 void Organizm::mozeSprobujNajescSie()
 {
-    bWlasnieNajadl = false;
-    if (!bCzyPrzejedzony() && !getWlasnieRozmnozyl()) {
-        if (probaNajedzeniaSie(nisze, pozycjeSasiednichNiszy, nSasiednichNiszy)) {
+    czyWlasnieNajadl = false;
+    if (!czyPrzejedzony() && !getWlasnieRozmnozyl()) {
+        if (probaNajedzeniaSie()) {
             najedzenie++;
-            bWlasnieNajadl = true;
+            czyWlasnieNajadl = true;
         }
     }
 }
 
-bool Organizm::probaNajedzeniaSie(Organizm**, unsigned int*, unsigned int)
+bool Organizm::probaNajedzeniaSie()
 {
     return false;
 }
@@ -154,20 +169,20 @@ bool Organizm::probaNajedzeniaSie(Organizm**, unsigned int*, unsigned int)
 void Organizm::mozeSprobujPoruszycSie()
 {
     if (!getWlasnieNajadl() && !getWlasnieRozmnozyl()) {
-        probaPoruszeniaSie(nisze, pozycjeSasiednichNiszy, nSasiednichNiszy);
+        probaPoruszeniaSie();
     }
 }
 
-void Organizm::probaPoruszeniaSie(Organizm **, unsigned int*, unsigned int)
+void Organizm::probaPoruszeniaSie()
 {
 }
 
 void Organizm::wchlonOrganizm(unsigned int nrNiszy)
 {
-    if (nisze[nrNiszy]->bCzyZyje()) {
+    if (nisze[nrNiszy]->czyZywy()) {
         // jeśli żyje, to jest w tablicy żywych organizmów w środowisku
         // i tam powinien zostać usunięty
-        nisze[nrNiszy]->bZostalWchloniety = true;
+        nisze[nrNiszy]->czyZostalWchloniety = true;
     } else {
         delete nisze[nrNiszy];
     }
@@ -184,7 +199,7 @@ void Organizm::wchlonOrazZajmijPozycjeOrganizmu(unsigned int nrNiszy)
 void Organizm::sprobujPrzemiescicSie()
 {
     bool czyMoznaSiePrzemiescic = false;
-    for (unsigned int i = 0; i < nSasiednichNiszy; i++) {
+    for (unsigned int i = 0; i < iloscSasiednichNiszy; i++) {
         if (nisze[pozycjeSasiednichNiszy[i]] == nullptr) {
             czyMoznaSiePrzemiescic = true;
             break;
@@ -196,7 +211,7 @@ void Organizm::sprobujPrzemiescicSie()
     int wylosowanaNisza;
     nisze[wlasnyIndeks] = nullptr;
     do {
-        wylosowanaNisza = funkcjeUtility::wylosujInt(0, nSasiednichNiszy - 1);
+        wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscSasiednichNiszy - 1);
     } while (nisze[pozycjeSasiednichNiszy[wylosowanaNisza]] != nullptr);
     nisze[pozycjeSasiednichNiszy[wylosowanaNisza]] = this;
     wlasnyIndeks = pozycjeSasiednichNiszy[wylosowanaNisza];

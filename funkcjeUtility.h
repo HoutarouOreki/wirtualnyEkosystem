@@ -12,7 +12,7 @@ namespace funkcjeUtility
     /// o tym informujący oraz użytkownik zostanie
     /// poproszony o ponowne podanie liczby.
     /// pre: brak
-    /// Post: Zwrócona została liczba podana przez użytkownika.
+    /// \post Zwrócona została liczba podana przez użytkownika.
     int pobierzInt(std::string nazwa);
 
     /// Wyświetla komunikat o podanie wartości, którą zwróci,
@@ -30,7 +30,7 @@ namespace funkcjeUtility
     /// Wyświetla ">" oraz akceptuje od użytkownika
     /// wejście zakończone enterem.
     /// pre: brak
-    /// post: Zwrócony zostaje podany przez użytkownika ciąg znaków.
+    /// \post Zwrócony zostaje podany przez użytkownika ciąg znaków.
     std::string dostanLinie();
 
     /// Zmienia wartość zmiennej na odwrotną.

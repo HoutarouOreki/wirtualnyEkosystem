@@ -2,13 +2,13 @@
 #include "bakteria.h"
 #include "funkcjeUtility.h"
 
-bool Bakteria::probaNajedzeniaSieOrganizmem(Organizm **nisze, unsigned int *pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy, char znakOrganizmu)
+bool Bakteria::probaNajedzeniaSieOrganizmem(char znakOrganizmu)
 {
     // najpierw szuka organizmu w sąsiedztwie
     bool znalezionoOrganizm = false;
-    for (unsigned int i = 0; i < nSasiednichNiszy; i++) {
-        if (nisze[pozycjeSasiednichNiszy[i]] != nullptr
-                && nisze[pozycjeSasiednichNiszy[i]]->dostanZnak() == znakOrganizmu) {
+    for (unsigned int i = 0; i < getIloscSasiednichNiszy(); i++) {
+        if (getNisze()[getPozycjeSasiednichNiszy()[i]] != nullptr
+                && getNisze()[getPozycjeSasiednichNiszy()[i]]->dostanZnak() == znakOrganizmu) {
             znalezionoOrganizm = true;
             break;
         }
@@ -20,11 +20,11 @@ bool Bakteria::probaNajedzeniaSieOrganizmem(Organizm **nisze, unsigned int *pozy
     if (znalezionoOrganizm) {
         unsigned int wylosowanyOrganizm;
         do {
-            wylosowanyOrganizm = funkcjeUtility::wylosujInt(0, nSasiednichNiszy - 1);
-        } while (nisze[pozycjeSasiednichNiszy[wylosowanyOrganizm]] == nullptr ||
-                 nisze[pozycjeSasiednichNiszy[wylosowanyOrganizm]]->dostanZnak() != znakOrganizmu);
+            wylosowanyOrganizm = funkcjeUtility::wylosujInt(0, getIloscSasiednichNiszy() - 1);
+        } while (getNisze()[getPozycjeSasiednichNiszy()[wylosowanyOrganizm]] == nullptr ||
+                 getNisze()[getPozycjeSasiednichNiszy()[wylosowanyOrganizm]]->dostanZnak() != znakOrganizmu);
 
-        wchlonOrazZajmijPozycjeOrganizmu(pozycjeSasiednichNiszy[wylosowanyOrganizm]);
+        wchlonOrazZajmijPozycjeOrganizmu(getPozycjeSasiednichNiszy()[wylosowanyOrganizm]);
         return true;
     }
 
@@ -32,16 +32,16 @@ bool Bakteria::probaNajedzeniaSieOrganizmem(Organizm **nisze, unsigned int *pozy
     return false;
 }
 
-bool Bakteria::probaNajedzeniaSie(Organizm **nisze, unsigned int *pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy)
+bool Bakteria::probaNajedzeniaSie()
 {
     // najpierw próbuje znaleźć i zjeść glon
-    if (probaNajedzeniaSieOrganizmem(nisze, pozycjeSasiednichNiszy, nSasiednichNiszy, ZNAK_GLONU)) {
+    if (probaNajedzeniaSieOrganizmem(ZNAK_GLONU)) {
         return true;
     }
 
     // jeśli nie znaleziono żadnego glonu, to próbuje
     // wykonać to samo działanie, ale na bakteriach
-    if (probaNajedzeniaSieOrganizmem(nisze, pozycjeSasiednichNiszy, nSasiednichNiszy, ZNAK_BAKTERII)) {
+    if (probaNajedzeniaSieOrganizmem(ZNAK_BAKTERII)) {
         return true;
     }
 
@@ -49,7 +49,7 @@ bool Bakteria::probaNajedzeniaSie(Organizm **nisze, unsigned int *pozycjeSasiedn
     return false;
 }
 
-void Bakteria::probaPoruszeniaSie(Organizm **, unsigned int *, unsigned int)
+void Bakteria::probaPoruszeniaSie()
 {
     sprobujPrzemiescicSie();
 }

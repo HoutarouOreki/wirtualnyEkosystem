@@ -1,0 +1,60 @@
+\hypertarget{class_grzyb}{}\doxysection{Grzyb Class Reference}
+\label{class_grzyb}\index{Grzyb@{Grzyb}}
+
+
+\mbox{\hyperlink{class_organizm}{Organizm}} oczyszczający \mbox{\hyperlink{class_srodowisko}{Srodowisko}} z martwych organizmów.  
+
+
+
+
+{\ttfamily \#include $<$grzyb.\+h$>$}
+
+Inheritance diagram for Grzyb\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_grzyb}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_grzyb_abad4f835ffc045c5a21d792f48a3db30}{Grzyb}} (unsigned int const \mbox{\hyperlink{class_organizm_a1c0887b39839f5ad3c666c50d20f5d35}{max\+Wiek}}, unsigned int const \mbox{\hyperlink{class_organizm_ae314b335b78c6bdcd5565a90ad4e0d26}{max\+Najedzenie}}, unsigned int const \mbox{\hyperlink{class_organizm_a41169a4cf298a6d65e4af35ab9366d52}{koszt\+Narodzin}}, unsigned int const poczatkowy\+Wiek=0)
+\begin{DoxyCompactList}\small\item\em Ustawia zmienne \mbox{\hyperlink{class_organizm_a1c0887b39839f5ad3c666c50d20f5d35}{max\+Wiek}}, \mbox{\hyperlink{class_organizm_ae314b335b78c6bdcd5565a90ad4e0d26}{max\+Najedzenie}}, \mbox{\hyperlink{class_organizm_a41169a4cf298a6d65e4af35ab9366d52}{koszt\+Narodzin}} i \mbox{\hyperlink{class_organizm_a33dbc1630eab39bee31df3af8a3b0083}{wiek}} na wartości podane w parametrach. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_grzyb_a9f8b54a44a99554b89b920554de15621}\label{class_grzyb_a9f8b54a44a99554b89b920554de15621}} 
+virtual \mbox{\hyperlink{class_organizm}{Organizm}} $\ast$ \mbox{\hyperlink{class_grzyb_a9f8b54a44a99554b89b920554de15621}{wygeneruj\+Dziecko}} () override
+\begin{DoxyCompactList}\small\item\em Zwraca \mbox{\hyperlink{class_grzyb}{Grzyb(max\+Wiek, max\+Najedzenie, koszt\+Narodzin)}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_grzyb_a269447c381dde54d6bf03fb648e94c77}\label{class_grzyb_a269447c381dde54d6bf03fb648e94c77}} 
+virtual bool \mbox{\hyperlink{class_grzyb_a269447c381dde54d6bf03fb648e94c77}{proba\+Najedzenia\+Sie}} () override
+\begin{DoxyCompactList}\small\item\em Szuka w sąsiedztwie martwych organizmów. Jeśli znajdzie, losowo wchłania jednego. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_grzyb_a5750b49339eca80c781810d960c99391}\label{class_grzyb_a5750b49339eca80c781810d960c99391}} 
+virtual char \mbox{\hyperlink{class_grzyb_a5750b49339eca80c781810d960c99391}{znak}} () const override
+\begin{DoxyCompactList}\small\item\em Zwraca \#. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_grzyb_af1f2fe8cebc543639c12c91f7cb554cb}\label{class_grzyb_af1f2fe8cebc543639c12c91f7cb554cb}} 
+virtual void \mbox{\hyperlink{class_grzyb_af1f2fe8cebc543639c12c91f7cb554cb}{proba\+Poruszenia\+Sie}} () override
+\begin{DoxyCompactList}\small\item\em Wywołuje \mbox{\hyperlink{class_organizm_a8d52bf12065a9659b5cb0bae86a103d9}{sprobuj\+Przemiescic\+Sie()}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_organizm}{Organizm}} oczyszczający \mbox{\hyperlink{class_srodowisko}{Srodowisko}} z martwych organizmów. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_grzyb_abad4f835ffc045c5a21d792f48a3db30}\label{class_grzyb_abad4f835ffc045c5a21d792f48a3db30}} 
+\index{Grzyb@{Grzyb}!Grzyb@{Grzyb}}
+\index{Grzyb@{Grzyb}!Grzyb@{Grzyb}}
+\doxysubsubsection{\texorpdfstring{Grzyb()}{Grzyb()}}
+{\footnotesize\ttfamily Grzyb\+::\+Grzyb (\begin{DoxyParamCaption}\item[{unsigned int const}]{max\+Wiek,  }\item[{unsigned int const}]{max\+Najedzenie,  }\item[{unsigned int const}]{koszt\+Narodzin,  }\item[{unsigned int const}]{poczatkowy\+Wiek = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Ustawia zmienne \mbox{\hyperlink{class_organizm_a1c0887b39839f5ad3c666c50d20f5d35}{max\+Wiek}}, \mbox{\hyperlink{class_organizm_ae314b335b78c6bdcd5565a90ad4e0d26}{max\+Najedzenie}}, \mbox{\hyperlink{class_organizm_a41169a4cf298a6d65e4af35ab9366d52}{koszt\+Narodzin}} i \mbox{\hyperlink{class_organizm_a33dbc1630eab39bee31df3af8a3b0083}{wiek}} na wartości podane w parametrach. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+grzyb.\+h\item 
+grzyb.\+cpp\end{DoxyCompactItemize}

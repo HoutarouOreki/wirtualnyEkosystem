@@ -3,22 +3,24 @@
 #ifndef GRZYB_H
 #define GRZYB_H
 
-
+/// \brief Organizm oczyszczający Srodowisko z martwych organizmów.
 class Grzyb : public Organizm
 {
 protected:
+    /// \brief Zwraca Grzyb(maxWiek, maxNajedzenie, kosztNarodzin).
     virtual Organizm * wygenerujDziecko() override;
 
-    /// Szuka w sąsiedztwie martwych organizmów.
+    /// \brief Szuka w sąsiedztwie martwych organizmów.
     /// Jeśli znajdzie, losowo wchłania jednego.
-    virtual bool probaNajedzeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy) override;
+    virtual bool probaNajedzeniaSie() override;
 
-    /// Zwraca #
+    /// \brief Zwraca #
     virtual char znak() const override;
 
-    /// Wywołuje sprobujPrzemiescicSie
-    virtual void probaPoruszeniaSie(Organizm **nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy) override;
+    /// \brief Wywołuje sprobujPrzemiescicSie()
+    virtual void probaPoruszeniaSie() override;
 public:
+    /// \copydoc Organizm(unsigned int const, unsigned int const, unsigned int const, unsigned int const)
     Grzyb(unsigned int const maxWiek, unsigned int const maxNajedzenie, unsigned int const kosztNarodzin, unsigned int const poczatkowyWiek = 0);
 };
 

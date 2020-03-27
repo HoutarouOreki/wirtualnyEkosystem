@@ -14,21 +14,21 @@ Organizm* Grzyb::wygenerujDziecko()
     // oraz Srodowisko::~Srodowisko
 }
 
-void Grzyb::probaPoruszeniaSie(Organizm**, unsigned int*, unsigned int)
+void Grzyb::probaPoruszeniaSie()
 {
     sprobujPrzemiescicSie();
 }
 
-bool Grzyb::probaNajedzeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednichNiszy, unsigned int nSasiednichNiszy)
+bool Grzyb::probaNajedzeniaSie()
 {
     Organizm* sasiad;
     bool istniejeMartwySasiad = false;
-    for (unsigned int i = 0; i < nSasiednichNiszy; i++) {
-        if (nisze[pozycjeSasiednichNiszy[i]] == nullptr) {
+    for (unsigned int i = 0; i < getIloscSasiednichNiszy(); i++) {
+        if (getNisze()[getPozycjeSasiednichNiszy()[i]] == nullptr) {
             continue;
         }
-        sasiad = nisze[pozycjeSasiednichNiszy[i]];
-        if (!sasiad->bCzyZyje()) {
+        sasiad = getNisze()[getPozycjeSasiednichNiszy()[i]];
+        if (!sasiad->czyZywy()) {
             istniejeMartwySasiad = true;
             break;
         }
@@ -38,10 +38,10 @@ bool Grzyb::probaNajedzeniaSie(Organizm** nisze, unsigned int* pozycjeSasiednich
     }
     int wylosowanyMartwySasiad;
     do {
-        wylosowanyMartwySasiad = funkcjeUtility::wylosujInt(0, nSasiednichNiszy - 1);
-    } while (nisze[pozycjeSasiednichNiszy[wylosowanyMartwySasiad]] == nullptr ||
-             nisze[pozycjeSasiednichNiszy[wylosowanyMartwySasiad]]->bCzyZyje() == true);
-    wchlonOrganizm(pozycjeSasiednichNiszy[wylosowanyMartwySasiad]);
+        wylosowanyMartwySasiad = funkcjeUtility::wylosujInt(0, getIloscSasiednichNiszy() - 1);
+    } while (getNisze()[getPozycjeSasiednichNiszy()[wylosowanyMartwySasiad]] == nullptr ||
+             getNisze()[getPozycjeSasiednichNiszy()[wylosowanyMartwySasiad]]->czyZywy() == true);
+    wchlonOrganizm(getPozycjeSasiednichNiszy()[wylosowanyMartwySasiad]);
     return true;
 }
 

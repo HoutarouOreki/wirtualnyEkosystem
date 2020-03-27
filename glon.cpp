@@ -5,11 +5,7 @@ Glon::Glon(unsigned int maxWiek, unsigned int maxNajedzenie, unsigned int kosztN
 {
 }
 
-Glon::~Glon()
-{
-}
-
-bool Glon::probaNajedzeniaSie(Organizm**, unsigned int*, unsigned int)
+bool Glon::probaNajedzeniaSie()
 {
     return true;
 }
