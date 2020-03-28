@@ -5,6 +5,19 @@
 #include <cstdlib>
 #include "srodowisko.h"
 
+/// \mainpage Wirtualny Ekosystem
+/// Program ten pozwala na utworzenie własnego \ref Srodowisko "środowiska".
+/// W środowisku żyją sobie \ref Organizm "organizmy" które jedzą, rozmnażają oraz poruszają się.
+/// Ich \ref Organizm::maxWiek "maksymalny wiek", \ref Organizm::maxNajedzenie "maksymalny poziom najedzenia"
+/// oraz \ref Organizm::kosztNarodzin "koszt potomka" są losowane przy
+/// \ref Srodowisko::Srodowisko(ustawieniaWyswietlania* ustawieniaWyswietlania) "utworzeniu środowiska".
+/// \li Zielone \ref Glon "glony" to organizmy pasywne żywiące się fotosyntezą i nieporuszające się.
+/// \li Niebieskie \ref Grzyb "grzyby" jedzą martwe organizmy (które przekroczyły swój maksymalny wiek)
+/// i przemieszczają się, gdy nie uda im się rozmnożyć ani pożywić.
+/// \li Czerwone \ref Bakteria "bakterie" żywią się glonami,
+/// bądź innymi bakteriami jak nie znajdą glonów,
+/// i zajmują miejsce wchłoniętego przez siebie organizmu.
+
 Srodowisko* srodowisko;
 Srodowisko::ustawieniaWyswietlania ustawieniaWyswietlania;
 
