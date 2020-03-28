@@ -189,66 +189,70 @@ public:
     struct statystykiSrodowiska
     {
     public:
-        /// \returns const reference do #iloscGlonow
-        const std::vector<unsigned int> &getIloscGlonow() const;
+        /// \returns const reference do #ilosciGlonow
+        const std::vector<unsigned int> &getIlosciGlonow() const;
 
-        /// \returns const reference do #iloscGrzybow
-        const std::vector<unsigned int> &getIloscGrzybow() const;
+        /// \returns const reference do #ilosciGrzybow
+        const std::vector<unsigned int> &getIlosciGrzybow() const;
 
-        /// \returns const reference do #iloscBakterii
-        const std::vector<unsigned int> &getIloscBakterii() const;
+        /// \returns const reference do #ilosciBakterii
+        const std::vector<unsigned int> &getIlosciBakterii() const;
 
-        /// \returns const reference do #iloscMartwych
-        const std::vector<unsigned int> &getIloscMartwych() const;
+        /// \returns const reference do #ilosciMartwych
+        const std::vector<unsigned int> &getIlosciMartwych() const;
 
-        /// \returns const reference do #iloscNajedzonychGrzybow
-        const std::vector<unsigned int> &getIloscNajedzonychGrzybow() const;
+        /// \returns const reference do #ilosciNajedzonychGrzybow
+        const std::vector<unsigned int> &getIlosciNajedzonychGrzybow() const;
 
-        /// \returns const reference do #iloscNajedzonychBakterii
-        const std::vector<unsigned int> &getIloscNajedzonychBakterii() const;
+        /// \returns const reference do #ilosciNajedzonychBakterii
+        const std::vector<unsigned int> &getIlosciNajedzonychBakterii() const;
 
-        /// \returns const reference do #iloscRozmnozonychGlonow
-        const std::vector<unsigned int> &getIloscRozmnozonychGlonow() const;
+        /// \returns const reference do #ilosciRozmnozonychGlonow
+        const std::vector<unsigned int> &getIlosciRozmnozonychGlonow() const;
 
-        /// \returns const reference do #iloscRozmnozonychGrzybow
-        const std::vector<unsigned int> &getIloscRozmnozonychGrzybów() const;
+        /// \returns const reference do #ilosciRozmnozonychGrzybow
+        const std::vector<unsigned int> &getIlosciRozmnozonychGrzybów() const;
 
-        /// \returns const reference do #iloscRozmnozonychBakterii
-        const std::vector<unsigned int> &getIloscRozmnozonychBakterii() const;
+        /// \returns const reference do #ilosciRozmnozonychBakterii
+        const std::vector<unsigned int> &getIlosciRozmnozonychBakterii() const;
+
+        /// \brief Dopisuje statystyki dotyczące stanu
+        /// środowiska po ostatnim kroku symulacji.
+        /// \param[in] srodowisko którego statystyki zostaną dopisane.
+        void dodajStatystykiOstatniegoKroku(Srodowisko* const srodowisko);
 
     private:
         /// \brief Vector gromadzący ilości żywych \ref Glon "glonów" po danym kroku symulacji.
-        std::vector<unsigned int> iloscGlonow;
+        std::vector<unsigned int> ilosciGlonow;
 
         /// \brief Vector gromadzący ilości żywych \ref Grzyb "grzybów" po danym kroku symulacji.
-        std::vector<unsigned int> iloscGrzybow;
+        std::vector<unsigned int> ilosciGrzybow;
 
         /// \brief Vector gromadzący ilości żywych \ref Bakteria "bakterii" po danym kroku symulacji.
-        std::vector<unsigned int> iloscBakterii;
+        std::vector<unsigned int> ilosciBakterii;
 
         /// \brief Vector zapisujący ilości martwych \ref Organizm "organizmów".
-        /// \see Organizm::czyZywy()
-        std::vector<unsigned int> iloscMartwych;
+        std::vector<unsigned int> ilosciMartwych;
 
         /// \brief Vector zapisujący ile \ref Grzyb "grzybów"
         /// pożywiło się w danym kroku symulacji.
-        std::vector<unsigned int> iloscNajedzonychGrzybow;
+        std::vector<unsigned int> ilosciNajedzonychGrzybow;
 
         /// \brief Vector zapisujący ile \ref Bakteria "bakterii"
         /// pożywiło się w danym kroku symulacji.
-        std::vector<unsigned int> iloscNajedzonychBakterii;
+        std::vector<unsigned int> ilosciNajedzonychBakterii;
 
         /// \brief Vector zapisujący ile \ref Glon "glonów"
         /// rozmnożyło się w danym kroku symulacji.
-        std::vector<unsigned int> iloscRozmnozonychGlonow;
+        std::vector<unsigned int> ilosciRozmnozonychGlonow;
 
         /// \brief Vector zapisujący ile \ref Grzyb "grzybów"
         /// rozmnożyło się w danym kroku symulacji.
-        std::vector<unsigned int> iloscRozmnozonychGrzybow;
+        std::vector<unsigned int> ilosciRozmnozonychGrzybow;
 
         /// \brief Vector zapisujący ile \ref Bakteria "bakterii"
         /// rozmnożyło się w danym kroku symulacji.
-        std::vector<unsigned int> iloscRozmnozonychBakterii;
+        std::vector<unsigned int> ilosciRozmnozonychBakterii;
     };
 
     /// \brief Zwraca wartość z tablicy
@@ -304,6 +308,7 @@ public:
     /// wywołuje zastanawienie się w organizmach nad rozmnożeniem się,
     /// następnie nad najedzeniem się, starzenie się,
     /// oraz finalnie zastanowienie nad przemieszczeniem się.
+    /// Wywołuje statystykiSrodowiska::dodajStatystykiOstatniegoKroku(srodowisko).
     /// \post \ref Srodowisko::krokSymulacji został zwiększony o 1.
     void wykonajKrokSymulacji();
 
@@ -332,6 +337,9 @@ public:
 
     /// \brief Opcje wyświetlania używane w wyswietlSrodowisko(bool).
     ustawieniaWyswietlania* ustWyswietlania;
+
+    /// \brief Statystyki tego środowiska.
+    statystykiSrodowiska statystyki;
 };
 
 #endif // SRODOWISKO_H

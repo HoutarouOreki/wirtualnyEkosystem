@@ -531,6 +531,7 @@ void Srodowisko::wykonajKrokSymulacji()
     krokSymulacji++;
 
     podliczIlosciOrganizmow();
+    statystyki.dodajStatystykiOstatniegoKroku(this);
 }
 
 void Srodowisko::podliczIlosciOrganizmow()
@@ -587,47 +588,88 @@ unsigned int Srodowisko::dostanIndeksSasiada( unsigned int x, unsigned int y, un
     return indeksNiszyOdKoordynat(x, y);
 }
 
-const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscGlonow() const
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciGlonow() const
 {
-    return iloscGlonow;
+    return ilosciGlonow;
 }
 
-const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscRozmnozonychBakterii() const
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciRozmnozonychBakterii() const
 {
-    return iloscRozmnozonychBakterii;
+    return ilosciRozmnozonychBakterii;
 }
 
-const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscRozmnozonychGrzybów() const
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciRozmnozonychGrzybów() const
 {
-    return iloscRozmnozonychGrzybow;
+    return ilosciRozmnozonychGrzybow;
 }
 
-const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscRozmnozonychGlonow() const
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciRozmnozonychGlonow() const
 {
-    return iloscRozmnozonychGlonow;
+    return ilosciRozmnozonychGlonow;
 }
 
-const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscNajedzonychBakterii() const
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciNajedzonychBakterii() const
 {
-    return iloscNajedzonychBakterii;
+    return ilosciNajedzonychBakterii;
 }
 
-const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscNajedzonychGrzybow() const
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciNajedzonychGrzybow() const
 {
-    return iloscNajedzonychGrzybow;
+    return ilosciNajedzonychGrzybow;
 }
 
-const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscMartwych() const
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciMartwych() const
 {
-    return iloscMartwych;
+    return ilosciMartwych;
 }
 
-const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscBakterii() const
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciBakterii() const
 {
-    return iloscBakterii;
+    return ilosciBakterii;
 }
 
-const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscGrzybow() const
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciGrzybow() const
 {
-    return iloscGrzybow;
+    return ilosciGrzybow;
+}
+
+void Srodowisko::statystykiSrodowiska::dodajStatystykiOstatniegoKroku(Srodowisko * const srodowisko)
+{
+    ilosciGlonow.push_back(srodowisko->iloscGlonow);
+    ilosciGrzybow.push_back(srodowisko->iloscGrzybow);
+    ilosciBakterii.push_back(srodowisko->iloscBakterii);
+    ilosciNajedzonychGrzybow.push_back(0);
+    ilosciNajedzonychBakterii.push_back(0);
+    ilosciRozmnozonychGlonow.push_back(0);
+    ilosciRozmnozonychGrzybow.push_back(0);
+    ilosciRozmnozonychBakterii.push_back(0);
+
+    Organizm *organizm;
+    for (unsigned int i = 0; i < srodowisko->szerokosc * srodowisko->wysokosc; i++) {
+        organizm = srodowisko->nisze[i];
+        switch (organizm->dostanZnak())
+        {
+        case Organizm::ZNAK_GLONU:
+            if (organizm->getWlasnieRozmnozyl()) {
+                ilosciRozmnozonychGlonow.back()++;
+            }
+            break;
+        case Organizm::ZNAK_GRZYBU:
+            if (organizm->getWlasnieNajadl()) {
+                ilosciNajedzonychGrzybow.back()++;
+            }
+            if (organizm->getWlasnieRozmnozyl()) {
+                ilosciRozmnozonychGrzybow.back()++;
+            }
+            break;
+        case Organizm::ZNAK_BAKTERII:
+            if (organizm->getWlasnieNajadl()) {
+                ilosciNajedzonychBakterii.back()++;
+            }
+            if (organizm->getWlasnieRozmnozyl()) {
+                ilosciRozmnozonychBakterii.back()++;
+            }
+            break;
+        }
+    }
 }
