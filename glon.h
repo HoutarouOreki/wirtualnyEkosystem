@@ -2,7 +2,7 @@
 #ifndef GLON_H
 #define GLON_H
 
-/// Organizm pasywny, prowadzący fotosyntezę.
+/// \brief Organizm pasywny, prowadzący fotosyntezę.
 class Glon : public Organizm
 {
 protected:
@@ -12,7 +12,8 @@ protected:
     virtual bool probaNajedzeniaSie() override;
 
     /// \copybrief
-    /// \returns Glon(Organizm::maxWiek, Organizm::maxNajedzenie, Organizm::kosztNarodzin).
+    /// \returns Glon(Organizm::maxWiek, Organizm::maxNajedzenie,
+    /// Organizm::kosztNarodzin).
     virtual Organizm *wygenerujDziecko() override;
 
     /// \copybrief Organizm::znak()

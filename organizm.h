@@ -50,16 +50,13 @@ private:
     /// \returns \c true, jeśli próba się powiodła.
     bool probaRozmnozeniaSie();
 protected:
-    /// \copydoc nisze
     /// \returns #nisze
     Organizm **getNisze() const;
 
-    /// \copydoc pozycjeSasiednichNiszy
-    /// \returns pozycjeSasiednichNiszy
+    /// \returns #pozycjeSasiednichNiszy
     unsigned int* getPozycjeSasiednichNiszy();
 
-    /// \copydoc iloscSasiednichNiszy
-    /// \returns iloscSasiednichNiszy
+    /// \returns #iloscSasiednichNiszy
     unsigned int getIloscSasiednichNiszy() const;
 
     /// \brief Jeśli #wiek przekroczy tę wartość, organizm staje się martwy.
@@ -109,7 +106,7 @@ protected:
     /// \post #nisze[\p nrNiszy] = \c nullptr
     /// \param[in] nrNiszy to pozycja wchłanianego organizmu
     /// w tablicy #nisze.
-    void wchlonOrganizm(unsigned int nrNiszy);
+    void wchlonOrganizm(const unsigned int nrNiszy);
 
     /// \brief Pozbywa się innego organizmu ze środowiska i zajmuje jego miejsce.
     /// \details Wywołuje funkcję wchlonOrganizm(unsigned int nrNiszy),
@@ -141,12 +138,10 @@ public:
     /// pól ani metod wymagających usuwania.
     virtual ~Organizm();
 
-    /// \copydoc wiek
-    /// \returns wiek
+    /// \returns #wiek
     unsigned int getWiek() const;
 
-    /// \copydoc najedzenie
-    /// \returns najedzenie
+    /// \returns #najedzenie
     unsigned int getNajedzenie() const;
 
     /// \brief Indeks tego organizmu w tablicy Srodowisko::nisze.
@@ -164,7 +159,7 @@ public:
     /// \returns \c true, jeśli żywy.
     bool czyZywy() const;
 
-    /// \returns czyZostalWchloniety
+    /// \returns #czyZostalWchloniety
     bool getCzyZostalWchloniety() const;
 
     /// \brief Zwraca znak swojego typu, bądź martwego organizmu.

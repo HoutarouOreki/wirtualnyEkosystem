@@ -3,7 +3,7 @@
 #ifndef BAKTERIA_H
 #define BAKTERIA_H
 
-/// Organizm agresywny, atakujący \ref Glon "glony" bądź inne bakterie.
+/// \brief Organizm agresywny, atakujący \ref Glon "glony" bądź inne bakterie.
 /// \par Sposób żywienia się:
 /// Bakterie najpierw szukają w swoim sąsiedztwie glonów.
 /// Jeśli jakieś znajdą - wybierają losowo jednego i go wchłaniają.

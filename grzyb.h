@@ -3,12 +3,13 @@
 #ifndef GRZYB_H
 #define GRZYB_H
 
-/// \brief Organizm oczyszczający Srodowisko z martwych organizmów.
+/// \brief Organizm oczyszczający \ref Srodowisko "środowisko" z martwych organizmów.
 class Grzyb : public Organizm
 {
 protected:
     /// \copybrief Organizm::wygenerujDziecko()
-    /// \returns Grzyb(Organizm::maxWiek, Organizm::maxNajedzenie, Organizm::kosztNarodzin).
+    /// \returns Grzyb(Organizm::maxWiek,
+    /// Organizm::maxNajedzenie, Organizm::kosztNarodzin).
     virtual Organizm *wygenerujDziecko() override;
 
     /// \brief Szuka w sąsiedztwie martwych \ref Organizm "organizmów".

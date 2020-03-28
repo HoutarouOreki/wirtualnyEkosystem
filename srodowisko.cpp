@@ -23,12 +23,12 @@ unsigned int Srodowisko::getWysokosc() const
 
 Organizm* Srodowisko::getNisza(const unsigned int x, const unsigned int y) const
 {
-    return nisze[getIndeksNiszyOdKoordynat(x, y)];
+    return nisze[indeksNiszyOdKoordynat(x, y)];
 }
 
 void Srodowisko::setNisza(Organizm *const organizm, const unsigned int x, const unsigned int y)
 {
-    const unsigned int indeks = getIndeksNiszyOdKoordynat(x, y);
+    const unsigned int indeks = indeksNiszyOdKoordynat(x, y);
     nisze[indeks] = organizm;
     organizm->wlasnyIndeks = indeks;
 }
@@ -73,13 +73,13 @@ Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
     int wylosowanaNisza;
     const unsigned int maxWiekGlonow = funkcjeUtility::wylosujInt(10, 12);
     const unsigned int maxWiekGrzybow = funkcjeUtility::wylosujInt(30, 40);
-    const unsigned int maxWiekBakterii = funkcjeUtility::wylosujInt(8, 12);
+    const unsigned int maxWiekBakterii = funkcjeUtility::wylosujInt(15, 20);
     const unsigned int maxNajedzenieGlonow = funkcjeUtility::wylosujInt(2, 3);
     const unsigned int maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(5, 10);
-    const unsigned int maxNajedzenieBakterii = funkcjeUtility::wylosujInt(4, 7);
+    const unsigned int maxNajedzenieBakterii = funkcjeUtility::wylosujInt(7, 9);
     const unsigned int kosztNarodzinGlonow = funkcjeUtility::wylosujInt(1, maxNajedzenieGlonow);
     const unsigned int kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(2, 5);
-    const unsigned int kosztNarodzinBakterii = funkcjeUtility::wylosujInt(3, (maxNajedzenieBakterii + 2) / 2);
+    const unsigned int kosztNarodzinBakterii = funkcjeUtility::wylosujInt(5, 7);
     for (unsigned int i = 0; i < iloscGlonow; i++) {
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
@@ -567,7 +567,7 @@ unsigned int Srodowisko::dostanY(const unsigned int indeksNiszy) const
     return indeksNiszy / szerokosc;
 }
 
-unsigned int Srodowisko::getIndeksNiszyOdKoordynat(const unsigned int x, const unsigned int y) const
+unsigned int Srodowisko::indeksNiszyOdKoordynat(const unsigned int x, const unsigned int y) const
 {
     return (y * szerokosc) + x;
 }
@@ -584,5 +584,5 @@ unsigned int Srodowisko::dostanIndeksSasiada( unsigned int x, unsigned int y, un
     } else if (nrSasiada != 1 && nrSasiada != 6) {
         x++;
     }
-    return getIndeksNiszyOdKoordynat(x, y);
+    return indeksNiszyOdKoordynat(x, y);
 }

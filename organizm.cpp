@@ -177,7 +177,7 @@ void Organizm::probaPoruszeniaSie()
 {
 }
 
-void Organizm::wchlonOrganizm(unsigned int nrNiszy)
+void Organizm::wchlonOrganizm(const unsigned int nrNiszy)
 {
     if (nisze[nrNiszy]->czyZywy()) {
         // jeśli żyje, to jest w tablicy żywych organizmów w środowisku

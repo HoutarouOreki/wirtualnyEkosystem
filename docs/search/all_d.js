@@ -1,7 +1,7 @@
 var searchData=
 [
   ['wchlonorazzajmijpozycjeorganizmu_69',['wchlonOrazZajmijPozycjeOrganizmu',['../class_organizm.html#a3ea2689c236928c9e8c45ac33a6667ae',1,'Organizm']]],
-  ['wchlonorganizm_70',['wchlonOrganizm',['../class_organizm.html#a34800379319540176334f2586aad2e37',1,'Organizm']]],
+  ['wchlonorganizm_70',['wchlonOrganizm',['../class_organizm.html#abae08bbae3be0f76f095a1aa67c62279',1,'Organizm']]],
   ['wiek_71',['wiek',['../class_organizm.html#a33dbc1630eab39bee31df3af8a3b0083',1,'Organizm']]],
   ['wlasnyindeks_72',['wlasnyIndeks',['../class_organizm.html#a4ae1997f50c8b860ad3023ccccdd6252',1,'Organizm']]],
   ['wygenerujdziecko_73',['wygenerujDziecko',['../class_bakteria.html#ac6d4f9b4d1beebb9934a68991977e9af',1,'Bakteria::wygenerujDziecko()'],['../class_glon.html#ab783a10732e4cc3a69c34b72f1bb5678',1,'Glon::wygenerujDziecko()'],['../class_grzyb.html#a9f8b54a44a99554b89b920554de15621',1,'Grzyb::wygenerujDziecko()'],['../class_organizm.html#a984c39a52db726975ab5fc0da7a20d8b',1,'Organizm::wygenerujDziecko()']]],
