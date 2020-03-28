@@ -181,6 +181,76 @@ public:
         bool wyswietlajInfo[3];
     };
 
+    /// \brief Struktura gromadząca statystyki dotyczące środowiska.
+    /// \details Zapisuje ilość żyjących organizmów danego gatunku
+    /// żyjących po danym kroku symulacji, ile z nich się najadło
+    /// oraz ile z nich się rozmnożyło. Indeksy vectorów odpowiadają
+    /// stanowi po kroku symulacji o numerze indeksu.
+    struct statystykiSrodowiska
+    {
+    public:
+        /// \returns const reference do #iloscGlonow
+        const std::vector<unsigned int> &getIloscGlonow() const;
+
+        /// \returns const reference do #iloscGrzybow
+        const std::vector<unsigned int> &getIloscGrzybow() const;
+
+        /// \returns const reference do #iloscBakterii
+        const std::vector<unsigned int> &getIloscBakterii() const;
+
+        /// \returns const reference do #iloscMartwych
+        const std::vector<unsigned int> &getIloscMartwych() const;
+
+        /// \returns const reference do #iloscNajedzonychGrzybow
+        const std::vector<unsigned int> &getIloscNajedzonychGrzybow() const;
+
+        /// \returns const reference do #iloscNajedzonychBakterii
+        const std::vector<unsigned int> &getIloscNajedzonychBakterii() const;
+
+        /// \returns const reference do #iloscRozmnozonychGlonow
+        const std::vector<unsigned int> &getIloscRozmnozonychGlonow() const;
+
+        /// \returns const reference do #iloscRozmnozonychGrzybow
+        const std::vector<unsigned int> &getIloscRozmnozonychGrzybów() const;
+
+        /// \returns const reference do #iloscRozmnozonychBakterii
+        const std::vector<unsigned int> &getIloscRozmnozonychBakterii() const;
+
+    private:
+        /// \brief Vector gromadzący ilości żywych \ref Glon "glonów" po danym kroku symulacji.
+        std::vector<unsigned int> iloscGlonow;
+
+        /// \brief Vector gromadzący ilości żywych \ref Grzyb "grzybów" po danym kroku symulacji.
+        std::vector<unsigned int> iloscGrzybow;
+
+        /// \brief Vector gromadzący ilości żywych \ref Bakteria "bakterii" po danym kroku symulacji.
+        std::vector<unsigned int> iloscBakterii;
+
+        /// \brief Vector zapisujący ilości martwych \ref Organizm "organizmów".
+        /// \see Organizm::czyZywy()
+        std::vector<unsigned int> iloscMartwych;
+
+        /// \brief Vector zapisujący ile \ref Grzyb "grzybów"
+        /// pożywiło się w danym kroku symulacji.
+        std::vector<unsigned int> iloscNajedzonychGrzybow;
+
+        /// \brief Vector zapisujący ile \ref Bakteria "bakterii"
+        /// pożywiło się w danym kroku symulacji.
+        std::vector<unsigned int> iloscNajedzonychBakterii;
+
+        /// \brief Vector zapisujący ile \ref Glon "glonów"
+        /// rozmnożyło się w danym kroku symulacji.
+        std::vector<unsigned int> iloscRozmnozonychGlonow;
+
+        /// \brief Vector zapisujący ile \ref Grzyb "grzybów"
+        /// rozmnożyło się w danym kroku symulacji.
+        std::vector<unsigned int> iloscRozmnozonychGrzybow;
+
+        /// \brief Vector zapisujący ile \ref Bakteria "bakterii"
+        /// rozmnożyło się w danym kroku symulacji.
+        std::vector<unsigned int> iloscRozmnozonychBakterii;
+    };
+
     /// \brief Zwraca wartość z tablicy
     /// #ustWyswietlania->\ref ustawieniaWyswietlania::wyswietlajInfo
     /// "wyswietlajInfo" z indeksu odpowiadającego

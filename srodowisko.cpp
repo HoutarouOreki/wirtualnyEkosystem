@@ -586,3 +586,48 @@ unsigned int Srodowisko::dostanIndeksSasiada( unsigned int x, unsigned int y, un
     }
     return indeksNiszyOdKoordynat(x, y);
 }
+
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscGlonow() const
+{
+    return iloscGlonow;
+}
+
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscRozmnozonychBakterii() const
+{
+    return iloscRozmnozonychBakterii;
+}
+
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscRozmnozonychGrzybów() const
+{
+    return iloscRozmnozonychGrzybow;
+}
+
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscRozmnozonychGlonow() const
+{
+    return iloscRozmnozonychGlonow;
+}
+
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscNajedzonychBakterii() const
+{
+    return iloscNajedzonychBakterii;
+}
+
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscNajedzonychGrzybow() const
+{
+    return iloscNajedzonychGrzybow;
+}
+
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscMartwych() const
+{
+    return iloscMartwych;
+}
+
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscBakterii() const
+{
+    return iloscBakterii;
+}
+
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIloscGrzybow() const
+{
+    return iloscGrzybow;
+}
