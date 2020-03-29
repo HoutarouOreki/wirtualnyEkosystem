@@ -98,6 +98,9 @@ Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
         } while (nisze[wylosowanaNisza] != nullptr);
         nisze[wylosowanaNisza] = new Bakteria(maxWiekBakterii, maxNajedzenieBakterii, kosztNarodzinBakterii, i == 0 ? 0 : funkcjeUtility::wylosujInt(0, maxWiekBakterii / 2));
     }
+
+    statystyki.dodajStatystykiOstatniegoKroku(this);
+
     std::cin.clear();
     std::cin.ignore();
 }
@@ -140,6 +143,34 @@ void Srodowisko::wyswietlUstawienia()
               << std::endl << "jednak nie bedzie tez widac poprzednich krokow symulacji."
               << std::endl << "Wpisz n aby przelaczyc nadrysowywanie bufora"
               << std::endl << std::endl;
+}
+
+void Srodowisko::wyswietlStatystyki(unsigned int iloscKrokow = 30) const
+{
+    std::string informacjaDostosowaniaIlosciLinii = iloscKrokow == 30 ?
+                " - aby dopasowac ilosc wyswietlonych ostatnich krokow,\n"
+                "dopisz liczbe za litera S, np: s100" : "";
+    std::cout << "Statystyki" << informacjaDostosowaniaIlosciLinii << std::endl << std::endl
+              << "      |             ilosci             ||     najedzone / rozmnozone     |" << std::endl
+              << "      |--------------------------------||--------------------------------|" << std::endl
+              << " krok |   glony  |  grzyby  | bakterie ||   glony  |  grzyby  | bakterie |" << std::endl
+              << "------|----------|----------|----------||----------|----------|----------|" << std::endl;
+
+    for (unsigned int i = std::max(0, (int)krokSymulacji - (int)iloscKrokow); i <= krokSymulacji; i++) {
+        std::cout << funkcjeUtility::liczbaBialeZnaki(i, 6, true)
+          << "|    " << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciGlonow()[i], 4, true)
+          << "  |    " << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciGrzybow()[i], 4, true)
+          << "  |    " << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciBakterii()[i], 4, true)
+          << "  || " << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciGlonow()[i] -
+                                                         statystyki.getIlosciRozmnozonychGlonow()[i], 4, true)
+          << "/" << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciRozmnozonychGlonow()[i], 4, false)
+          << "| " << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciNajedzonychGrzybow()[i], 4, true)
+          << "/" << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciRozmnozonychGrzybow()[i], 4, false)
+          << "| " << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciNajedzonychBakterii()[i], 4, true)
+          << "/" << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciRozmnozonychBakterii()[i], 4, false)
+          << "|" << std::endl;
+    }
+    std::cout << std::endl;
 }
 
 std::string Srodowisko::dostanKolejnaInformacje(string *informacje, unsigned int *indeksInformacji)
@@ -268,7 +299,7 @@ std::string* Srodowisko::informacjeOrganizmow() const
 void Srodowisko::wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko)
 {
     if (ustWyswietlania->nadrysowywanie && czyOstatnioDrukowanoSrodowisko) {
-        funkcjeKonsoli::cofnijKursor(15 + wysokosc);
+        funkcjeKonsoli::cofnijKursor(16 + wysokosc);
         std::cout << std::endl;
         // cout << "linia: " << linia << ", kolumna: " << kolumna << endl;
     }
@@ -367,12 +398,13 @@ void Srodowisko::petla()
     bool ostatnioDrukowanoSrodowisko = false;
     while (wejscie != "E") {
         std::cout << "Enter bez znakow - wykonanie kroku symulacji i wyswietlenie srodowiska"
-                  << std::endl << "s - wyswietlenie srodowiska"
+                  << std::endl << "b - wyswietlenie srodowiska"
+                  << std::endl << "s - wyswietlenie statystyk"
                   << std::endl << "u - wyswietlenie ustawien"
                   << std::endl << "e - opuszczenie srodowiska"
                   << std::endl;
 
-        wejscie = pierwszeWejscie ? "S" : funkcjeUtility::dostanLinie();
+        wejscie = pierwszeWejscie ? "B" : funkcjeUtility::dostanLinie();
         pierwszeWejscie = false;
 
         // zamiana wejścia na duże litery
@@ -380,14 +412,16 @@ void Srodowisko::petla()
             c = std::toupper(c);
         }
 
-        if (!(ostatnioDrukowanoSrodowisko && (wejscie == "S" || wejscie == ""))) {
+        if (!(ostatnioDrukowanoSrodowisko && (wejscie == "B" || wejscie == ""))) {
             std::cout << std::endl << "-----------------------" << std::endl;
         }
 
         if (wejscie == "") {
             ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::krokOrazWyswietlanieSrodowiska;
-        } else if (wejscie == "S") {
+        } else if (wejscie == "B") {
             ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::wyswietlanieSrodowiska;
+        } else if (wejscie[0] == 'S') {
+            ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::wyswietlanieStatystyk;
         } else if (wejscie == "U") {
             ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::wyswietlanieUstawien;
         } else if (wejscie == "E") {
@@ -416,6 +450,23 @@ void Srodowisko::petla()
             break;
         case ustawieniaWyswietlania::trybWyswietlania::wyswietlanieSrodowiska:
             wyswietlSrodowisko(ostatnioDrukowanoSrodowisko);
+            break;
+        case ustawieniaWyswietlania::trybWyswietlania::wyswietlanieStatystyk:
+            if (wejscie.length() > 1) {
+                bool moznaPrzekonwertowacNaLiczbe = true;
+                for (unsigned int i = 1; i < wejscie.length(); i++) {
+                    if (!std::isdigit(wejscie[i])) {
+                        moznaPrzekonwertowacNaLiczbe = false;
+                    }
+                }
+                if (moznaPrzekonwertowacNaLiczbe) {
+                    wyswietlStatystyki(std::stoi(wejscie.substr(1, wejscie.length() - 1)));
+                } else {
+                    std::cout << "Nie rozpoznano parametru jako liczby" << std::endl;
+                }
+            } else {
+                wyswietlStatystyki();
+            }
             break;
         case ustawieniaWyswietlania::trybWyswietlania::wyswietlanieUstawien:
             wyswietlUstawienia();
@@ -598,7 +649,7 @@ const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciRozm
     return ilosciRozmnozonychBakterii;
 }
 
-const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciRozmnozonychGrzybów() const
+const std::vector<unsigned int> &Srodowisko::statystykiSrodowiska::getIlosciRozmnozonychGrzybow() const
 {
     return ilosciRozmnozonychGrzybow;
 }
@@ -647,6 +698,10 @@ void Srodowisko::statystykiSrodowiska::dodajStatystykiOstatniegoKroku(Srodowisko
     Organizm *organizm;
     for (unsigned int i = 0; i < srodowisko->szerokosc * srodowisko->wysokosc; i++) {
         organizm = srodowisko->nisze[i];
+        if (organizm == nullptr) {
+            // w tej niszy nie ma organizmu
+            continue;
+        }
         switch (organizm->dostanZnak())
         {
         case Organizm::ZNAK_GLONU:

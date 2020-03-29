@@ -153,6 +153,7 @@ public:
         {
             krokOrazWyswietlanieSrodowiska,
             wyswietlanieSrodowiska,
+            wyswietlanieStatystyk,
             wyswietlanieUstawien,
             zaden
         };
@@ -211,13 +212,15 @@ public:
         const std::vector<unsigned int> &getIlosciRozmnozonychGlonow() const;
 
         /// \returns const reference do #ilosciRozmnozonychGrzybow
-        const std::vector<unsigned int> &getIlosciRozmnozonychGrzybów() const;
+        const std::vector<unsigned int> &getIlosciRozmnozonychGrzybow() const;
 
         /// \returns const reference do #ilosciRozmnozonychBakterii
         const std::vector<unsigned int> &getIlosciRozmnozonychBakterii() const;
 
         /// \brief Dopisuje statystyki dotyczące stanu
         /// środowiska po ostatnim kroku symulacji.
+        /// \note Musi zostać wywołane na końcu \ref Srodowisko(ustawieniaWyswietlania)
+        /// konstruktora środowiska, aby zapisać statystyki dla zerowego kroku.
         /// \param[in] srodowisko którego statystyki zostaną dopisane.
         void dodajStatystykiOstatniegoKroku(Srodowisko* const srodowisko);
 
@@ -331,6 +334,10 @@ public:
     /// czy ostatnio wyświetlono planszę środowiska, co jest jednoznaczne z tym,
     /// że można ją nadrysować.
     void wyswietlSrodowisko(bool czyOstatnioDrukowanoSrodowisko);
+
+    /// \brief Wyświetla statystyki.
+    /// \details Pokazuje statystyki dla ostatnich kroków symulacji.
+    void wyswietlStatystyki(unsigned int iloscKrokow) const;
 
     /// \brief Udostępnia użytkownikowi interfejs obsługi środowiska.
     void petla();
