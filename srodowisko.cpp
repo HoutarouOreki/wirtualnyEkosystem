@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include "srodowisko.h"
 #include "funkcjeUtility.h"
 #include "funkcjeKonsoli.h"
@@ -145,7 +144,7 @@ void Srodowisko::wyswietlUstawienia()
               << std::endl << std::endl;
 }
 
-void Srodowisko::wyswietlStatystyki(unsigned int iloscKrokow = 30) const
+void Srodowisko::wyswietlStatystyki(const unsigned int iloscKrokow = 30) const
 {
     std::string informacjaDostosowaniaIlosciLinii = iloscKrokow == 30 ?
                 " - aby dopasowac ilosc wyswietlonych ostatnich krokow,\n"
