@@ -337,7 +337,8 @@ public:
 
     /// \brief Wyświetla statystyki.
     /// \details Pokazuje statystyki dla ostatnich kroków symulacji.
-    void wyswietlStatystyki(unsigned int iloscKrokow) const;
+    /// \param[in] iloscKrokow Dla ilu kroków symulacji wyświetlić statystyki.
+    void wyswietlStatystyki(const unsigned int iloscKrokow) const;
 
     /// \brief Udostępnia użytkownikowi interfejs obsługi środowiska.
     void petla();
