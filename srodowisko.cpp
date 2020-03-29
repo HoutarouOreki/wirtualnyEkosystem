@@ -144,18 +144,15 @@ void Srodowisko::wyswietlUstawienia()
               << std::endl << std::endl;
 }
 
-void Srodowisko::wyswietlStatystyki(const unsigned int iloscKrokow = 30) const
+void Srodowisko::wyswietlStatystyki(const unsigned int iloscKrokow = 20) const
 {
-    std::string informacjaDostosowaniaIlosciLinii = iloscKrokow == 30 ?
-                " - aby dopasowac ilosc wyswietlonych ostatnich krokow,\n"
-                "dopisz liczbe za litera S, np: s100" : "";
-    std::cout << "Statystyki" << informacjaDostosowaniaIlosciLinii << std::endl << std::endl
+    std::cout << "Statystyki" << std::endl << std::endl
               << "      |             ilosci             ||     najedzone / rozmnozone     |" << std::endl
               << "      |--------------------------------||--------------------------------|" << std::endl
               << " krok |   glony  |  grzyby  | bakterie ||   glony  |  grzyby  | bakterie |" << std::endl
               << "------|----------|----------|----------||----------|----------|----------|" << std::endl;
 
-    for (unsigned int i = std::max(0, (int)krokSymulacji - (int)iloscKrokow); i <= krokSymulacji; i++) {
+    for (unsigned int i = std::max(0, (int)krokSymulacji - (int)iloscKrokow + 1); i <= krokSymulacji; i++) {
         std::cout << funkcjeUtility::liczbaBialeZnaki(i, 6, true)
           << "|    " << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciGlonow()[i], 4, true)
           << "  |    " << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciGrzybow()[i], 4, true)
@@ -169,7 +166,117 @@ void Srodowisko::wyswietlStatystyki(const unsigned int iloscKrokow = 30) const
           << "/" << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciRozmnozonychBakterii()[i], 4, false)
           << "|" << std::endl;
     }
+    std::cout << std::endl << "sX - wyswietl statystyki ostatnich X krokow, np. s100."
+              << std::endl << "w - wyswietl wykres ilosci organizmow dla ostatnich 130 krokow"
+              << std::endl << std::endl;
+}
+
+void Srodowisko::wyswietlWykresIlosciOrganizmow() const
+{
+
+    const static unsigned int wysokoscWykresu = 28;
+    const static unsigned int szerokoscWykresu = 120;
+    const unsigned int pierwszyWyswietlanyKrok = std::max(0, (int)krokSymulacji - (int)szerokoscWykresu + 1);
+
+    std::cout << "Wykres ilosci organizmow podczas ostatnich " << szerokoscWykresu << " krokow."
+              << std::endl << std::endl;
+
+    // najpierw szukamy najniższego i najwyższego punktu wykresu
+    unsigned int min = statystyki.getIlosciGlonow()[pierwszyWyswietlanyKrok];
+    unsigned int max = statystyki.getIlosciGlonow()[pierwszyWyswietlanyKrok];
+    for (unsigned int i = pierwszyWyswietlanyKrok; i <= krokSymulacji; i++) {
+        // glony
+        if (statystyki.getIlosciGlonow()[i] > max) {
+            max = statystyki.getIlosciGlonow()[i];
+        } else if (statystyki.getIlosciGlonow()[i] < min) {
+            min = statystyki.getIlosciGlonow()[i];
+        }
+        // grzyby
+        if (statystyki.getIlosciGrzybow()[i] > max) {
+            max = statystyki.getIlosciGrzybow()[i];
+        } else if (statystyki.getIlosciGrzybow()[i] < min) {
+            min = statystyki.getIlosciGrzybow()[i];
+        }
+        // bakterie
+        if (statystyki.getIlosciBakterii()[i] > max) {
+            max = statystyki.getIlosciBakterii()[i];
+        } else if (statystyki.getIlosciBakterii()[i] < min) {
+            min = statystyki.getIlosciBakterii()[i];
+        }
+    }
+
+    // 1 wymiar jest dla każdego gatunku organizmu
+    // (0 = glon, 1 = grzyb, 2 = bakteria),
+    // 2 wymiar ma dla każdego kroku informację o tym,
+    // w której linijce (od 0 do wysokoscWykresu-1)
+    // znajduje się linia wykresu dla danego organizmu
+    unsigned int tabliceLinii[3][szerokoscWykresu];
+
+    for (unsigned int i = pierwszyWyswietlanyKrok; i <= krokSymulacji; i++) {
+        tabliceLinii[0][i - pierwszyWyswietlanyKrok]
+                = przekonwertujLiczbeNaYwWykresie(min, max, statystyki.getIlosciGlonow()[i], wysokoscWykresu);
+        tabliceLinii[1][i - pierwszyWyswietlanyKrok]
+                = przekonwertujLiczbeNaYwWykresie(min, max, statystyki.getIlosciGrzybow()[i], wysokoscWykresu);
+        tabliceLinii[2][i - pierwszyWyswietlanyKrok]
+                = przekonwertujLiczbeNaYwWykresie(min, max, statystyki.getIlosciBakterii()[i], wysokoscWykresu);
+    }
+
+    // teraz narysujemy każdą linijkę wykresu po kolei.
+    // Jeśli tabliceLinii[organizm][krok] == linijka,
+    // to na tej linijce znajduje się linia wykresu podczas tego kroku.
+    for (int linijka = wysokoscWykresu; linijka >= 0; linijka--) {
+        if (linijka == wysokoscWykresu) {
+            std::cout << funkcjeUtility::liczbaBialeZnaki(max, 5, true) << "-|";
+        } else if (linijka == 0) {
+            std::cout << funkcjeUtility::liczbaBialeZnaki(min, 5, true) << "-|";
+        } else if (linijka == wysokoscWykresu / 2) {
+            std::cout << funkcjeUtility::liczbaBialeZnaki((max + min) / 2, 5, true) << "-|";
+        } else {
+            std::cout << funkcjeUtility::ilesBialychZnakow(6) << "|";
+        }
+        for (unsigned int krok = pierwszyWyswietlanyKrok; krok <= krokSymulacji; krok++) {
+            bool wyswietlonoLinie = false;
+
+            // idziemy od góry, aby linia bakterii była z przodu
+            for (int organizm = 2; organizm >= 0; organizm--) {
+                if (tabliceLinii[(unsigned int)organizm][krok - pierwszyWyswietlanyKrok] == (unsigned int)linijka) {
+                    ustawKolorKonsoli(organizm);
+                    std::cout << "O";
+                    wyswietlonoLinie = true;
+                    break;
+                }
+            }
+            if (!wyswietlonoLinie) {
+                std::cout << " ";
+            }
+        }
+        std::cout << termcolor::reset << std::endl;
+    }
+
     std::cout << std::endl;
+}
+
+void Srodowisko::ustawKolorKonsoli(const unsigned int liczbaOrganizmu) const
+{
+    switch (liczbaOrganizmu)
+    {
+    case 0:
+        termcolor::green(std::cout);
+        break;
+    case 1:
+        termcolor::cyan(std::cout);
+        break;
+    case 2:
+        termcolor::red(std::cout);
+        break;
+    }
+}
+
+unsigned int Srodowisko::przekonwertujLiczbeNaYwWykresie(const unsigned int min,
+        const unsigned int max, const unsigned int wartosc, const unsigned int wysokoscWykresu) const
+{
+    double procentMiedzyMinMax = (wartosc - min) / ((double)max - min);
+    return (unsigned int)(procentMiedzyMinMax * wysokoscWykresu);
 }
 
 std::string Srodowisko::dostanKolejnaInformacje(string *informacje, unsigned int *indeksInformacji)
@@ -425,6 +532,8 @@ void Srodowisko::petla()
             ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::wyswietlanieUstawien;
         } else if (wejscie == "E") {
             return;
+        } else if (wejscie == "W") {
+            ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::wyswietlanieWykresu;
         } else if (wejscie == "N") {
             funkcjeUtility::przelaczBool(&ustWyswietlania->nadrysowywanie);
         } else if (wejscie.length() == 2 && wejscie[1] >= '0' && wejscie[1] <= '2') {
@@ -466,6 +575,9 @@ void Srodowisko::petla()
             } else {
                 wyswietlStatystyki();
             }
+            break;
+        case ustawieniaWyswietlania::wyswietlanieWykresu:
+            wyswietlWykresIlosciOrganizmow();
             break;
         case ustawieniaWyswietlania::trybWyswietlania::wyswietlanieUstawien:
             wyswietlUstawienia();

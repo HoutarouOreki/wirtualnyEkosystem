@@ -141,6 +141,10 @@ private:
     /// \li 2 dla Organizm::ZNAK_BAKTERII
     /// \li 3 dla innych znaków
     unsigned int dostanNrOrganizmu(const char znakOrganizmu) const;
+
+    /// \brief W której linijce wykresu powinna znaleźć się dana wartość.
+    unsigned int przekonwertujLiczbeNaYwWykresie(const unsigned int min, const unsigned int max, const unsigned int wartosc, const unsigned int wysokoscWykresu) const;
+    void ustawKolorKonsoli(const unsigned int liczbaOrganizmu) const;
 public:
 
     /// \brief Struktura przechowująca opcje dla funkcji
@@ -154,6 +158,7 @@ public:
             krokOrazWyswietlanieSrodowiska,
             wyswietlanieSrodowiska,
             wyswietlanieStatystyk,
+            wyswietlanieWykresu,
             wyswietlanieUstawien,
             zaden
         };
@@ -339,6 +344,9 @@ public:
     /// \details Pokazuje statystyki dla ostatnich kroków symulacji.
     /// \param[in] iloscKrokow Dla ilu kroków symulacji wyświetlić statystyki.
     void wyswietlStatystyki(const unsigned int iloscKrokow) const;
+
+    /// \brief Wyświetla wykres ilości organizmów w ciągu ostatnich 100 kroków.
+    void wyswietlWykresIlosciOrganizmow() const;
 
     /// \brief Udostępnia użytkownikowi interfejs obsługi środowiska.
     void petla();
