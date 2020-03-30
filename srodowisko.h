@@ -144,6 +144,18 @@ private:
 
     /// \brief W której linijce wykresu powinna znaleźć się dana wartość.
     unsigned int przekonwertujLiczbeNaYwWykresie(const unsigned int min, const unsigned int max, const unsigned int wartosc, const unsigned int wysokoscWykresu) const;
+
+    /// \brief Zmienia kolor tekstu konsoli zależnie od organizmu.
+    /// \details \li 0 = glon
+    /// \li 1 = grzyb
+    /// \li 2 = bakteria
+    /// \li 3 = martwy organizm
+    /// \pre \p liczbaOrganizmu jest w zakresie <0, 3>
+    /// \post Kolor tekstu został ustawiony zależnie od argumentu
+    /// \li 0 = zielony
+    /// \li 1 = niebieski
+    /// \li 2 = czerwony
+    /// \li 3 = żółty
     void ustawKolorKonsoli(const unsigned int liczbaOrganizmu) const;
 public:
 

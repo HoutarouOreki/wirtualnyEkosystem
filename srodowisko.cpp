@@ -221,10 +221,12 @@ void Srodowisko::wyswietlWykresIlosciOrganizmow() const
                 = przekonwertujLiczbeNaYwWykresie(min, max, statystyki.getIlosciBakterii()[i], wysokoscWykresu);
     }
 
-    // teraz narysujemy każdą linijkę wykresu po kolei.
+    // teraz narysujemy każdą linijkę wykresu krok po kroku.
     // Jeśli tabliceLinii[organizm][krok] == linijka,
     // to na tej linijce znajduje się linia wykresu podczas tego kroku.
     for (int linijka = wysokoscWykresu; linijka >= 0; linijka--) {
+
+        // wartości osi Y
         if (linijka == wysokoscWykresu) {
             std::cout << funkcjeUtility::liczbaBialeZnaki(max, 5, true) << "-|";
         } else if (linijka == 0) {
@@ -234,6 +236,8 @@ void Srodowisko::wyswietlWykresIlosciOrganizmow() const
         } else {
             std::cout << funkcjeUtility::ilesBialychZnakow(6) << "|";
         }
+
+        // rysowanie wykresu samo w sobie
         for (unsigned int krok = pierwszyWyswietlanyKrok; krok <= krokSymulacji; krok++) {
             bool wyswietlonoLinie = false;
 
@@ -268,6 +272,9 @@ void Srodowisko::ustawKolorKonsoli(const unsigned int liczbaOrganizmu) const
         break;
     case 2:
         termcolor::red(std::cout);
+        break;
+    case 3:
+        termcolor::yellow(std::cout);
         break;
     }
 }
