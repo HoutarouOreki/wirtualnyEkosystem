@@ -214,11 +214,11 @@ void Srodowisko::wyswietlWykresIlosciOrganizmow() const
 
     for (unsigned int i = pierwszyWyswietlanyKrok; i <= krokSymulacji; i++) {
         tabliceLinii[0][i - pierwszyWyswietlanyKrok]
-                = przekonwertujLiczbeNaYwWykresie(min, max, statystyki.getIlosciGlonow()[i], wysokoscWykresu);
+                = przekonwertujWartoscNaNrLinijkiWykresu(min, max, statystyki.getIlosciGlonow()[i], wysokoscWykresu);
         tabliceLinii[1][i - pierwszyWyswietlanyKrok]
-                = przekonwertujLiczbeNaYwWykresie(min, max, statystyki.getIlosciGrzybow()[i], wysokoscWykresu);
+                = przekonwertujWartoscNaNrLinijkiWykresu(min, max, statystyki.getIlosciGrzybow()[i], wysokoscWykresu);
         tabliceLinii[2][i - pierwszyWyswietlanyKrok]
-                = przekonwertujLiczbeNaYwWykresie(min, max, statystyki.getIlosciBakterii()[i], wysokoscWykresu);
+                = przekonwertujWartoscNaNrLinijkiWykresu(min, max, statystyki.getIlosciBakterii()[i], wysokoscWykresu);
     }
 
     // teraz narysujemy każdą linijkę wykresu krok po kroku.
@@ -279,7 +279,7 @@ void Srodowisko::ustawKolorKonsoli(const unsigned int liczbaOrganizmu) const
     }
 }
 
-unsigned int Srodowisko::przekonwertujLiczbeNaYwWykresie(const unsigned int min,
+unsigned int Srodowisko::przekonwertujWartoscNaNrLinijkiWykresu(const unsigned int min,
         const unsigned int max, const unsigned int wartosc, const unsigned int wysokoscWykresu) const
 {
     double procentMiedzyMinMax = (wartosc - min) / ((double)max - min);
