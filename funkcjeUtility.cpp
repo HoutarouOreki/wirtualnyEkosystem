@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include "funkcjeUtility.h"
 
@@ -79,5 +80,34 @@ namespace funkcjeUtility {
     void przelaczBool(bool* zmienna)
     {
         *zmienna = !*zmienna;
+    }
+
+    bool sprobujZapisacTekstDoPliku(const std::string tekst, const std::string nazwaPliku)
+    {
+        // stream wejscia zostanie automatycznie zamknięty po wyjściu z funkcji
+        if (std::ifstream(nazwaPliku).good()) {// jeśli plik istnieje (udało się otworzyć)
+            std::string wejscie;
+            while (true) {
+                std::cout << "Plik " << nazwaPliku << " juz istnieje. Nadpisac?" << std::endl
+                      << "t - tak" << std::endl
+                      << "n - nie" << std::endl;
+                wejscie = dostanLinie();
+                if (wejscie.length() != 1) {
+                    std::cout << "Nieprawidlowe polecenie" << std::endl;
+                    dostanLinie();
+                } else if (std::tolower(wejscie.at(0)) == 'n') {
+                    return false;
+                } else if (std::toupper(wejscie.at(0)) == 't') {
+                    break;
+                } else {
+                    std::cout << "Nieprawidlowe polecenie" << std::endl;
+                    dostanLinie();
+                }
+            }
+        }
+        std::ofstream wyjscieDoPliku(nazwaPliku);
+        wyjscieDoPliku << tekst;
+        wyjscieDoPliku.close();
+        return wyjscieDoPliku.good();
     }
 }

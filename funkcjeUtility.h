@@ -44,6 +44,15 @@ namespace funkcjeUtility
 
     /// Drukuje <ile> spacji.
     std::string ilesBialychZnakow(unsigned int ile);
+
+    /// \brief Próbuje zapisać tekst do pliku o podanej nazwie.
+    /// \details Plik będzie znajdował się w folderze, z którego został uruchomiony program.
+    /// Jeśli plik o podanej nazwie istnieje, użytkownik będzie mógł
+    /// zdecydować, czy go nadpisać.
+    /// \param[in] tekst Tekst do zapisania.
+    /// \param[in] nazwaPliku Nazwa pliku, do którego zostanie zapisany tekst.
+    /// \return Wynik zapisu.
+    bool sprobujZapisacTekstDoPliku(const std::string tekst, const std::string nazwaPliku);
 }
 
 #endif // FUNKCJEUTILITY_H
