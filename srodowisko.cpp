@@ -70,15 +70,24 @@ Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
         }
     }
     int wylosowanaNisza;
+//    const unsigned int maxWiekGlonow = funkcjeUtility::wylosujInt(10, 12);
+//    const unsigned int maxWiekGrzybow = funkcjeUtility::wylosujInt(30, 40);
+//    const unsigned int maxWiekBakterii = funkcjeUtility::wylosujInt(15, 20);
+//    const unsigned int maxNajedzenieGlonow = funkcjeUtility::wylosujInt(2, 3);
+//    const unsigned int maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(5, 10);
+//    const unsigned int maxNajedzenieBakterii = funkcjeUtility::wylosujInt(7, 9);
+//    const unsigned int kosztNarodzinGlonow = funkcjeUtility::wylosujInt(1, maxNajedzenieGlonow);
+//    const unsigned int kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(2, 5);
+//    const unsigned int kosztNarodzinBakterii = funkcjeUtility::wylosujInt(5, 7);
     const unsigned int maxWiekGlonow = funkcjeUtility::wylosujInt(10, 12);
     const unsigned int maxWiekGrzybow = funkcjeUtility::wylosujInt(30, 40);
-    const unsigned int maxWiekBakterii = funkcjeUtility::wylosujInt(15, 20);
+    const unsigned int maxWiekBakterii = funkcjeUtility::wylosujInt(7, 9);
     const unsigned int maxNajedzenieGlonow = funkcjeUtility::wylosujInt(2, 3);
     const unsigned int maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(5, 10);
-    const unsigned int maxNajedzenieBakterii = funkcjeUtility::wylosujInt(7, 9);
-    const unsigned int kosztNarodzinGlonow = funkcjeUtility::wylosujInt(1, maxNajedzenieGlonow);
-    const unsigned int kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(2, 5);
-    const unsigned int kosztNarodzinBakterii = funkcjeUtility::wylosujInt(5, 7);
+    const unsigned int maxNajedzenieBakterii = funkcjeUtility::wylosujInt(15, 25);
+    const unsigned int kosztNarodzinGlonow = funkcjeUtility::wylosujInt(1, 2);
+    const unsigned int kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(2, 4);
+    const unsigned int kosztNarodzinBakterii = funkcjeUtility::wylosujInt(2, 3);
     for (unsigned int i = 0; i < iloscGlonow; i++) {
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
