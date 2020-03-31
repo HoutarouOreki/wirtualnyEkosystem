@@ -41,6 +41,19 @@ private:
     /// \see Organizm::czyZywy()
     unsigned int iloscMartwych;
 
+    /// \brief Wartości atrybutu Organizm::maxWiek dla każdego gatunku.
+    /// \details Indeks dla danego organizmu może
+    /// zostać uzyskany funkcją dostanNrOrganizmu(const char znakOrganizmu);
+    unsigned int maxWieki[3];
+
+    /// \brief Wartości atrybutu Organizm::maxNajedzenie dla każdego gatunku.
+    /// \copydetails maxWieki
+    unsigned int maxNajedzenia[3];
+
+    /// \brief Wartości atrybutu Organizm::kosztNarodzin dla każdego gatunku.
+    /// \copydetails maxWieki
+    unsigned int kosztyNarodzin[3];
+
     /// \brief Ustawia wartości zmiennych #iloscGlonow, #iloscGrzybow
     /// #iloscBakterii, #iloscMartwych.
     void podliczIlosciOrganizmow();
@@ -367,6 +380,11 @@ public:
 
     /// \brief Wyświetla wykres ilości organizmów w ciągu ostatnich 100 kroków.
     void wyswietlWykresIlosciOrganizmow() const;
+
+    /// \brief Eksportuje statystyki oraz właściwości środowiska i jego \ref Organizm "organizmów".
+    /// \details Pyta o nazwę pliku, do którego zostaną zapisane
+    /// statystyki w formacie csv.
+    void wyeksportujStatystykiWlasciwosci() const;
 
     /// \brief Udostępnia użytkownikowi interfejs obsługi środowiska.
     void petla();

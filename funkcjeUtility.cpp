@@ -97,7 +97,7 @@ namespace funkcjeUtility {
                     dostanLinie();
                 } else if (std::tolower(wejscie.at(0)) == 'n') {
                     return false;
-                } else if (std::toupper(wejscie.at(0)) == 't') {
+                } else if (std::tolower(wejscie.at(0)) == 't') {
                     break;
                 } else {
                     std::cout << "Nieprawidlowe polecenie" << std::endl;
@@ -110,4 +110,18 @@ namespace funkcjeUtility {
         wyjscieDoPliku.close();
         return wyjscieDoPliku.good();
     }
+
+    bool czyBezpiecznaNazwaPliku(const std::string nazwaPliku)
+    {
+        if (nazwaPliku.length() < 1 || nazwaPliku.length() > 12) {
+            return false;
+        }
+        for (unsigned int i = 0; i < nazwaPliku.length(); i++) {
+            if (!std::isalnum(nazwaPliku[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
