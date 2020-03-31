@@ -178,6 +178,9 @@ private:
     /// \li 2 = bakteria
     /// \li 3 = martwy organizm
     void ustawKolorKonsoli(const unsigned int liczbaOrganizmu) const;
+
+    /// \brief Wyświetla użytkownikowi dostępne polecenia statystyczne.
+    void wyswietlInstrukcjeFunkcjiStatystycznych() const;
 public:
 
     /// \brief Struktura przechowująca opcje dla funkcji

@@ -153,6 +153,14 @@ void Srodowisko::wyswietlUstawienia()
               << std::endl << std::endl;
 }
 
+void Srodowisko::wyswietlInstrukcjeFunkcjiStatystycznych() const
+{
+    std::cout << std::endl << "sX - wyswietl statystyki ostatnich X krokow, np. s100."
+              << std::endl << "se - wyeksportuj statystyki i wlasciwosci srodowiska do pliku csv"
+              << std::endl << "w - wyswietl wykres ilosci organizmow dla ostatnich 130 krokow"
+              << std::endl << std::endl;
+}
+
 void Srodowisko::wyswietlStatystyki(const unsigned int iloscKrokow = 20) const
 {
     std::cout << "Statystyki" << std::endl << std::endl
@@ -175,14 +183,12 @@ void Srodowisko::wyswietlStatystyki(const unsigned int iloscKrokow = 20) const
           << "/" << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciRozmnozonychBakterii()[i], 4, false)
           << "|" << std::endl;
     }
-    std::cout << std::endl << "sX - wyswietl statystyki ostatnich X krokow, np. s100."
-              << std::endl << "w - wyswietl wykres ilosci organizmow dla ostatnich 130 krokow"
-              << std::endl << std::endl;
+
+    wyswietlInstrukcjeFunkcjiStatystycznych();
 }
 
 void Srodowisko::wyswietlWykresIlosciOrganizmow() const
 {
-
     const static unsigned int wysokoscWykresu = 28;
     const static unsigned int szerokoscWykresu = 120;
     const unsigned int pierwszyWyswietlanyKrok = std::max(0, (int)krokSymulacji - (int)szerokoscWykresu + 1);
@@ -266,7 +272,7 @@ void Srodowisko::wyswietlWykresIlosciOrganizmow() const
         std::cout << termcolor::reset << std::endl;
     }
 
-    std::cout << std::endl;
+    wyswietlInstrukcjeFunkcjiStatystycznych();
 }
 
 void Srodowisko::wyeksportujStatystykiWlasciwosci() const
