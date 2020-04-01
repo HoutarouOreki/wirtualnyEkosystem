@@ -59,8 +59,8 @@ Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
     bool bDopuszczalnaIloscOrganizmow = false;
     while (!bDopuszczalnaIloscOrganizmow) {
         iloscGlonow = funkcjeUtility::pobierzIntMinMax("ilosc glonow", 0, iloscNisz);
-        iloscGrzybow = funkcjeUtility::pobierzIntMinMax("ilosc grzybow", 0, iloscNisz);
-        iloscBakterii = funkcjeUtility::pobierzIntMinMax("ilosc bakterii", 0, iloscNisz);
+        iloscGrzybow = funkcjeUtility::pobierzIntMinMax("ilosc grzybow", 0, iloscNisz - iloscGlonow);
+        iloscBakterii = funkcjeUtility::pobierzIntMinMax("ilosc bakterii", 0, iloscNisz - iloscGlonow - iloscGrzybow);
         if (iloscGlonow + iloscGrzybow + iloscBakterii <= iloscNisz) {
             bDopuszczalnaIloscOrganizmow = true;
         } else {
