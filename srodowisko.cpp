@@ -595,8 +595,8 @@ void Srodowisko::petla()
     while (wejscie != "E") {
         std::cout << "Enter bez znakow - wykonanie kroku symulacji i wyswietlenie srodowiska"
                   << std::endl << "b - wyswietlenie srodowiska"
-                  << std::endl << "s - wyswietlenie statystyk"
-                  << std::endl << "u - wyswietlenie ustawien"
+                  << std::endl << "s - statystyki"
+                  << std::endl << "u - ustawienia"
                   << std::endl << "e - opuszczenie srodowiska"
                   << std::endl;
 
