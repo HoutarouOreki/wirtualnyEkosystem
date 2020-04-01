@@ -15,7 +15,11 @@ namespace funkcjeUtility {
             } catch (const std::invalid_argument&) {
                 std::cout << "Nie podano prawidlowej liczby calkowitej." << std::endl;
                 continue;
+            } catch (const std::out_of_range&) {
+                std::cout << "Nie podano prawidlowej liczby calkowitej lub podano zbyt duza." << std::endl;
+                continue;
             }
+
             return wartosc;
         }
     }
