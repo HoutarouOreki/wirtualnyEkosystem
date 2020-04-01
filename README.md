@@ -66,20 +66,19 @@ Wyświetla obecne ustawienia wyświetlania, oraz informacje o tym, jak je zmieni
 Aplikacja używa nagłówkowej biblioteki open-source [Termcolor](https://github.com/ikalnytskyi/termcolor). Ułatwia ona kolorowanie tekstu konsoli na różnych systemach.
 
 # Uruchomienie
-
 Skompilowane pliki aplikacji znajdują się pod tym linkiem: https://github.com/HoutarouOreki/wirtualnyEkosystem/releases.
 ##### Windows
 Pobierz `wirtualnyEkosystem.exe` i dwukrotnie kliknij.
 ##### Linux
-Pobierz `wirtualnyEkosystem.AppImage`.
+Pobierz `wirtualnyEkosystem`.
 Następnie zmień właściwości pliku, aby można było go uruchamiać. Można to zrobić albo we właściwościach pliku, albo za pomocą terminala:
 ```sh
 $ cd <ścieżka folderu, do którego został pobrany plik>
-$ chmod a+x wirtualnyEkosystem.AppImage
+$ chmod a+x wirtualnyEkosystem
 ```
 Uruchom plik albo klikając go dwukrotnie, albo z terminala, wpisując będąc w folderze pliku:
 ```sh
-./wirtualnyEkosystem.AppImage
+./wirtualnyEkosystem
 ```
 
 ---
