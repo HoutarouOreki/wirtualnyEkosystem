@@ -16,7 +16,7 @@ Każdy organizm prowadzi różne funkcje życiowe podczas kroków symulacji.
 Są pasywnymi stworzeniami. Odżywiają się poprzez fotosyntezę i rozmnażają się względnie szybko.
 Przyjmują znak zielonej gwiazdki (*).
 ### Grzyby
-Organizmy oczyszczające ekosystem z trupów, którymi się pożywiają. Są względnie wytrzymałe.
+Organizmy oczyszczające ekosystem z trupów, którymi się pożywiają. Żyją dość długo w porównaniu z innymi gatunkami.
 Reprezentowane są przez niebieskie krzyżyki (#).
 ### Bakterie
 Bakterie to gatunek agresywny. Atakują glony, a jeśli nie znajdą ich w sąsiedztwie, wchłaniają inne bakterie. Są organizmami żyjącymi bardzo krótko, jednak nadrabiają to względnie szybkim rozmnażaniem się.
