@@ -26,9 +26,9 @@ namespace funkcjeUtility {
 
     int pobierzIntMinMax(std::string nazwa, int min, int max) {
         int wartosc;
+        nazwa = nazwa + " (od " + std::to_string(min) +
+                " do " + std::to_string(max) + ")";
         do {
-            nazwa = nazwa + " (od " + std::to_string(min) +
-                    " do " + std::to_string(max) + ")";
             wartosc = pobierzInt(nazwa);
             if (wartosc < min || wartosc > max) {
                 std::cout << "Podano wartosc spoza dozwolonego zakresu <"
