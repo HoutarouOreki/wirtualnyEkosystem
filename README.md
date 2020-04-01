@@ -2,6 +2,8 @@
 
 Wirtualny Ekosystem to biocybernetyczny symulator rozwoju ekosystemu, który tworzą różne gatunki organizmów.
 
+Filmik przykładowego rozwoju ekosystemu przez 2000 kroków: https://youtu.be/jfDgBxSQkB8
+
 ![Zrzut ekranu](https://i.imgur.com/q8KLwFf.png)
 *Przykładowy ekosystem*
 
