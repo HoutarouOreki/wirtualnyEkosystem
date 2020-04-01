@@ -44,6 +44,22 @@ namespace funkcjeUtility
 
     /// Drukuje <ile> spacji.
     std::string ilesBialychZnakow(unsigned int ile);
+
+    /// \brief Próbuje zapisać tekst do pliku o podanej nazwie.
+    /// \details Plik będzie znajdował się w folderze, z którego został uruchomiony program.
+    /// Jeśli plik o podanej nazwie istnieje, użytkownik będzie mógł
+    /// zdecydować, czy go nadpisać.
+    /// \param[in] tekst Tekst do zapisania.
+    /// \param[in] nazwaPliku Nazwa pliku, do którego zostanie zapisany tekst.
+    /// \returns Wynik zapisu.
+    bool sprobujZapisacTekstDoPliku(const std::string tekst, const std::string nazwaPliku);
+
+    /// \brief Sprawdza, czy podana nazwa pliku jest przewidywalna/bezpieczna.
+    /// \details Nazwa pliku jest uznawana za bezpieczną,
+    /// jeśli posiada jedynie litery i/lub cyfry,
+    /// oraz posiada od 1 do 12 znaków.
+    /// \returns Czy nazwa pliku jest bezpieczna.
+    bool czyBezpiecznaNazwaPliku(const std::string nazwaPliku);
 }
 
 #endif // FUNKCJEUTILITY_H

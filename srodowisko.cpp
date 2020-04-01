@@ -79,32 +79,32 @@ Srodowisko::Srodowisko(ustawieniaWyswietlania *ustWyswietlania)
 //    const unsigned int kosztNarodzinGlonow = funkcjeUtility::wylosujInt(1, maxNajedzenieGlonow);
 //    const unsigned int kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(2, 5);
 //    const unsigned int kosztNarodzinBakterii = funkcjeUtility::wylosujInt(5, 7);
-    const unsigned int maxWiekGlonow = funkcjeUtility::wylosujInt(10, 12);
-    const unsigned int maxWiekGrzybow = funkcjeUtility::wylosujInt(30, 40);
-    const unsigned int maxWiekBakterii = funkcjeUtility::wylosujInt(7, 9);
-    const unsigned int maxNajedzenieGlonow = funkcjeUtility::wylosujInt(2, 3);
-    const unsigned int maxNajedzenieGrzybow = funkcjeUtility::wylosujInt(5, 10);
-    const unsigned int maxNajedzenieBakterii = funkcjeUtility::wylosujInt(15, 25);
-    const unsigned int kosztNarodzinGlonow = funkcjeUtility::wylosujInt(1, 2);
-    const unsigned int kosztNarodzinGrzybow = funkcjeUtility::wylosujInt(2, 4);
-    const unsigned int kosztNarodzinBakterii = funkcjeUtility::wylosujInt(2, 3);
+    maxWieki[0] = funkcjeUtility::wylosujInt(10, 12);
+    maxWieki[1] = funkcjeUtility::wylosujInt(30, 40);
+    maxWieki[2] = funkcjeUtility::wylosujInt(7, 9);
+    maxNajedzenia[0] = funkcjeUtility::wylosujInt(2, 3);
+    maxNajedzenia[1] = funkcjeUtility::wylosujInt(5, 10);
+    maxNajedzenia[2] = funkcjeUtility::wylosujInt(15, 25);
+    kosztyNarodzin[0] = funkcjeUtility::wylosujInt(1, 2);
+    kosztyNarodzin[1] = funkcjeUtility::wylosujInt(2, 4);
+    kosztyNarodzin[2] = funkcjeUtility::wylosujInt(2, 3);
     for (unsigned int i = 0; i < iloscGlonow; i++) {
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
         } while (nisze[wylosowanaNisza] != nullptr);
-        nisze[wylosowanaNisza] = new Glon(maxWiekGlonow, maxNajedzenieGlonow, kosztNarodzinGlonow, i == 0 ? 0 : funkcjeUtility::wylosujInt(0, maxWiekGlonow / 2));
+        nisze[wylosowanaNisza] = new Glon(maxWieki[0], maxNajedzenia[0], kosztyNarodzin[0], i == 0 ? 0 : funkcjeUtility::wylosujInt(0, maxWieki[0] / 2));
     }
     for (unsigned int i = 0; i < iloscGrzybow; i++) {
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
         } while (nisze[wylosowanaNisza] != nullptr);
-        nisze[wylosowanaNisza] = new Grzyb(maxWiekGrzybow, maxNajedzenieGrzybow, kosztNarodzinGrzybow, i == 0 ? 0 : funkcjeUtility::wylosujInt(0, maxWiekGrzybow / 2));
+        nisze[wylosowanaNisza] = new Grzyb(maxWieki[1], maxNajedzenia[1], kosztyNarodzin[1], i == 0 ? 0 : funkcjeUtility::wylosujInt(0, maxWieki[1] / 2));
     }
     for (unsigned int i = 0; i < iloscBakterii; i++) {
         do {
             wylosowanaNisza = funkcjeUtility::wylosujInt(0, iloscNisz - 1);
         } while (nisze[wylosowanaNisza] != nullptr);
-        nisze[wylosowanaNisza] = new Bakteria(maxWiekBakterii, maxNajedzenieBakterii, kosztNarodzinBakterii, i == 0 ? 0 : funkcjeUtility::wylosujInt(0, maxWiekBakterii / 2));
+        nisze[wylosowanaNisza] = new Bakteria(maxWieki[2], maxNajedzenia[2], kosztyNarodzin[2], i == 0 ? 0 : funkcjeUtility::wylosujInt(0, maxWieki[2] / 2));
     }
 
     statystyki.dodajStatystykiOstatniegoKroku(this);
@@ -153,6 +153,14 @@ void Srodowisko::wyswietlUstawienia()
               << std::endl << std::endl;
 }
 
+void Srodowisko::wyswietlInstrukcjeFunkcjiStatystycznych() const
+{
+    std::cout << std::endl << "sX - wyswietl statystyki ostatnich X krokow, np. s100."
+              << std::endl << "se - wyeksportuj statystyki i wlasciwosci srodowiska do pliku csv"
+              << std::endl << "w - wyswietl wykres ilosci organizmow dla ostatnich 130 krokow"
+              << std::endl << std::endl;
+}
+
 void Srodowisko::wyswietlStatystyki(const unsigned int iloscKrokow = 20) const
 {
     std::cout << "Statystyki" << std::endl << std::endl
@@ -175,14 +183,12 @@ void Srodowisko::wyswietlStatystyki(const unsigned int iloscKrokow = 20) const
           << "/" << funkcjeUtility::liczbaBialeZnaki(statystyki.getIlosciRozmnozonychBakterii()[i], 4, false)
           << "|" << std::endl;
     }
-    std::cout << std::endl << "sX - wyswietl statystyki ostatnich X krokow, np. s100."
-              << std::endl << "w - wyswietl wykres ilosci organizmow dla ostatnich 130 krokow"
-              << std::endl << std::endl;
+
+    wyswietlInstrukcjeFunkcjiStatystycznych();
 }
 
 void Srodowisko::wyswietlWykresIlosciOrganizmow() const
 {
-
     const static unsigned int wysokoscWykresu = 28;
     const static unsigned int szerokoscWykresu = 120;
     const unsigned int pierwszyWyswietlanyKrok = std::max(0, (int)krokSymulacji - (int)szerokoscWykresu + 1);
@@ -266,7 +272,75 @@ void Srodowisko::wyswietlWykresIlosciOrganizmow() const
         std::cout << termcolor::reset << std::endl;
     }
 
-    std::cout << std::endl;
+    wyswietlInstrukcjeFunkcjiStatystycznych();
+}
+
+void Srodowisko::wyeksportujStatystykiWlasciwosci() const
+{
+    std::string tekst;
+    const char nowaLinia = '\n', rozdzielnik = ',';
+
+    std::string tablicaWlasciwosci[11] =
+    {
+        "Szerokość środowiska," + std::to_string(szerokosc) + rozdzielnik,
+        "Wysokość środowiska," + std::to_string(wysokosc) + rozdzielnik,
+        "Max wiek glonów," + std::to_string(maxWieki[0]) + rozdzielnik,
+        "Max wiek grzybów," + std::to_string(maxWieki[1]) + rozdzielnik,
+        "Max wiek bakterii," + std::to_string(maxWieki[2]) + rozdzielnik,
+        "Max najedzenie glonów," + std::to_string(maxNajedzenia[0]) + rozdzielnik,
+        "Max najedzenie grzybów," + std::to_string(maxNajedzenia[1]) + rozdzielnik,
+        "Max najedzenie bakterii," + std::to_string(maxNajedzenia[2]) + rozdzielnik,
+        "Koszt narodzin glonów," + std::to_string(kosztyNarodzin[0]) + rozdzielnik,
+        "Koszt narodzin grzybów," + std::to_string(kosztyNarodzin[1]) + rozdzielnik,
+        "Koszt narodzin bakterii," + std::to_string(kosztyNarodzin[2]) + rozdzielnik
+    };
+
+    tekst += "Właściwość,wartość właściwości,Krok,glonów,grzybów,bakterii,";
+    tekst += "najedzonych glonów,najedzonych grzybów,najedzonych bakterii,";
+    tekst += "rozmnożonych glonów,rozmnożonych grzybów,rozmnożonych bakterii,";
+    tekst += nowaLinia;
+
+    for (unsigned int krok = 0; krok <= krokSymulacji || krok < 11; krok++) {
+        if (krok < 11) {
+            tekst += tablicaWlasciwosci[krok];
+        } else {
+            tekst += ",,";
+        }
+        if (krok <= krokSymulacji) {
+            tekst += std::to_string(krok) + ","
+                + std::to_string(statystyki.getIlosciGlonow().at(krok)) + ","
+                + std::to_string(statystyki.getIlosciGrzybow().at(krok)) + ","
+                + std::to_string(statystyki.getIlosciBakterii().at(krok)) + ","
+                + std::to_string((statystyki.getIlosciGlonow().at(krok)
+                                  - statystyki.getIlosciRozmnozonychGlonow().at(krok))) + ","
+                + std::to_string(statystyki.getIlosciNajedzonychGrzybow().at(krok)) + ","
+                + std::to_string(statystyki.getIlosciNajedzonychBakterii().at(krok)) + ","
+                + std::to_string(statystyki.getIlosciRozmnozonychGlonow().at(krok)) + ","
+                + std::to_string(statystyki.getIlosciRozmnozonychGrzybow().at(krok)) + ","
+                + std::to_string(statystyki.getIlosciRozmnozonychBakterii().at(krok));
+        }
+        tekst += nowaLinia;
+    }
+
+    std::cout << "Wygenerowano tekst do wyeksportowania." << std::endl
+              << "Podaj nazwe pliku do zapisania." << std::endl;
+    std::string nazwaPliku;
+    while (true) {
+        nazwaPliku = funkcjeUtility::dostanLinie();
+        if (!funkcjeUtility::czyBezpiecznaNazwaPliku(nazwaPliku)) {
+            std::cout << "Dozwolone sa wylacznie litery oraz cyfry," << std::endl
+                      << "nazwa musi miec od 1 do 12 znakow." << std::endl;
+        } else {
+            break;
+        }
+    }
+    nazwaPliku += ".csv";
+    if (funkcjeUtility::sprobujZapisacTekstDoPliku(tekst, nazwaPliku)) {
+        std::cout << "Pomyslnie wyeksportowano dane do pliku " << nazwaPliku << std::endl;
+    } else {
+        std::cout << termcolor::red << "Nie udalo sie wyeksportowac danych do pliku "
+                  << nazwaPliku << std::endl;
+    }
 }
 
 void Srodowisko::ustawKolorKonsoli(const unsigned int liczbaOrganizmu) const
@@ -542,7 +616,10 @@ void Srodowisko::petla()
             ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::krokOrazWyswietlanieSrodowiska;
         } else if (wejscie == "B") {
             ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::wyswietlanieSrodowiska;
-        } else if (wejscie[0] == 'S') {
+        } else if (wejscie == "SE") {
+            ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::zaden;
+            wyeksportujStatystykiWlasciwosci();
+        } else if (wejscie.length() > 0 && wejscie[0] == 'S') {
             ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::wyswietlanieStatystyk;
         } else if (wejscie == "U") {
             ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::wyswietlanieUstawien;
