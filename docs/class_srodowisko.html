@@ -125,6 +125,9 @@ Metody publiczne</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a20fd2e8b9071561287bd1f1a59ca204f">wyswietlWykresIlosciOrganizmow</a> () const</td></tr>
 <tr class="memdesc:a20fd2e8b9071561287bd1f1a59ca204f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyświetla wykres ilości organizmów w ciągu ostatnich 100 kroków. <br /></td></tr>
 <tr class="separator:a20fd2e8b9071561287bd1f1a59ca204f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5aacb1d6e8f6cc58488606275e15ddc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#ae5aacb1d6e8f6cc58488606275e15ddc">wyeksportujStatystykiWlasciwosci</a> () const</td></tr>
+<tr class="memdesc:ae5aacb1d6e8f6cc58488606275e15ddc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eksportuje statystyki oraz właściwości środowiska i jego <a class="el" href="class_organizm.html">organizmów</a>.  <a href="class_srodowisko.html#ae5aacb1d6e8f6cc58488606275e15ddc">Więcej...</a><br /></td></tr>
+<tr class="separator:ae5aacb1d6e8f6cc58488606275e15ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0ec74b4a7e191cd222e9b352c6dd561"><td class="memItemLeft" align="right" valign="top"><a id="ac0ec74b4a7e191cd222e9b352c6dd561"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#ac0ec74b4a7e191cd222e9b352c6dd561">petla</a> ()</td></tr>
 <tr class="memdesc:ac0ec74b4a7e191cd222e9b352c6dd561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Udostępnia użytkownikowi interfejs obsługi środowiska. <br /></td></tr>
@@ -194,6 +197,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ac4e3e0c2a787182e968cb7c5d96c383c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#ac4e3e0c2a787182e968cb7c5d96c383c">ustawKolorKonsoli</a> (const unsigned int liczbaOrganizmu) const</td></tr>
 <tr class="memdesc:ac4e3e0c2a787182e968cb7c5d96c383c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zmienia kolor tekstu konsoli zależnie od organizmu.  <a href="class_srodowisko.html#ac4e3e0c2a787182e968cb7c5d96c383c">Więcej...</a><br /></td></tr>
 <tr class="separator:ac4e3e0c2a787182e968cb7c5d96c383c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa41983e5cee369ab54cd9e48e369a5d7"><td class="memItemLeft" align="right" valign="top"><a id="aa41983e5cee369ab54cd9e48e369a5d7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#aa41983e5cee369ab54cd9e48e369a5d7">wyswietlInstrukcjeFunkcjiStatystycznych</a> () const</td></tr>
+<tr class="memdesc:aa41983e5cee369ab54cd9e48e369a5d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyświetla użytkownikowi dostępne polecenia statystyczne. <br /></td></tr>
+<tr class="separator:aa41983e5cee369ab54cd9e48e369a5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Atrybuty prywatne</h2></td></tr>
@@ -229,6 +236,15 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a1295077a0782246c6a8ffd585d46dfe9"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a1295077a0782246c6a8ffd585d46dfe9">iloscMartwych</a></td></tr>
 <tr class="memdesc:a1295077a0782246c6a8ffd585d46dfe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ile martwych <a class="el" href="class_organizm.html">organizmów</a> aktualnie znajduje się w środowisku.  <a href="class_srodowisko.html#a1295077a0782246c6a8ffd585d46dfe9">Więcej...</a><br /></td></tr>
 <tr class="separator:a1295077a0782246c6a8ffd585d46dfe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a841053ce304f3391e8cba8129f27ac51"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a841053ce304f3391e8cba8129f27ac51">maxWieki</a> [3]</td></tr>
+<tr class="memdesc:a841053ce304f3391e8cba8129f27ac51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wartości atrybutu <a class="el" href="class_organizm.html#a1c0887b39839f5ad3c666c50d20f5d35" title="Jeśli wiek przekroczy tę wartość, organizm staje się martwy.">Organizm::maxWiek</a> dla każdego gatunku.  <a href="class_srodowisko.html#a841053ce304f3391e8cba8129f27ac51">Więcej...</a><br /></td></tr>
+<tr class="separator:a841053ce304f3391e8cba8129f27ac51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c4f4d338c554e5ee6bbe75f11230e1b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a6c4f4d338c554e5ee6bbe75f11230e1b">maxNajedzenia</a> [3]</td></tr>
+<tr class="memdesc:a6c4f4d338c554e5ee6bbe75f11230e1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wartości atrybutu <a class="el" href="class_organizm.html#ae314b335b78c6bdcd5565a90ad4e0d26" title="Maksymalna wartość zmiennej najedzenie.">Organizm::maxNajedzenie</a> dla każdego gatunku.  <a href="class_srodowisko.html#a6c4f4d338c554e5ee6bbe75f11230e1b">Więcej...</a><br /></td></tr>
+<tr class="separator:a6c4f4d338c554e5ee6bbe75f11230e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0deb2041ad8c93738f445742e01df088"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#a0deb2041ad8c93738f445742e01df088">kosztyNarodzin</a> [3]</td></tr>
+<tr class="memdesc:a0deb2041ad8c93738f445742e01df088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wartości atrybutu <a class="el" href="class_organizm.html#a41169a4cf298a6d65e4af35ab9366d52" title="Przy rozmnażaniu się najedzenie jest zmniejszane o tę wartość.">Organizm::kosztNarodzin</a> dla każdego gatunku.  <a href="class_srodowisko.html#a0deb2041ad8c93738f445742e01df088">Więcej...</a><br /></td></tr>
+<tr class="separator:a0deb2041ad8c93738f445742e01df088"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9b999ab84791e8345f07eef0242aceb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_organizm.html">Organizm</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_srodowisko.html#aa9b999ab84791e8345f07eef0242aceb">zyweOrganizmy</a></td></tr>
 <tr class="memdesc:aa9b999ab84791e8345f07eef0242aceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wskaźniki do żywych organizmów.  <a href="class_srodowisko.html#aa9b999ab84791e8345f07eef0242aceb">Więcej...</a><br /></td></tr>
 <tr class="separator:aa9b999ab84791e8345f07eef0242aceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -943,6 +959,26 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 
 </div>
 </div>
+<a id="ae5aacb1d6e8f6cc58488606275e15ddc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5aacb1d6e8f6cc58488606275e15ddc">&#9670;&nbsp;</a></span>wyeksportujStatystykiWlasciwosci()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Srodowisko::wyeksportujStatystykiWlasciwosci </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Eksportuje statystyki oraz właściwości środowiska i jego <a class="el" href="class_organizm.html">organizmów</a>. </p>
+<p>Pyta o nazwę pliku, do którego zostaną zapisane statystyki w formacie csv. </p>
+
+</div>
+</div>
 <a id="a1a599a77f852a4b9b3648cce080e70fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a599a77f852a4b9b3648cce080e70fd">&#9670;&nbsp;</a></span>wykonajKrokSymulacji()</h2>
 
@@ -1150,6 +1186,81 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 
 <p>Ile martwych <a class="el" href="class_organizm.html">organizmów</a> aktualnie znajduje się w środowisku. </p>
 <dl class="section see"><dt>Zobacz również</dt><dd><a class="el" href="class_organizm.html#adadb94bfe521faf60eccbda6c11c08d2" title="Czy wiek nie przekroczył jeszcze wartości maxWiek.">Organizm::czyZywy()</a> </dd></dl>
+
+</div>
+</div>
+<a id="a0deb2041ad8c93738f445742e01df088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0deb2041ad8c93738f445742e01df088">&#9670;&nbsp;</a></span>kosztyNarodzin</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::kosztyNarodzin[3]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wartości atrybutu <a class="el" href="class_organizm.html#a41169a4cf298a6d65e4af35ab9366d52" title="Przy rozmnażaniu się najedzenie jest zmniejszane o tę wartość.">Organizm::kosztNarodzin</a> dla każdego gatunku. </p>
+<p>Indeks dla danego organizmu może zostać uzyskany funkcją dostanNrOrganizmu(const char znakOrganizmu); </p>
+
+</div>
+</div>
+<a id="a6c4f4d338c554e5ee6bbe75f11230e1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c4f4d338c554e5ee6bbe75f11230e1b">&#9670;&nbsp;</a></span>maxNajedzenia</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::maxNajedzenia[3]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wartości atrybutu <a class="el" href="class_organizm.html#ae314b335b78c6bdcd5565a90ad4e0d26" title="Maksymalna wartość zmiennej najedzenie.">Organizm::maxNajedzenie</a> dla każdego gatunku. </p>
+<p>Indeks dla danego organizmu może zostać uzyskany funkcją dostanNrOrganizmu(const char znakOrganizmu); </p>
+
+</div>
+</div>
+<a id="a841053ce304f3391e8cba8129f27ac51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841053ce304f3391e8cba8129f27ac51">&#9670;&nbsp;</a></span>maxWieki</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Srodowisko::maxWieki[3]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wartości atrybutu <a class="el" href="class_organizm.html#a1c0887b39839f5ad3c666c50d20f5d35" title="Jeśli wiek przekroczy tę wartość, organizm staje się martwy.">Organizm::maxWiek</a> dla każdego gatunku. </p>
+<p>Indeks dla danego organizmu może zostać uzyskany funkcją dostanNrOrganizmu(const char znakOrganizmu); </p>
 
 </div>
 </div>
