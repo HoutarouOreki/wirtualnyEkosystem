@@ -76,8 +76,8 @@ namespace funkcjeKonsoli {
         ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 
         // jeśli dany wymiar konsoli jest mniejszy niż pożądany, powiększ
-        std::cout << "\e[8;" << std::max(y, (unsigned int)w.ws_row) << ";"
-                  << std::max(x, (unsigned int)w.ws_col) << "t";
+        std::cout << "\e[8;" << std::max(minWysokosc, (unsigned int)w.ws_row) << ";"
+                  << std::max(minSzerokosc, (unsigned int)w.ws_col) << "t";
 #endif
     }
 
