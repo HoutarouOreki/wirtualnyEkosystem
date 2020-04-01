@@ -81,6 +81,9 @@ Wyświetla obecne ustawienia wyświetlania, oraz informacje o tym, jak je zmieni
 # Używane biblioteki
 Aplikacja używa nagłówkowej biblioteki open-source [Termcolor](https://github.com/ikalnytskyi/termcolor). Ułatwia ona kolorowanie tekstu konsoli na różnych systemach.
 
+# Dokumentacja kodu
+Pełna dokumentacja kodu (100% klas i metod) znajduje się pod tym linkiem: https://houtarouoreki.github.io/wirtualnyEkosystem/annotated.html
+
 ---
 
 Projekt został napisany przy użyciu Qt Creatora w ramach Programowania Obiektowego w C++ na Politechnice Lubelskiej.
