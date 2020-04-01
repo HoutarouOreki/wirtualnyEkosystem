@@ -52,7 +52,7 @@ Eksportuje do pliku .csv o podanej nazwie następujące dane o ekosystemie:
 - statystyki rozmnażania się
 
 Z wyeksportowanych danych można np. tworzyć wykresy w Excelu:
-![Wykres liczebności gatunków w Excelu](https://i.imgur.com/zjrKlfR.png)
+![Wykres liczebności gatunków w Excelu](https://i.imgur.com/zjrKlfR.png)  
 ~~*Dostałem zbyt dużo czasu na wykonanie tego projektu.*~~
 
 ##### `e`
