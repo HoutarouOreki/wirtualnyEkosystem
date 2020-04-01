@@ -608,10 +608,6 @@ void Srodowisko::petla()
             c = std::toupper(c);
         }
 
-        if (!(ostatnioDrukowanoSrodowisko && (wejscie == "B" || wejscie == ""))) {
-            std::cout << std::endl << "-----------------------" << std::endl;
-        }
-
         if (wejscie == "") {
             ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::krokOrazWyswietlanieSrodowiska;
         } else if (wejscie == "B") {
@@ -644,6 +640,15 @@ void Srodowisko::petla()
         } else {
             ustWyswietlania->obecnyTryb = ustawieniaWyswietlania::trybWyswietlania::zaden;
         }
+
+        // Rysujemy horyzontalną linię tylko jeśli środowisko nie będzie nadrysowane
+        if (!(ostatnioDrukowanoSrodowisko && (ustWyswietlania->obecnyTryb
+              == ustawieniaWyswietlania::trybWyswietlania::krokOrazWyswietlanieSrodowiska
+                                              || ustWyswietlania->obecnyTryb
+              == ustawieniaWyswietlania::trybWyswietlania::wyswietlanieSrodowiska))) {
+            std::cout << std::endl << "-----------------------" << std::endl;
+        }
+
         switch (ustWyswietlania->obecnyTryb) {
         case ustawieniaWyswietlania::trybWyswietlania::krokOrazWyswietlanieSrodowiska:
             wykonajKrokSymulacji();
