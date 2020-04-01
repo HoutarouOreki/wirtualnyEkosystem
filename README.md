@@ -21,6 +21,22 @@ Bakterie to gatunek agresywny. Atakują glony, a jeśli nie znajdą ich w sąsie
 Po wchłonięciu glonu lub innej bakterii, zajmuje niszę wchłoniętego organizmu. W przypadku wchłonięcia glonu zwiększa to szanse przetrwania bakterii, ponieważ najprawdopodobniej znajdzie się ona wtedy obok kolejnego glonu, który będzie mogła wchłonąć w następnym kroku symulacji.
 Wyświetlane są w kolorze czerwonym jako (@).
 
+# Uruchomienie
+Skompilowane pliki aplikacji znajdują się pod tym linkiem: https://github.com/HoutarouOreki/wirtualnyEkosystem/releases.
+##### Windows
+Pobierz `wirtualnyEkosystem.exe` i dwukrotnie kliknij.
+##### Linux
+Pobierz `wirtualnyEkosystem`.
+Następnie zmień właściwości pliku, aby można było go uruchamiać. Można to zrobić albo we właściwościach pliku, albo za pomocą terminala:
+```sh
+$ cd <ścieżka folderu, do którego został pobrany plik>
+$ chmod a+x wirtualnyEkosystem
+```
+Uruchom plik albo klikając go dwukrotnie, albo z terminala, wpisując będąc w folderze pliku:
+```sh
+./wirtualnyEkosystem
+```
+
 # Obsługa aplikacji
 Po uruchomieniu aplikacji, automatycznie rozpocznie się proces tworzenia nowego wirtualnego ekosystemu. Należy podać rozmiar środowiska oraz początkową liczebność każdego gatunku organizmów.
 Po utworzeniu środowiska zostanie ono wyświetlone wraz z instrukcjami jego obsługi.
@@ -64,22 +80,6 @@ Wyświetla obecne ustawienia wyświetlania, oraz informacje o tym, jak je zmieni
 
 # Używane biblioteki
 Aplikacja używa nagłówkowej biblioteki open-source [Termcolor](https://github.com/ikalnytskyi/termcolor). Ułatwia ona kolorowanie tekstu konsoli na różnych systemach.
-
-# Uruchomienie
-Skompilowane pliki aplikacji znajdują się pod tym linkiem: https://github.com/HoutarouOreki/wirtualnyEkosystem/releases.
-##### Windows
-Pobierz `wirtualnyEkosystem.exe` i dwukrotnie kliknij.
-##### Linux
-Pobierz `wirtualnyEkosystem`.
-Następnie zmień właściwości pliku, aby można było go uruchamiać. Można to zrobić albo we właściwościach pliku, albo za pomocą terminala:
-```sh
-$ cd <ścieżka folderu, do którego został pobrany plik>
-$ chmod a+x wirtualnyEkosystem
-```
-Uruchom plik albo klikając go dwukrotnie, albo z terminala, wpisując będąc w folderze pliku:
-```sh
-./wirtualnyEkosystem
-```
 
 ---
 
